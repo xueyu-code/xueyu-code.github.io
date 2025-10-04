@@ -8,5 +8,5 @@ testtesttesttest
 ---
 
 > Author: author&#39;name  
-> URL: /posts/68f9b38/  
+> URL: https://xueyu-code.github.io/posts/68f9b38/  
 
