@@ -383,5 +383,5 @@ graph TD
 ---
 
 > Author: [薛羽](https://github.com/xueyu-code)  
-> URL: https://xueyu-code.github.io/posts/i225%E6%B5%81%E7%A8%8B/68f9b38/  
+> URL: https://xueyu-code.github.io/posts/68f9b38/  
 
