@@ -178,5 +178,5 @@
 ---
 
 > Author:   
-> URL: https://xueyu-code.github.io/about/  
+> URL: https://xueyu-code.github.io/about/info/  
 

@@ -5,10 +5,18 @@
     <link>https://xueyu-code.github.io/categories/amp/</link>
     <description>我的博客，分享一些自己总结文档。</description>
     <generator>Hugo 0.139.4 &amp; FixIt v0.3.13</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <managingEditor>18863956521@163.com (薛羽)</managingEditor>
     <webMaster>18863956521@163.com (薛羽)</webMaster>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Sun, 05 Oct 2025 23:20:46 +0800</lastBuildDate>
     <atom:link href="https://xueyu-code.github.io/categories/amp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Index</title>
+      <link>https://xueyu-code.github.io/posts/4fecd7a/</link>
+      <pubDate>Sun, 05 Oct 2025 23:20:46 +0800</pubDate>
+      <guid>https://xueyu-code.github.io/posts/4fecd7a/</guid>
+      <category domain="https://xueyu-code.github.io/categories/amp/">AMP</category>
+      <description>&lt;h2 id=&#34;龙芯loongarch异构多核处理器amp框架详解&#34; class=&#34;heading-element&#34;&gt;&#xA;  &lt;a href=&#34;#%e9%be%99%e8%8a%afloongarch%e5%bc%82%e6%9e%84%e5%a4%9a%e6%a0%b8%e5%a4%84%e7%90%86%e5%99%a8amp%e6%a1%86%e6%9e%b6%e8%af%a6%e8%a7%a3&#34; class=&#34;heading-mark&#34;&gt;&lt;/a&gt;&lt;span&gt;龙芯LoongArch异构多核处理器(AMP)框架详解&lt;/span&gt;&#xA;  &lt;a href=&#34;#%e9%be%99%e8%8a%afloongarch%e5%bc%82%e6%9e%84%e5%a4%9a%e6%a0%b8%e5%a4%84%e7%90%86%e5%99%a8amp%e6%a1%86%e6%9e%b6%e8%af%a6%e8%a7%a3&#34; class=&#34;heading-mark-link&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&lt;h2 id=&#34;框架概述&#34; class=&#34;heading-element&#34;&gt;&#xA;  &lt;a href=&#34;#%e6%a1%86%e6%9e%b6%e6%a6%82%e8%bf%b0&#34; class=&#34;heading-mark&#34;&gt;&lt;/a&gt;&lt;span&gt;框架概述&lt;/span&gt;&#xA;  &lt;a href=&#34;#%e6%a1%86%e6%9e%b6%e6%a6%82%e8%bf%b0&#34; class=&#34;heading-mark-link&#34;&gt;&#xA;    &lt;svg class=&#34;octicon octicon-link&#34; viewBox=&#34;0 0 16 16&#34; version=&#34;1.1&#34; width=&#34;16&#34; height=&#34;16&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&lt;p&gt;这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

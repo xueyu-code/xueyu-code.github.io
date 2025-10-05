@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Index - Xueyu&#39;s Home</title><meta name="author" content="">
+<meta name="description" content=" 龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。
+"><meta name="keywords" content='AMP'>
+  <meta itemprop="name" content="Index">
+  <meta itemprop="description" content="龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。">
+  <meta itemprop="datePublished" content="2025-10-05T23:20:46+08:00">
+  <meta itemprop="dateModified" content="2025-10-05T23:20:46+08:00">
+  <meta itemprop="wordCount" content="2137">
+  <meta itemprop="keywords" content="AMP"><meta property="og:url" content="https://xueyu-code.github.io/posts/4fecd7a/">
+  <meta property="og:site_name" content="Xueyu&#39;s Home">
+  <meta property="og:title" content="Index">
+  <meta property="og:description" content="龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-05T23:20:46+08:00">
+    <meta property="article:modified_time" content="2025-10-05T23:20:46+08:00">
+    <meta property="article:tag" content="AMP">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Index">
+  <meta name="twitter:description" content="龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。">
+<meta name="application-name" content="NAME">
+<meta name="apple-mobile-web-app-title" content="NAME"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/4fecd7a/" title="Index - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/about/info/" title="" /><link rel="next" type="text/html" href="https://xueyu-code.github.io/posts/72c6f94/" title="Index" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/4fecd7a/index.md" title="Index - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Index",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/xueyu-code.github.io\/posts\/4fecd7a\/"
+    },"genre": "posts","keywords": "AMP","wordcount":  2137 ,
+    "url": "https:\/\/xueyu-code.github.io\/posts\/4fecd7a\/","datePublished": "2025-10-05T23:20:46+08:00","dateModified": "2025-10-05T23:20:46+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> about</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> about</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Switch Theme"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Index</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="Collections"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="Repost" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Index</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;included in <a href="/categories/amp/" class="post-category" title="Category - AMP"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> AMP</a></span></div><div class="post-meta-line"><span title="published on 2025-10-05 23:20:46"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-10-05">2025-10-05</time></span>&nbsp;<span title="2137 words"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>About 2200 words</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>11 minutes</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Index"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;views
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#框架概述">框架概述</a>
+      <ul>
+        <li><a href="#系统架构图">系统架构图</a></li>
+        <li><a href="#系统启动流程">系统启动流程</a></li>
+        <li><a href="#核心特性">核心特性</a></li>
+      </ul>
+    </li>
+    <li><a href="#框架组件梳理">框架组件梳理</a>
+      <ul>
+        <li><a href="#目录结构暂定">目录结构(暂定)</a></li>
+        <li><a href="#amp控制驱动">AMP控制驱动</a></li>
+        <li><a href="#elf加载器">ELF加载器</a>
+          <ul>
+            <li><a href="#关键代码分析">关键代码分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#测试程序">测试程序</a>
+          <ul>
+            <li><a href="#关键代码分析-1">关键代码分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#虚拟网卡驱动">虚拟网卡驱动</a>
+          <ul>
+            <li><a href="#数据传输机制详解">数据传输机制详解</a></li>
+            <li><a href="#中断处理机制">中断处理机制</a></li>
+            <li><a href="#关键代码设计">关键代码设计</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#设备树配置">设备树配置</a></li>
+    <li><a href="#存在问题">存在问题</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="龙芯loongarch异构多核处理器amp框架详解" class="heading-element">
+  <a href="#%e9%be%99%e8%8a%afloongarch%e5%bc%82%e6%9e%84%e5%a4%9a%e6%a0%b8%e5%a4%84%e7%90%86%e5%99%a8amp%e6%a1%86%e6%9e%b6%e8%af%a6%e8%a7%a3" class="heading-mark"></a><span>龙芯LoongArch异构多核处理器(AMP)框架详解</span>
+  <a href="#%e9%be%99%e8%8a%afloongarch%e5%bc%82%e6%9e%84%e5%a4%9a%e6%a0%b8%e5%a4%84%e7%90%86%e5%99%a8amp%e6%a1%86%e6%9e%b6%e8%af%a6%e8%a7%a3" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="框架概述" class="heading-element">
+  <a href="#%e6%a1%86%e6%9e%b6%e6%a6%82%e8%bf%b0" class="heading-mark"></a><span>框架概述</span>
+  <a href="#%e6%a1%86%e6%9e%b6%e6%a6%82%e8%bf%b0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。</p>
+<h3 id="系统架构图" class="heading-element">
+  <a href="#%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be" class="heading-mark"></a><span>系统架构图</span>
+  <a href="#%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e5%9b%be" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre class="mermaid">graph TB
+    subgraph "CPU0 - Linux系统"
+        A[Linux内核]
+        B[用户空间应用]
+        C[reworks_amp.ko驱动]
+        D[load_reworks加载器]
+        E[test控制程序]
+        F[虚拟网卡驱动]
+    end
+    
+    subgraph "CPU1 - Reworks系统"
+        G[reworks程序 reworks.elf]
+        H[实时任务处理]
+    end
+    
+    subgraph "硬件层"
+        I[预留DDR内存 256MB]
+        J[网络共享内存 2MB]
+        K[核间中断IPI]
+        L[Mailbox机制]
+    end
+    
+    B --> C
+    C --> I
+    D --> I
+    E --> C
+    F --> J
+    G --> I
+    G --> J
+    C --> K
+    C --> L
+    K --> G
+    L --> G</pre>
+<template>graph TB
+    subgraph "CPU0 - Linux系统"
+        A[Linux内核]
+        B[用户空间应用]
+        C[reworks_amp.ko驱动]
+        D[load_reworks加载器]
+        E[test控制程序]
+        F[虚拟网卡驱动]
+    end
+    
+    subgraph "CPU1 - Reworks系统"
+        G[reworks程序 reworks.elf]
+        H[实时任务处理]
+    end
+    
+    subgraph "硬件层"
+        I[预留DDR内存 256MB]
+        J[网络共享内存 2MB]
+        K[核间中断IPI]
+        L[Mailbox机制]
+    end
+    
+    B --> C
+    C --> I
+    D --> I
+    E --> C
+    F --> J
+    G --> I
+    G --> J
+    C --> K
+    C --> L
+    K --> G
+    L --> G</template><p><img loading="lazy" src="../../attachment/AMP%e6%a1%86%e6%9e%b6%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84%e5%9b%be.png" alt="../../attachment/AMP框架软件架构图.png" srcset="../../attachment/AMP%e6%a1%86%e6%9e%b6%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84%e5%9b%be.png?size=small, ../../attachment/AMP%e6%a1%86%e6%9e%b6%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84%e5%9b%be.png?size=medium 1.5x, ../../attachment/AMP%e6%a1%86%e6%9e%b6%e8%bd%af%e4%bb%b6%e6%9e%b6%e6%9e%84%e5%9b%be.png?size=large 2x" data-title="../../attachment/AMP框架软件架构图.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="系统启动流程" class="heading-element">
+  <a href="#%e7%b3%bb%e7%bb%9f%e5%90%af%e5%8a%a8%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>系统启动流程</span>
+  <a href="#%e7%b3%bb%e7%bb%9f%e5%90%af%e5%8a%a8%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre class="mermaid">sequenceDiagram
+    participant Script as start.sh
+    participant Driver as reworks_amp.ko
+    participant Loader as load_reworks
+    participant Test as test程序
+    participant CPU1 as CPU1核心
+    
+    Script->>Driver: insmod reworks_amp.ko
+    Driver->>Driver: 创建/dev/reworks_amp设备
+    Script->>Loader: ./load_reworks reworks.elf
+    Loader->>Driver: mmap共享内存
+    Loader->>Loader: 加载ELF到共享内存
+    Script->>Test: ./test
+    Test->>Driver: ioctl停止CPU1
+    Test->>Driver: ioctl启动CPU1
+    Driver->>CPU1: 发送程序入口+IPI中断
+    CPU1->>CPU1: 开始执行裸机程序
+    Script->>Script: top (监控系统状态)</pre>
+<template>sequenceDiagram
+    participant Script as start.sh
+    participant Driver as reworks_amp.ko
+    participant Loader as load_reworks
+    participant Test as test程序
+    participant CPU1 as CPU1核心
+    
+    Script->>Driver: insmod reworks_amp.ko
+    Driver->>Driver: 创建/dev/reworks_amp设备
+    Script->>Loader: ./load_reworks reworks.elf
+    Loader->>Driver: mmap共享内存
+    Loader->>Loader: 加载ELF到共享内存
+    Script->>Test: ./test
+    Test->>Driver: ioctl停止CPU1
+    Test->>Driver: ioctl启动CPU1
+    Driver->>CPU1: 发送程序入口+IPI中断
+    CPU1->>CPU1: 开始执行裸机程序
+    Script->>Script: top (监控系统状态)</template><h3 id="核心特性" class="heading-element">
+  <a href="#%e6%a0%b8%e5%bf%83%e7%89%b9%e6%80%a7" class="heading-mark"></a><span>核心特性</span>
+  <a href="#%e6%a0%b8%e5%bf%83%e7%89%b9%e6%80%a7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>异构处理：CPU0运行Linux，CPU1运行裸机程序</li>
+<li>零拷贝通信：基于共享内存的高效数据传输</li>
+<li>实时性保证：高实时RTOS程序提供确定性实时响应</li>
+<li>标准接口：提供标准的网络设备接口</li>
+<li>可扩展性：支持多种RTOS和Linux应用的集成</li>
+<li>reworks终端对应的串口中断以及2个CPU的2个IPI中断已经在BSP中做好中断路由</li>
+<li>动态控制：支持运行时启停CPU核心，该框架运行之后如果用户想让CPU1回到Linux调度,
+可以让用户在reworks的终端中退出系统，此时即可让出CPU。然后再通过Linux下的CPU热插拔机制
+重新加载CPU1，此时即可回到Linux调度。</li>
+</ul>
+<h2 id="框架组件梳理" class="heading-element">
+  <a href="#%e6%a1%86%e6%9e%b6%e7%bb%84%e4%bb%b6%e6%a2%b3%e7%90%86" class="heading-mark"></a><span>框架组件梳理</span>
+  <a href="#%e6%a1%86%e6%9e%b6%e7%bb%84%e4%bb%b6%e6%a2%b3%e7%90%86" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="目录结构暂定" class="heading-element">
+  <a href="#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84%e6%9a%82%e5%ae%9a" class="heading-mark"></a><span>目录结构(暂定)</span>
+  <a href="#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84%e6%9a%82%e5%ae%9a" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Linux_code/
+</span></span><span class="line"><span class="cl">├── ko/                     <span class="c1"># 内核驱动模块</span>
+</span></span><span class="line"><span class="cl">│   ├── reworks_amp.c      <span class="c1"># AMP控制驱动</span>
+</span></span><span class="line"><span class="cl">│   └── make.sh            <span class="c1"># 编译脚本</span>
+</span></span><span class="line"><span class="cl">├── load/                   <span class="c1"># ELF加载器</span>
+</span></span><span class="line"><span class="cl">│   └── load_reworks.c     <span class="c1"># elf程序加载器</span>
+</span></span><span class="line"><span class="cl">├── start/                  <span class="c1"># 测试</span>
+</span></span><span class="line"><span class="cl">│   ├── test.c             <span class="c1"># 测试程序</span>
+</span></span><span class="line"><span class="cl">│   └── build.sh           <span class="c1"># 编译脚本</span>
+</span></span><span class="line"><span class="cl">├── my_shm/                <span class="c1"># 通信机制</span>
+</span></span><span class="line"><span class="cl">│   ├── supper_shm_net.c   <span class="c1"># 虚拟网卡驱动</span>
+</span></span><span class="line"><span class="cl">│   ├── Makefile           <span class="c1"># 编译配置</span>
+</span></span><span class="line"><span class="cl">│   └── make.sh            <span class="c1"># 编译脚本</span>
+</span></span><span class="line"><span class="cl">├── ls2k_pai.dts           <span class="c1"># 设备树配置</span>
+</span></span><span class="line"><span class="cl">├── start.sh               <span class="c1"># 系统启动脚本</span>
+</span></span><span class="line"><span class="cl">├── bridge.sh              <span class="c1"># 网桥配置脚本</span>
+</span></span><span class="line"><span class="cl">└── net0_init.sh           <span class="c1"># 网络初始化脚本</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="amp控制驱动" class="heading-element">
+  <a href="#amp%e6%8e%a7%e5%88%b6%e9%a9%b1%e5%8a%a8" class="heading-mark"></a><span>AMP控制驱动</span>
+  <a href="#amp%e6%8e%a7%e5%88%b6%e9%a9%b1%e5%8a%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>AMP控制驱动是整个框架的核心，它负责管理CPU1的启动和停止以及共享内存映射</p>
+<blockquote>
+<p>核心数据结构</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">export_func</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cpu_logical_map_func</span><span class="p">;</span>           <span class="c1">// CPU逻辑映射函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">loongson3_send_ipi_single_func</span><span class="p">;</span> <span class="c1">// 核间中断发送函数(这个最重要)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">local_flush_icache_range_func</span><span class="p">;</span>  <span class="c1">// 指令缓存刷新函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">loongarch_cpu_irq_init_func</span><span class="p">;</span>    <span class="c1">// CPU中断初始化函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">loongson3_prepare_cpus_func</span><span class="p">;</span>    <span class="c1">// CPU准备函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>关键函数(向mailbox发送命令)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">xy_csr_mail_send</span><span class="p">(</span><span class="kt">uint64_t</span> <span class="n">data</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cpu</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mailbox</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 发送高32位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">val</span> <span class="o">=</span> <span class="n">IOCSR_MBUF_SEND_BLOCKING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="nf">IOCSR_MBUF_SEND_BOX_HI</span><span class="p">(</span><span class="n">mailbox</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">IOCSR_MBUF_SEND_BOX_SHIFT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="n">cpu</span> <span class="o">&lt;&lt;</span> <span class="n">IOCSR_MBUF_SEND_CPU_SHIFT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="n">data</span> <span class="o">&amp;</span> <span class="n">IOCSR_MBUF_SEND_H32_MASK</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">iocsr_write64</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">LOONGARCH_IOCSR_MBUF_SEND</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 发送低32位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">val</span> <span class="o">=</span> <span class="n">IOCSR_MBUF_SEND_BLOCKING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="nf">IOCSR_MBUF_SEND_BOX_LO</span><span class="p">(</span><span class="n">mailbox</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">IOCSR_MBUF_SEND_BOX_SHIFT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="n">cpu</span> <span class="o">&lt;&lt;</span> <span class="n">IOCSR_MBUF_SEND_CPU_SHIFT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">val</span> <span class="o">|=</span> <span class="p">(</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">IOCSR_MBUF_SEND_BUF_SHIFT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">iocsr_write64</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">LOONGARCH_IOCSR_MBUF_SEND</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>关键函数(管理CPU1，对接ioctl)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">long</span> <span class="nf">cpu_handle</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">arg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">STOP</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="nf">cpu_down</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>                    <span class="c1">// 停止CPU1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&#34;stop cpu1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">START</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&#34;start cpu1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">xy_csr_mail_send</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 发送程序入口地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">send_ipi_single_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>     <span class="c1">// 发送核间中断唤醒CPU1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>地址配置</p>
+</blockquote>
+<p><img loading="lazy" src="../../attachment/reworks_BSP%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e9%85%8d%e7%bd%ae.png" alt="../../attachment/reworks_BSP内存布局配置.png" srcset="../../attachment/reworks_BSP%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e9%85%8d%e7%bd%ae.png?size=small, ../../attachment/reworks_BSP%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e9%85%8d%e7%bd%ae.png?size=medium 1.5x, ../../attachment/reworks_BSP%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80%e9%85%8d%e7%bd%ae.png?size=large 2x" data-title="../../attachment/reworks_BSP内存布局配置.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>
+或者是在Makefile中通过-Wtext 手动指定代码段入口位置也可以</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define PHYS_ADDR    (0x00000000c0000070UL) #此处的70是自动偏移的，可使用readelf-a reworks.elf查看入口地址</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注意，此处send_ipi_single_func发送0x1,是mailbox的特定功能码，具体可参照龙芯内核代码</strong>
+<strong>下面是针对龙芯内核(Linux4.19)代码的改动</strong></p>
+<blockquote>
+<p>/arch/loongarch/include/asm/smp.h</p>
+</blockquote>
+<p><img loading="lazy" src="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b91.png" alt="../../attachment/龙芯内核代码修改1.png" srcset="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b91.png?size=small, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b91.png?size=medium 1.5x, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b91.png?size=large 2x" data-title="../../attachment/龙芯内核代码修改1.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>
+<img loading="lazy" src="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b92.png" alt="../../attachment/龙芯内核代码修改2.png" srcset="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b92.png?size=small, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b92.png?size=medium 1.5x, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b92.png?size=large 2x" data-title="../../attachment/龙芯内核代码修改2.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<ul>
+<li>MY_RX MY_TX是后面虚拟网卡通信用到的两个mailbox功能码‘</li>
+<li>0x01代表启动CPU的功能码</li>
+<li>register_my_ipi_fun用于注册用户自定义的回调函数</li>
+</ul>
+<blockquote>
+<p>./arch/loongarch/la64/smp.c</p>
+</blockquote>
+<p><img loading="lazy" src="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bf%ae%e6%94%b93.png" alt="../../attachment/龙芯内核修改3.png" srcset="../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bf%ae%e6%94%b93.png?size=small, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bf%ae%e6%94%b93.png?size=medium 1.5x, ../../attachment/%e9%be%99%e8%8a%af%e5%86%85%e6%a0%b8%e4%bf%ae%e6%94%b93.png?size=large 2x" data-title="../../attachment/龙芯内核修改3.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<ul>
+<li>触发IPI中断后根据mailbox中的功能码进行功能匹配，手动添加咱们功能码对应的操作</li>
+<li>registered_function是驱动注册进内核的函数，这样做到虚拟网卡驱动和内核的勾连回调</li>
+</ul>
+<h3 id="elf加载器" class="heading-element">
+  <a href="#elf%e5%8a%a0%e8%bd%bd%e5%99%a8" class="heading-mark"></a><span>ELF加载器</span>
+  <a href="#elf%e5%8a%a0%e8%bd%bd%e5%99%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><blockquote>
+<p>大致流程</p>
+</blockquote>
+<pre class="mermaid">flowchart TD
+    A[打开/dev/reworks_amp设备] --> B[mmap映射共享内存]
+    B --> C[使用BFD库打开ELF文件]
+    C --> D[第一次遍历：计算内存需求]
+    D --> E[检查内存是否足够]
+    E --> F[第二次遍历：加载程序段]
+    F --> G[处理代码段SEC_LOAD]
+    G --> H[处理数据段和BSS段]
+    H --> I[刷新CPU缓存]
+    I --> J[完成加载]</pre>
+<template>flowchart TD
+    A[打开/dev/reworks_amp设备] --> B[mmap映射共享内存]
+    B --> C[使用BFD库打开ELF文件]
+    C --> D[第一次遍历：计算内存需求]
+    D --> E[检查内存是否足够]
+    E --> F[第二次遍历：加载程序段]
+    F --> G[处理代码段SEC_LOAD]
+    G --> H[处理数据段和BSS段]
+    H --> I[刷新CPU缓存]
+    I --> J[完成加载]</template><h4 id="关键代码分析" class="heading-element">
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90" class="heading-mark"></a><span>关键代码分析</span>
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><blockquote>
+<p>内存映射初始化</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">init_base</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pa_base</span> <span class="o">=</span> <span class="mh">0xb0000000UL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">mmap_fd</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="s">&#34;/dev/reworks_amp&#34;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">mmap_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;[ERROR]: open device failed: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">va</span> <span class="o">=</span> <span class="nf">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">MEMORY_SIZE</span><span class="p">,</span> <span class="n">PROT_READ</span> <span class="o">|</span> <span class="n">PROT_WRITE</span><span class="p">,</span> <span class="n">MAP_SHARED</span><span class="p">,</span> <span class="n">mmap_fd</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">va</span> <span class="o">==</span> <span class="n">MAP_FAILED</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;[ERROR]: mmap failed: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">va_base</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">va</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preallocated_memory</span> <span class="o">=</span> <span class="n">va</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preallocated_size</span> <span class="o">=</span> <span class="n">MEMORY_SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>ELF加载逻辑</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">load_elf_to_preallocated_memory</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第一次遍历：计算地址范围
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">section</span> <span class="o">=</span> <span class="n">abfd</span><span class="o">-&gt;</span><span class="n">sections</span><span class="p">;</span> <span class="n">section</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">section</span> <span class="o">=</span> <span class="n">section</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bfd_vma</span> <span class="n">vma</span> <span class="o">=</span> <span class="nf">bfd_section_vma</span><span class="p">(</span><span class="n">section</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="nf">bfd_section_size</span><span class="p">(</span><span class="n">section</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">vma</span> <span class="o">&lt;</span> <span class="n">lowest_vma</span><span class="p">)</span> <span class="n">lowest_vma</span> <span class="o">=</span> <span class="n">vma</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">vma</span> <span class="o">+</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="n">highest_vma</span><span class="p">)</span> <span class="n">highest_vma</span> <span class="o">=</span> <span class="n">vma</span> <span class="o">+</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 第二次遍历：加载段内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">section</span> <span class="o">=</span> <span class="n">abfd</span><span class="o">-&gt;</span><span class="n">sections</span><span class="p">;</span> <span class="n">section</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="n">section</span> <span class="o">=</span> <span class="n">section</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bfd_vma</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">vma</span> <span class="o">-</span> <span class="n">lowest_vma</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="nf">bfd_section_flags</span><span class="p">(</span><span class="n">section</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SEC_LOAD</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 加载可执行段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">bfd_get_section_contents</span><span class="p">(</span><span class="n">abfd</span><span class="p">,</span> <span class="n">section</span><span class="p">,</span> <span class="n">preallocated_memory</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nf">bfd_section_flags</span><span class="p">(</span><span class="n">section</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SEC_HAS_CONTENTS</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 清零BSS段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">memset</span><span class="p">(</span><span class="n">preallocated_memory</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 刷新CPU缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">__builtin___clear_cache</span><span class="p">((</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="n">preallocated_memory</span> <span class="o">+</span> <span class="n">offset</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">                               <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="n">preallocated_memory</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">size</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="测试程序" class="heading-element">
+  <a href="#%e6%b5%8b%e8%af%95%e7%a8%8b%e5%ba%8f" class="heading-mark"></a><span>测试程序</span>
+  <a href="#%e6%b5%8b%e8%af%95%e7%a8%8b%e5%ba%8f" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>测试程序用于验证AMP框架的基本功能，包括启动和停止CPU1，以及加载ELF程序</p>
+<blockquote>
+<p>大致流程</p>
+</blockquote>
+<pre class="mermaid">sequenceDiagram
+    participant User as 用户程序
+    participant Test as test程序
+    participant Driver as reworks_amp驱动
+    participant CPU1 as CPU1核心
+    
+    User->>Test: 启动控制程序
+    Test->>Test: 解析/proc/kallsyms获取内核函数地址
+    Test->>Driver: ioctl(IOCTL_STOP) 停止CPU1
+    Driver->>CPU1: cpu_down(1)
+    Test->>Driver: ioctl(IOCTL_START) 启动CPU1
+    Driver->>CPU1: 发送邮箱消息(程序入口)
+    Driver->>CPU1: 发送核间中断IPI
+    CPU1->>CPU1: 开始执行reworks程序</pre>
+<template>sequenceDiagram
+    participant User as 用户程序
+    participant Test as test程序
+    participant Driver as reworks_amp驱动
+    participant CPU1 as CPU1核心
+    
+    User->>Test: 启动控制程序
+    Test->>Test: 解析/proc/kallsyms获取内核函数地址
+    Test->>Driver: ioctl(IOCTL_STOP) 停止CPU1
+    Driver->>CPU1: cpu_down(1)
+    Test->>Driver: ioctl(IOCTL_START) 启动CPU1
+    Driver->>CPU1: 发送邮箱消息(程序入口)
+    Driver->>CPU1: 发送核间中断IPI
+    CPU1->>CPU1: 开始执行reworks程序</template><h4 id="关键代码分析-1" class="heading-element">
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90-1" class="heading-mark"></a><span>关键代码分析</span>
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90-1" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><blockquote>
+<p>内核符号地址获取</p>
+</blockquote>
+<ul>
+<li>相当于获取一些内核函数，无需用户在应用层包含内核各种不透明的头文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">get_symbol_address</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">symbol_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;/proc/kallsyms&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nf">fgets</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">line</span><span class="p">),</span> <span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">token</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>           <span class="c1">// 地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">address</span> <span class="o">=</span> <span class="nf">strtoul</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>  <span class="c1">// 转换为数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
+</span></span><span class="line"><span class="cl">        <span class="n">token</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>           <span class="c1">// 符号类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">token</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>         <span class="c1">// 符号名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">symbol_name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">address</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="虚拟网卡驱动" class="heading-element">
+  <a href="#%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e9%a9%b1%e5%8a%a8" class="heading-mark"></a><span>虚拟网卡驱动</span>
+  <a href="#%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e9%a9%b1%e5%8a%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>虚拟网卡驱动用于实现共享内存上的数据传输，为AMP框架提供网络通信能力</p>
+<blockquote>
+<p>大致框架
+<img loading="lazy" src="../../attachment/AMP%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e8%ae%be%e8%ae%a1.png" alt="../../attachment/AMP虚拟网卡设计.png" srcset="../../attachment/AMP%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e8%ae%be%e8%ae%a1.png?size=small, ../../attachment/AMP%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e8%ae%be%e8%ae%a1.png?size=medium 1.5x, ../../attachment/AMP%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1%e8%ae%be%e8%ae%a1.png?size=large 2x" data-title="../../attachment/AMP虚拟网卡设计.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>
+初始化流程</p>
+</blockquote>
+<pre class="mermaid">flowchart TD
+    A[平台设备探测] --> B[解析设备树获取内存区域]
+    B --> C[ioremap映射共享内存]
+    C --> D[初始化共享内存管理]
+    D --> E[创建共享内存实例]
+    E --> F[设置TX/RX环形缓冲区]
+    F --> G[注册中断处理函数]
+    G --> H[创建网络设备]
+    H --> I[启动接收线程]
+    I --> J[注册网络设备]</pre>
+<template>flowchart TD
+    A[平台设备探测] --> B[解析设备树获取内存区域]
+    B --> C[ioremap映射共享内存]
+    C --> D[初始化共享内存管理]
+    D --> E[创建共享内存实例]
+    E --> F[设置TX/RX环形缓冲区]
+    F --> G[注册中断处理函数]
+    G --> H[创建网络设备]
+    H --> I[启动接收线程]
+    I --> J[注册网络设备]</template><h4 id="数据传输机制详解" class="heading-element">
+  <a href="#%e6%95%b0%e6%8d%ae%e4%bc%a0%e8%be%93%e6%9c%ba%e5%88%b6%e8%af%a6%e8%a7%a3" class="heading-mark"></a><span>数据传输机制详解</span>
+  <a href="#%e6%95%b0%e6%8d%ae%e4%bc%a0%e8%be%93%e6%9c%ba%e5%88%b6%e8%af%a6%e8%a7%a3" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><strong>注：reworks那边的代码和流程也是类似的，毕竟都是POSIX接口，详情请参考提交到仓库中的龙芯AMP_BSP包</strong></p>
+<p><strong>发送数据流程</strong>：</p>
+<pre class="mermaid">sequenceDiagram
+    participant App as 应用程序
+    participant NetStack as Linux网络栈
+    participant Driver as 共享内存驱动
+    participant TxRing as TX环形缓冲区
+    participant CPU1 as CPU1程序
+
+    App->>NetStack: send(socket, data)
+    NetStack->>Driver: my_start_xmit(skb)
+    Driver->>Driver: 检查TX缓冲区是否有空闲
+    alt 缓冲区满
+        Driver->>Driver: 重试等待
+    else 缓冲区可用
+        Driver->>TxRing: write_tx_ring(data)
+        Driver->>TxRing: 设置flag=DIRTY
+        Driver->>CPU1: send_my_rx_ipi(1) 发送中断
+        CPU1->>CPU1: 中断唤醒处理数据
+    end</pre>
+<template>sequenceDiagram
+    participant App as 应用程序
+    participant NetStack as Linux网络栈
+    participant Driver as 共享内存驱动
+    participant TxRing as TX环形缓冲区
+    participant CPU1 as CPU1程序
+
+    App->>NetStack: send(socket, data)
+    NetStack->>Driver: my_start_xmit(skb)
+    Driver->>Driver: 检查TX缓冲区是否有空闲
+    alt 缓冲区满
+        Driver->>Driver: 重试等待
+    else 缓冲区可用
+        Driver->>TxRing: write_tx_ring(data)
+        Driver->>TxRing: 设置flag=DIRTY
+        Driver->>CPU1: send_my_rx_ipi(1) 发送中断
+        CPU1->>CPU1: 中断唤醒处理数据
+    end</template><p><strong>发送函数实现</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">netdev_tx_t</span> <span class="nf">my_start_xmit</span><span class="p">(</span><span class="k">struct</span> <span class="n">sk_buff</span> <span class="o">*</span><span class="n">skb</span><span class="p">,</span> <span class="k">struct</span> <span class="n">net_device</span> <span class="o">*</span><span class="n">dev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">my_netdev_priv</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="nf">netdev_priv</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">retry</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 写入TX环形缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">write_tx_ring</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printk</span><span class="p">(</span><span class="s">&#34;my_start_xmit write tx failed!.....</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">retry</span><span class="p">;</span>  <span class="c1">// 缓冲区满时重试
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 更新统计信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">tx_packets</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">tx_bytes</span> <span class="o">+=</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">dev_kfree_skb</span><span class="p">(</span><span class="n">skb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 通知对方CPU有新数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">is_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">send_my_rx_ipi</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 发送核间中断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">NETDEV_TX_OK</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>写入环形缓冲区函数</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">write_tx_ring</span><span class="p">(</span><span class="kt">s_shm_id_t</span> <span class="n">id</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">shm_u32_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_shm_t</span><span class="o">*</span> <span class="n">shm</span> <span class="o">=</span> <span class="n">s_shms</span> <span class="o">+</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_buffer_t</span><span class="o">*</span> <span class="n">buffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_ring_t</span><span class="o">*</span> <span class="n">ring</span> <span class="o">=</span> <span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">role</span> <span class="o">==</span> <span class="n">ROLE_HOST</span><span class="p">)</span> <span class="o">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">tx_ring</span><span class="p">)</span> <span class="o">:</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">rx_ring</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">buffer</span> <span class="o">=</span> <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原子检查缓冲区状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">__atomic_load_n</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">,</span> <span class="n">__ATOMIC_SEQ_CST</span><span class="p">)</span> <span class="o">!=</span> <span class="n">FLAG_CLEAN</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// 缓冲区忙，返回失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 复制数据到缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">memcpy</span><span class="p">(</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">buffer</span><span class="o">-&gt;</span><span class="n">payload_size</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原子设置缓冲区为脏状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">__atomic_store_n</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">,</span> <span class="n">FLAG_DIRTY</span><span class="p">,</span> <span class="n">__ATOMIC_SEQ_CST</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动到下一个缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">((</span><span class="kt">s_shm_addr_t</span><span class="p">)(</span><span class="n">buffer</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ring</span><span class="o">-&gt;</span><span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span> <span class="o">=</span> <span class="p">(</span><span class="kt">s_buffer_t</span><span class="o">*</span><span class="p">)(</span><span class="n">ring</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">);</span>  <span class="c1">// 环形回绕
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span> <span class="o">=</span> <span class="n">buffer</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>接收数据流程</strong>：</p>
+<pre class="mermaid">sequenceDiagram
+    participant CPU1 as CPU1程序
+    participant RxRing as RX环形缓冲区
+    participant Driver as 共享内存驱动
+    participant Thread as 接收线程
+    participant NetStack as Linux网络栈
+
+    CPU1->>RxRing: 写入数据包
+    CPU1->>Driver: 发送中断通知
+    Driver->>Thread: complete(&my_completion) 唤醒线程
+    Thread->>RxRing: read_rx_ring() 读取数据
+    Thread->>Thread: 分配sk_buff
+    Thread->>NetStack: netif_rx_ni(skb) 提交到网络栈
+    NetStack->>NetStack: 协议栈处理</pre>
+<template>sequenceDiagram
+    participant CPU1 as CPU1程序
+    participant RxRing as RX环形缓冲区
+    participant Driver as 共享内存驱动
+    participant Thread as 接收线程
+    participant NetStack as Linux网络栈
+
+    CPU1->>RxRing: 写入数据包
+    CPU1->>Driver: 发送中断通知
+    Driver->>Thread: complete(&my_completion) 唤醒线程
+    Thread->>RxRing: read_rx_ring() 读取数据
+    Thread->>Thread: 分配sk_buff
+    Thread->>NetStack: netif_rx_ni(skb) 提交到网络栈
+    NetStack->>NetStack: 协议栈处理</template><p><strong>接收线程实现</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">my_rx</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">dev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">my_netdev_priv</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="nf">netdev_priv</span><span class="p">((</span><span class="k">struct</span> <span class="n">net_device</span><span class="o">*</span><span class="p">)</span><span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">struct</span> <span class="n">sk_buff</span> <span class="o">*</span><span class="n">skb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">retry</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从RX环形缓冲区读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nf">read_rx_ring</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">skb</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">size</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">up_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>           <span class="c1">// 标记非接收状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">wait_for_completion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_completion</span><span class="p">);</span>  <span class="c1">// 等待中断唤醒
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">up_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>           <span class="c1">// 标记接收状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">reinit_completion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_completion</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">goto</span> <span class="n">retry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置网络包属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">dev</span> <span class="o">=</span> <span class="n">dev</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">protocol</span> <span class="o">=</span> <span class="nf">eth_type_trans</span><span class="p">(</span><span class="n">skb</span><span class="p">,</span> <span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">ip_summed</span> <span class="o">=</span> <span class="n">CHECKSUM_UNNECESSARY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新统计信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">rx_packets</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">rx_bytes</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 提交到网络栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">netif_rx_ni</span><span class="p">(</span><span class="n">skb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>读取环形缓冲区函数</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">read_rx_ring</span><span class="p">(</span><span class="kt">s_shm_id_t</span> <span class="n">id</span><span class="p">,</span> <span class="kt">void</span><span class="o">**</span> <span class="n">data</span><span class="p">,</span> <span class="kt">shm_u32_t</span><span class="o">*</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_shm_t</span><span class="o">*</span> <span class="n">shm</span> <span class="o">=</span> <span class="n">s_shms</span> <span class="o">+</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_buffer_t</span><span class="o">*</span> <span class="n">buffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_ring_t</span><span class="o">*</span> <span class="n">ring</span> <span class="o">=</span> <span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">role</span> <span class="o">==</span> <span class="n">ROLE_HOST</span><span class="p">)</span> <span class="o">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">rx_ring</span><span class="p">)</span> <span class="o">:</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">shm</span><span class="o">-&gt;</span><span class="n">tx_ring</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">sk_buff</span><span class="o">**</span> <span class="n">skb</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">sk_buff</span><span class="o">**</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">buffer</span> <span class="o">=</span> <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原子检查是否有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">__atomic_load_n</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">,</span> <span class="n">__ATOMIC_SEQ_CST</span><span class="p">)</span> <span class="o">!=</span> <span class="n">FLAG_DIRTY</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// 没有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">size</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">-&gt;</span><span class="n">payload_size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分配sk_buff
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">skb</span> <span class="o">=</span> <span class="nf">dev_alloc_skb</span><span class="p">(</span><span class="o">*</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">skb</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printk</span><span class="p">(</span><span class="s">&#34;dev_alloc_skb failed!, size = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 复制数据到sk_buff
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">memcpy</span><span class="p">(</span><span class="nf">skb_put</span><span class="p">(</span><span class="o">*</span><span class="n">skb</span><span class="p">,</span> <span class="o">*</span><span class="n">size</span><span class="p">),</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">),</span> <span class="o">*</span><span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原子清除缓冲区状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">__atomic_store_n</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">,</span> <span class="n">FLAG_CLEAN</span><span class="p">,</span> <span class="n">__ATOMIC_SEQ_CST</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 移动到下一个缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">((</span><span class="kt">s_shm_addr_t</span><span class="p">)(</span><span class="n">buffer</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ring</span><span class="o">-&gt;</span><span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span> <span class="o">=</span> <span class="p">(</span><span class="kt">s_buffer_t</span><span class="o">*</span><span class="p">)(</span><span class="n">ring</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ring</span><span class="o">-&gt;</span><span class="n">current_pos</span> <span class="o">=</span> <span class="n">buffer</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="中断处理机制" class="heading-element">
+  <a href="#%e4%b8%ad%e6%96%ad%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark"></a><span>中断处理机制</span>
+  <a href="#%e4%b8%ad%e6%96%ad%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><strong>中断处理函数</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 中断处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kt">irqreturn_t</span> <span class="nf">my_rx_interrupt</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 唤醒接收线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">complete</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_completion</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">IRQ_HANDLED</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>中断注册和线程创建</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">my_probe</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ... 其他初始化代码 ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 注册中断处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">register_my_ipi_fun</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_rx_interrupt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 创建接收线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">thread_st</span> <span class="o">=</span> <span class="nf">kthread_run</span><span class="p">(</span><span class="n">thread_fn</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="s">&#34;my_net_thread&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">thread_st</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&#34;Thread created successfully</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printk</span><span class="p">(</span><span class="n">KERN_ERR</span> <span class="s">&#34;Thread creation failed</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="关键代码设计" class="heading-element">
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e8%ae%be%e8%ae%a1" class="heading-mark"></a><span>关键代码设计</span>
+  <a href="#%e5%85%b3%e9%94%ae%e4%bb%a3%e7%a0%81%e8%ae%be%e8%ae%a1" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><blockquote>
+<p>共享内存管理结构</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 基础类型定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="kt">void</span><span class="o">*</span> <span class="kt">s_shm_addr_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="kt">s_shm_size_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="kt">s_shm_id_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="kt">shm_u32_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="kt">shm_u8_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="kt">shm_role_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define ROLE_HOST     (0)    </span><span class="c1">// CPU0作为主机
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define ROLE_REMOTE   (1)    </span><span class="c1">// CPU1作为远程端
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define INVALID_ID    (-1)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define FLAG_CLEAN    (0)    </span><span class="c1">// 缓冲区空闲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FLAG_DIRTY    (1)    </span><span class="c1">// 缓冲区有数据
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>环形缓冲区设计</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 缓冲区结构（64字节对齐优化缓存性能）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">aligned</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">s_buffer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">shm_u8_t</span> <span class="n">data</span><span class="p">[</span><span class="n">BUFFER_DATA_MAX_SIZE</span><span class="p">];</span>  <span class="c1">// 数据载荷
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">shm_u32_t</span> <span class="n">flag</span><span class="p">;</span>                       <span class="c1">// 状态标志：CLEAN/DIRTY
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">shm_u32_t</span> <span class="n">payload_size</span><span class="p">;</span>               <span class="c1">// 有效数据大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">shm_u32_t</span> <span class="n">is_rxing</span><span class="p">;</span>                   <span class="c1">// 接收状态标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">shm_u32_t</span> <span class="n">reserve</span><span class="p">;</span>                    <span class="c1">// 保留字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="kt">s_buffer_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 环形队列管理结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">aligned</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">s_ring</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">s_shm_addr_t</span> <span class="n">start</span><span class="p">;</span>        <span class="c1">// 起始地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_shm_addr_t</span> <span class="n">end</span><span class="p">;</span>          <span class="c1">// 结束地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_buffer_t</span><span class="o">*</span> <span class="n">current_pos</span><span class="p">;</span>   <span class="c1">// 当前位置指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="kt">s_ring_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 共享内存描述符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">aligned</span><span class="p">(</span><span class="mi">64</span><span class="p">)))</span> <span class="n">s_shm</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">shm_role_t</span> <span class="n">role</span><span class="p">;</span>           <span class="c1">// 角色：HOST/REMOTE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_shm_addr_t</span> <span class="n">va</span><span class="p">;</span>           <span class="c1">// 虚拟地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_shm_addr_t</span> <span class="n">pa</span><span class="p">;</span>           <span class="c1">// 物理地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_shm_size_t</span> <span class="n">size</span><span class="p">;</span>         <span class="c1">// 内存大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_shm_id_t</span> <span class="n">id</span><span class="p">;</span>             <span class="c1">// 共享内存ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_ring_t</span> <span class="n">tx_ring</span><span class="p">;</span>          <span class="c1">// 发送环形缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">s_ring_t</span> <span class="n">rx_ring</span><span class="p">;</span>          <span class="c1">// 接收环形缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="kt">s_shm_t</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>数据发送</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">netdev_tx_t</span> <span class="nf">my_start_xmit</span><span class="p">(</span><span class="k">struct</span> <span class="n">sk_buff</span> <span class="o">*</span><span class="n">skb</span><span class="p">,</span> <span class="k">struct</span> <span class="n">net_device</span> <span class="o">*</span><span class="n">dev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">my_netdev_priv</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="nf">netdev_priv</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nl">retry</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 写入TX环形缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nf">write_tx_ring</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printk</span><span class="p">(</span><span class="s">&#34;my_start_xmit write tx failed!.....</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">goto</span> <span class="n">retry</span><span class="p">;</span>  <span class="c1">// 缓冲区满时重试
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 更新统计信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">tx_packets</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">tx_bytes</span> <span class="o">+=</span> <span class="n">skb</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">dev_kfree_skb</span><span class="p">(</span><span class="n">skb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 通知对方CPU有新数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">is_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">send_my_rx_ipi</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 发送核间中断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">NETDEV_TX_OK</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>数据接收</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">my_rx</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">dev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">my_netdev_priv</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="nf">netdev_priv</span><span class="p">((</span><span class="k">struct</span> <span class="n">net_device</span><span class="o">*</span><span class="p">)</span><span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">struct</span> <span class="n">sk_buff</span> <span class="o">*</span><span class="n">skb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">retry</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从RX环形缓冲区读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nf">read_rx_ring</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">skb</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">size</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">up_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>           <span class="c1">// 标记非接收状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">wait_for_completion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_completion</span><span class="p">);</span>  <span class="c1">// 等待中断唤醒
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">up_rxing</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">shm_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>           <span class="c1">// 标记接收状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nf">reinit_completion</span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_completion</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">goto</span> <span class="n">retry</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置网络包属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">dev</span> <span class="o">=</span> <span class="n">dev</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">protocol</span> <span class="o">=</span> <span class="nf">eth_type_trans</span><span class="p">(</span><span class="n">skb</span><span class="p">,</span> <span class="n">dev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">skb</span><span class="o">-&gt;</span><span class="n">ip_summed</span> <span class="o">=</span> <span class="n">CHECKSUM_UNNECESSARY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新统计信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">rx_packets</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">priv</span><span class="o">-&gt;</span><span class="n">stats</span><span class="p">.</span><span class="n">rx_bytes</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 提交到内核网络协议栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">netif_rx_ni</span><span class="p">(</span><span class="n">skb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>性能优化特性</p>
+</blockquote>
+<ul>
+<li>共享内存：避免数据在内核空间和用户空间之间拷贝</li>
+<li>ring buf设计：无锁环形缓冲区设计</li>
+<li>原子操作：使用__atomic_load_n和__atomic_store_n保证多核并发安全</li>
+</ul>
+<h2 id="设备树配置" class="heading-element">
+  <a href="#%e8%ae%be%e5%a4%87%e6%a0%91%e9%85%8d%e7%bd%ae" class="heading-mark"></a><span>设备树配置</span>
+  <a href="#%e8%ae%be%e5%a4%87%e6%a0%91%e9%85%8d%e7%bd%ae" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>内存布局配置</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">reserved</span><span class="o">-</span><span class="n">memory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cp">#address-cells = &lt;2&gt;;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="cp">#size-cells = &lt;2&gt;;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="n">ranges</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 裸机程序运行内存：256MB
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nl">rproc</span><span class="p">:</span> <span class="n">rproc</span><span class="err">@</span><span class="n">c0000000</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">no</span><span class="o">-</span><span class="n">map</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0xc0000000</span> <span class="mh">0x0</span> <span class="mh">0x10000000</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 网络共享内存：2MB
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nl">net_shm</span><span class="p">:</span><span class="n">shm_net</span><span class="err">@</span><span class="n">ec000000</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">no</span><span class="o">-</span><span class="n">map</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">reg</span><span class="o">=&lt;</span><span class="mh">0x0</span> <span class="mh">0xea000000</span> <span class="mh">0x0</span> <span class="mh">0x200000</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>虚拟网卡节点配置</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">homo_rproc</span><span class="p">:</span> <span class="n">homo_rproc</span><span class="err">@</span><span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">compatible</span> <span class="o">=</span> <span class="s">&#34;homo,rproc&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">remote</span><span class="o">-</span><span class="n">processor</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>              <span class="c1">// 目标CPU1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inter</span><span class="o">-</span><span class="n">processor</span><span class="o">-</span><span class="n">interrupt</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">9</span><span class="o">&gt;</span><span class="p">;</span>     <span class="c1">// 核间中断号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">memory</span><span class="o">-</span><span class="n">region</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">rproc</span><span class="o">&gt;</span><span class="p">;</span>           <span class="c1">// 关联内存区域
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">firmware</span><span class="o">-</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;reworks.elf&#34;</span><span class="p">;</span>      <span class="c1">// 裸机程序文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">shm_net</span><span class="p">:</span><span class="n">shm_net</span><span class="err">@</span><span class="mi">0</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">compatible</span> <span class="o">=</span> <span class="s">&#34;shm_net&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">remote</span><span class="o">-</span><span class="n">processor</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">interrupt</span><span class="o">-</span><span class="n">parent</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">cpuic</span><span class="o">&gt;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inter</span><span class="o">-</span><span class="n">processor</span><span class="o">-</span><span class="n">interrupt</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;</span><span class="p">;</span>    <span class="c1">// 网络中断号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">memory</span><span class="o">-</span><span class="n">region</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">net_shm</span><span class="o">&gt;</span><span class="p">;</span>         <span class="c1">// 网络共享内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注：本来打算利用Linux下的remoteproc框架，但是发现remoteproc框架并不能马上适配到龙芯上，因为这部分参考飞腾平台设计发现会利用ARM指令集的一些机制触发异常来做安全等级切换，与ARM架构强相关，所以不能完全参考</strong></p>
+<h2 id="存在问题" class="heading-element">
+  <a href="#%e5%ad%98%e5%9c%a8%e9%97%ae%e9%a2%98" class="heading-mark"></a><span>存在问题</span>
+  <a href="#%e5%ad%98%e5%9c%a8%e9%97%ae%e9%a2%98" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ul>
+<li>由于时间仓促同时也为了便于用户使用，不得不走了一遍内核网络协议栈，这部分是性能瓶颈</li>
+<li>由于2K1000的phy1,phy2都是挂在龙芯内部同一个PCIE控制器上，所以无法做到把2个phy在OS层
+的隔离控制，不得不使用网桥，这部分也是性能瓶颈</li>
+<li>高速触发IPI中断时，有时候会丢中断，联系龙芯官方得知无法优化，当时芯片设计的时候没有考虑到AMP的需求，所以这部分无法优化，他们官方测也是会偶发性丢中断</li>
+<li>iperf3测试时某些情况时会出现系统崩溃的情况，详情参考专门的测试文档</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Updated on 2025-10-05 23:20:46">Updated on 2025-10-05&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/4fecd7a/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-title="Index" data-hashtags="AMP"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-hashtag="AMP"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-title="Index"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/amp/" class="post-tag" title="Tags - AMP">AMP</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/72c6f94/" class="post-nav-item" rel="next" title="Index">Index<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Contents"><h2 class="toc-title">Contents&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.139.4"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.13"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/xueyu-code"target="_blank" rel="external nofollow noopener noreferrer">薛羽</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Total visitors'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Total visits'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--progress-h: 3px;--bg-progress: HotPink;--bg-progress-dark: DeepSkyBlue;"></div><noscript>
+    <div class="noscript-warning">This website works best with JavaScript enabled.</div>
+  </noscript>
+</div><script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    window.mermaid = mermaid;
+    window.mermaid.themes = ["default","dark"];
+  </script><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-03-10T22:18:14+08:00","version":"v0.3.13"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
