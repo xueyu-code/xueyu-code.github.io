@@ -13,7 +13,7 @@
   <meta itemprop="datePublished" content="2025-10-05T23:20:46+08:00">
   <meta itemprop="dateModified" content="2025-10-05T23:20:46+08:00">
   <meta itemprop="wordCount" content="2137">
-  <meta itemprop="keywords" content="AMP"><meta property="og:url" content="https://xueyu-code.github.io/posts/4fecd7a/">
+  <meta itemprop="keywords" content="AMP"><meta property="og:url" content="https://xueyu-code.github.io/posts/amp/4fecd7a/">
   <meta property="og:site_name" content="Xueyu&#39;s Home">
   <meta property="og:title" content="Index">
   <meta property="og:description" content="龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。">
@@ -28,7 +28,7 @@
   <meta name="twitter:title" content="Index">
   <meta name="twitter:description" content="龙芯LoongArch异构多核处理器(AMP)框架详解 框架概述 这是一个基于龙芯LoongArch架构的**异构多核处理器(AMP - Asymmetric Multi-Processing)**框架，实现了Linux系统与裸机程序在双核系统中的协作处理。该框架允许CPU0运行完整的Linux系统，而CPU1运行高性能的rewors程序(理论上也可以是别的程序，比如vxworks的，只要BSP做好即可，毕竟CPU不会去区分到底是什么程序)，两者通过共享内存和核间中断进行通信(上层设计为虚拟网卡)。">
 <meta name="application-name" content="NAME">
-<meta name="apple-mobile-web-app-title" content="NAME"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/4fecd7a/" title="Index - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/about/info/" title="" /><link rel="next" type="text/html" href="https://xueyu-code.github.io/posts/72c6f94/" title="Index" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/4fecd7a/index.md" title="Index - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="NAME"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/amp/4fecd7a/" title="Index - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/about/" title="" /><link rel="next" type="text/html" href="https://xueyu-code.github.io/posts/xenomai/72c6f94/" title="Index" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/amp/4fecd7a/index.md" title="Index - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -38,9 +38,9 @@
     "inLanguage": "en-us",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/xueyu-code.github.io\/posts\/4fecd7a\/"
+      "@id": "https:\/\/xueyu-code.github.io\/posts\/amp\/4fecd7a\/"
     },"genre": "posts","keywords": "AMP","wordcount":  2137 ,
-    "url": "https:\/\/xueyu-code.github.io\/posts\/4fecd7a\/","datePublished": "2025-10-05T23:20:46+08:00","dateModified": "2025-10-05T23:20:46+08:00","publisher": {
+    "url": "https:\/\/xueyu-code.github.io\/posts\/amp\/4fecd7a\/","datePublished": "2025-10-05T23:20:46+08:00","dateModified": "2025-10-05T23:20:46+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
   }
@@ -1498,11 +1498,11 @@
       <div class="post-info-mod">
         <span title="Updated on 2025-10-05 23:20:46">Updated on 2025-10-05&nbsp;</span>
       </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/4fecd7a/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/amp/4fecd7a/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-title="Index" data-hashtags="AMP"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-hashtag="AMP"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/4fecd7a/" data-title="Index"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/amp/4fecd7a/" data-title="Index" data-hashtags="AMP"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/amp/4fecd7a/" data-hashtag="AMP"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/amp/4fecd7a/" data-title="Index"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -1512,7 +1512,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/72c6f94/" class="post-nav-item" rel="next" title="Index">Index<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/xenomai/72c6f94/" class="post-nav-item" rel="next" title="Index">Index<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article>
 

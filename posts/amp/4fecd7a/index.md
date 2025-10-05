@@ -662,5 +662,5 @@ shm_net:shm_net@0{
 ---
 
 > Author:   
-> URL: https://xueyu-code.github.io/posts/4fecd7a/  
+> URL: https://xueyu-code.github.io/posts/amp/4fecd7a/  
 

@@ -78,5 +78,5 @@ PREEMPT-RT方案主要缺点：通过修改Linux内核，难以保证实时进�
 ---
 
 > Author:   
-> URL: https://xueyu-code.github.io/posts/72c6f94/  
+> URL: https://xueyu-code.github.io/posts/xenomai/72c6f94/  
 
