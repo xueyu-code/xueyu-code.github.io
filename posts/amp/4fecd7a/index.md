@@ -1,4 +1,4 @@
-# Index
+# AMP文档
 
 
 # 龙芯LoongArch异构多核处理器(AMP)框架详解
