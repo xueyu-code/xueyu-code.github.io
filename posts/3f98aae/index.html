@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>IGC_Driver_Learning_Guide - Xueyu&#39;s Home</title><meta name="author" content="Xueyu">
+<meta name="description" content="代码走读"><meta name="keywords" content='I225'>
+  <meta itemprop="name" content="IGC_Driver_Learning_Guide">
+  <meta itemprop="description" content="代码走读">
+  <meta itemprop="datePublished" content="2025-10-06T17:11:56+08:00">
+  <meta itemprop="dateModified" content="2025-10-06T17:11:56+08:00">
+  <meta itemprop="wordCount" content="1206">
+  <meta itemprop="keywords" content="I225"><meta property="og:url" content="https://xueyu-code.github.io/posts/3f98aae/">
+  <meta property="og:site_name" content="Xueyu&#39;s Home">
+  <meta property="og:title" content="IGC_Driver_Learning_Guide">
+  <meta property="og:description" content="代码走读">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-06T17:11:56+08:00">
+    <meta property="article:modified_time" content="2025-10-06T17:11:56+08:00">
+    <meta property="article:tag" content="I225">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="IGC_Driver_Learning_Guide">
+  <meta name="twitter:description" content="代码走读">
+<meta name="application-name" content="Xueyu">
+<meta name="apple-mobile-web-app-title" content="Xueyu"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/3f98aae/" title="IGC_Driver_Learning_Guide - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/posts/08c96ad/" title="IGC_Code_Examples" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/3f98aae/index.md" title="IGC_Driver_Learning_Guide - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "IGC_Driver_Learning_Guide",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/xueyu-code.github.io\/posts\/3f98aae\/"
+    },"genre": "posts","keywords": "I225","wordcount":  1206 ,
+    "url": "https:\/\/xueyu-code.github.io\/posts\/3f98aae\/","datePublished": "2025-10-06T17:11:56+08:00","dateModified": "2025-10-06T17:11:56+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Xueyu"
+      },"description": "代码走读"
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Switch Theme"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">IGC_Driver_Learning_Guide</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="Collections"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>IGC_Driver_Learning_Guide</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/xueyu-code" title="Author"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar.png" alt="Xueyu" data-title="Xueyu" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Xueyu</a></span><span class="post-included-in">&nbsp;included in <a href="/categories/i225/" class="post-category" title="Category - I225"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> I225</a></span></div><div class="post-meta-line"><span title="published on 2025-10-06 17:11:56"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-10-06">2025-10-06</time></span>&nbsp;<span title="1206 words"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>About 1300 words</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>6 minutes</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="IGC_Driver_Learning_Guide"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;views
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#单芯片集成设计">单芯片集成设计</a></li>
+        <li><a href="#mac控制方式">MAC控制方式</a></li>
+        <li><a href="#phy控制方式">PHY控制方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#mac与phy基本概念">MAC与PHY基本概念</a>
+      <ul>
+        <li><a href="#mac">MAC</a></li>
+        <li><a href="#phy">PHY</a></li>
+        <li><a href="#mac和phy的关系">MAC和PHY的关系</a></li>
+        <li><a href="#驱动分层设计">驱动分层设计</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux内核网络协议栈">Linux内核网络协议栈</a>
+      <ul>
+        <li><a href="#osi网络分层模型">OSI网络分层模型</a></li>
+        <li><a href="#linux内核网络数据包流程">Linux内核网络数据包流程</a></li>
+        <li><a href="#网卡启动和初始化">网卡启动和初始化</a></li>
+      </ul>
+    </li>
+    <li><a href="#驱动架构概览">驱动架构概览</a>
+      <ul>
+        <li><a href="#核心组件">核心组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#关键数据结构">关键数据结构</a>
+      <ul>
+        <li><a href="#1-igc_adapter">1. igc_adapter</a></li>
+        <li><a href="#2-igc_hw">2. igc_hw</a></li>
+        <li><a href="#3-igc_ring">3. igc_ring</a></li>
+      </ul>
+    </li>
+    <li><a href="#驱动初始化流程">驱动初始化流程</a>
+      <ul>
+        <li><a href="#1-模块加载">1. 模块加载</a></li>
+        <li><a href="#2-设备探测">2. 设备探测</a></li>
+        <li><a href="#3-软件初始化-igc_sw_init">3. 软件初始化 (igc_sw_init)</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络设备操作">网络设备操作</a>
+      <ul>
+        <li><a href="#网络设备操作结构">网络设备操作结构</a></li>
+        <li><a href="#设备启动流程">设备启动流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据包处理流程">数据包处理流程</a>
+      <ul>
+        <li><a href="#发送路径">发送路径</a></li>
+        <li><a href="#接收路径">接收路径</a></li>
+      </ul>
+    </li>
+    <li><a href="#中断处理机制">中断处理机制</a>
+      <ul>
+        <li><a href="#中断类型">中断类型</a></li>
+        <li><a href="#napi机制">NAPI机制</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级特性">高级特性</a>
+      <ul>
+        <li><a href="#1-tsn-time-sensitive-networking">1. TSN (Time-Sensitive Networking)</a></li>
+        <li><a href="#2-ptp-precision-time-protocol">2. PTP (Precision Time Protocol)</a></li>
+        <li><a href="#3-xdp-express-data-path">3. XDP (eXpress Data Path)</a></li>
+      </ul>
+    </li>
+    <li><a href="#学习建议">学习建议</a>
+      <ul>
+        <li><a href="#入门阶段">入门阶段</a></li>
+        <li><a href="#进阶阶段">进阶阶段</a></li>
+        <li><a href="#调试技巧">调试技巧</a></li>
+      </ul>
+    </li>
+    <li><a href="#相关资源">相关资源</a></li>
+    <li><a href="#实践练习">实践练习</a>
+      <ul>
+        <li><a href="#1-基础练习">1. 基础练习</a></li>
+        <li><a href="#2-调试练习">2. 调试练习</a></li>
+        <li><a href="#3-性能测试">3. 性能测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题排查">常见问题排查</a>
+      <ul>
+        <li><a href="#1-驱动加载失败">1. 驱动加载失败</a></li>
+        <li><a href="#2-网络性能问题">2. 网络性能问题</a></li>
+        <li><a href="#3-tsn功能异常">3. TSN功能异常</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码阅读路径">代码阅读路径</a>
+      <ul>
+        <li><a href="#第一阶段基础理解">第一阶段：基础理解</a></li>
+        <li><a href="#第二阶段核心流程">第二阶段：核心流程</a></li>
+        <li><a href="#第三阶段硬件操作">第三阶段：硬件操作</a></li>
+        <li><a href="#第四阶段高级特性">第四阶段：高级特性</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结-1">总结</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="intel-i225-igc-驱动学习指南" class="heading-element">
+  <a href="#intel-i225-igc-%e9%a9%b1%e5%8a%a8%e5%ad%a6%e4%b9%a0%e6%8c%87%e5%8d%97" class="heading-mark"></a><span>Intel I225 (IGC) 驱动学习指南</span>
+  <a href="#intel-i225-igc-%e9%a9%b1%e5%8a%a8%e5%ad%a6%e4%b9%a0%e6%8c%87%e5%8d%97" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="概述" class="heading-element">
+  <a href="#%e6%a6%82%e8%bf%b0" class="heading-mark"></a><span>概述</span>
+  <a href="#%e6%a6%82%e8%bf%b0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Intel I225 (IGC) 驱动是Intel 2.5G以太网控制器的Linux内核驱动程序，支持I225、I226等系列网卡。该驱动支持高级特性如TSN (Time-Sensitive Networking)、PTP (Precision Time Protocol)、XDP (eXpress Data Path)等。</p>
+<h3 id="单芯片集成设计" class="heading-element">
+  <a href="#%e5%8d%95%e8%8a%af%e7%89%87%e9%9b%86%e6%88%90%e8%ae%be%e8%ae%a1" class="heading-mark"></a><span>单芯片集成设计</span>
+  <a href="#%e5%8d%95%e8%8a%af%e7%89%87%e9%9b%86%e6%88%90%e8%ae%be%e8%ae%a1" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">┌─────────────────────────────────────────┐
+</span></span><span class="line"><span class="cl">│              I225 芯片                   │
+</span></span><span class="line"><span class="cl">│  ┌─────────────┐    ┌─────────────────┐  │
+</span></span><span class="line"><span class="cl">│  │             │    │                 │  │
+</span></span><span class="line"><span class="cl">│  │ MAC控制器    │◄──►│  集成PHY        │  │
+</span></span><span class="line"><span class="cl">│  │             │    │                 │  │
+</span></span><span class="line"><span class="cl">│  │ - DMA引擎   │    │ - 自动协商      │  │
+</span></span><span class="line"><span class="cl">│  │ - 帧处理    │    │ - 链路检测      │  │
+</span></span><span class="line"><span class="cl">│  │ - 中断控制  │    │ - 信号处理      │  │
+</span></span><span class="line"><span class="cl">│  │             │    │                 │  │
+</span></span><span class="line"><span class="cl">│  └─────────────┘    └─────────────────┘  │
+</span></span><span class="line"><span class="cl">│         │                      │         │
+</span></span><span class="line"><span class="cl">│         │                      │         │
+</span></span><span class="line"><span class="cl">│    ┌────▼────┐            ┌────▼────┐    │
+</span></span><span class="line"><span class="cl">│    │PCI接口  │            │RJ45接口 │    │
+</span></span><span class="line"><span class="cl">│    └─────────┘            └─────────┘    │
+</span></span><span class="line"><span class="cl">└─────────────────────────────────────────┘</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="mac控制方式" class="heading-element">
+  <a href="#mac%e6%8e%a7%e5%88%b6%e6%96%b9%e5%bc%8f" class="heading-mark"></a><span>MAC控制方式</span>
+  <a href="#mac%e6%8e%a7%e5%88%b6%e6%96%b9%e5%bc%8f" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>使用内存映射I/O (MMIO)</li>
+<li>直接访问PCI设备的寄存器空间</li>
+<li>速度快，适合高频操作</li>
+</ul>
+<h3 id="phy控制方式" class="heading-element">
+  <a href="#phy%e6%8e%a7%e5%88%b6%e6%96%b9%e5%bc%8f" class="heading-mark"></a><span>PHY控制方式</span>
+  <a href="#phy%e6%8e%a7%e5%88%b6%e6%96%b9%e5%bc%8f" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>PHY可以是一个单独独立的芯片</li>
+<li>使用MDIO串行总线协议</li>
+<li>需要通过MAC的MDIO控制器间接访问</li>
+<li>速度较慢，适合配置和状态查询</li>
+<li>需要协议封装和锁机制</li>
+</ul>
+<h2 id="mac与phy基本概念" class="heading-element">
+  <a href="#mac%e4%b8%8ephy%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" class="heading-mark"></a><span>MAC与PHY基本概念</span>
+  <a href="#mac%e4%b8%8ephy%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="mac" class="heading-element">
+  <a href="#mac" class="heading-mark"></a><span>MAC</span>
+  <a href="#mac" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>MAC (Media Access Control) 介质访问控制器
+定义和功能：
+MAC是OSI模型数据链路层的下半部分，负责：
+帧处理</p>
+<ul>
+<li>以太网帧的封装和解封装</li>
+<li>添加/移除以太网头部（源MAC、目标MAC、类型等）</li>
+<li>帧校验序列(FCS)的生成和验证
+流控制</li>
+<li>发送和接收缓冲区管理</li>
+<li>流控制帧的处理（PAUSE帧）</li>
+<li>背压控制
+冲突检测和处理（半双工模式）</li>
+<li>CSMA/CD协议实现</li>
+<li>冲突检测和退避算法
+地址过滤</li>
+<li>单播、多播、广播地址过滤</li>
+<li>VLAN标签处理</li>
+</ul>
+<h3 id="phy" class="heading-element">
+  <a href="#phy" class="heading-mark"></a><span>PHY</span>
+  <a href="#phy" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>PHY (Physical Layer) 物理层
+定义和功能：PHY是OSI模型物理层的实现，负责：
+信号转换</p>
+<ul>
+<li>数字信号与模拟信号的转换</li>
+<li>编码/解码（如曼彻斯特编码）</li>
+<li>信号调制和解调
+链路管理</li>
+<li>自动协商（Auto-negotiation）</li>
+<li>链路状态检测</li>
+<li>速度和双工模式协商
+物理介质接口</li>
+<li>与网线、光纤等传输介质的接口</li>
+<li>电气特性控制</li>
+<li>信号完整性保证
+错误检测</li>
+<li>线路错误检测</li>
+<li>信号质量监控</li>
+</ul>
+<h3 id="mac和phy的关系" class="heading-element">
+  <a href="#mac%e5%92%8cphy%e7%9a%84%e5%85%b3%e7%b3%bb" class="heading-mark"></a><span>MAC和PHY的关系</span>
+  <a href="#mac%e5%92%8cphy%e7%9a%84%e5%85%b3%e7%b3%bb" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><strong>1.层次关系</strong>
+应用层数据
+↓
+[MAC层] ← 驱动主要控制
+↓ (MII/GMII/RGMII接口)
+[PHY层] ← 驱动通过MDIO总线控制
+↓
+物理介质(网线/光纤)
+<strong>2. 接口关系</strong>
+MII/GMII/RGMII接口
+MAC和PHY之间通过标准接口连接：</p>
+<ul>
+<li>MII (Media Independent Interface): 10/100Mbps</li>
+<li>GMII (Gigabit MII): 1000Mbps</li>
+<li>RGMII (Reduced GMII): 1000Mbps，引脚数减少</li>
+<li>SGMII (Serial GMII): 串行接口
+<strong>3.协作流程</strong>
+1.发送数据流程</li>
+</ul>
+<pre class="mermaid">sequenceDiagram
+    participant Driver as 驱动
+    participant MAC as MAC控制器
+    participant PHY as PHY芯片
+    participant Media as 物理介质
+    
+    Driver->>MAC: 发送以太网帧
+    MAC->>MAC: 添加前导码、帧头
+    MAC->>MAC: 计算FCS校验
+    MAC->>PHY: 通过MII发送数字信号
+    PHY->>PHY: 数字信号编码
+    PHY->>Media: 发送模拟信号到网线</pre>
+<template>sequenceDiagram
+    participant Driver as 驱动
+    participant MAC as MAC控制器
+    participant PHY as PHY芯片
+    participant Media as 物理介质
+    
+    Driver->>MAC: 发送以太网帧
+    MAC->>MAC: 添加前导码、帧头
+    MAC->>MAC: 计算FCS校验
+    MAC->>PHY: 通过MII发送数字信号
+    PHY->>PHY: 数字信号编码
+    PHY->>Media: 发送模拟信号到网线</template><ol start="2">
+<li>接收数据流程</li>
+</ol>
+<pre class="mermaid">sequenceDiagram
+   participant Media as 物理介质
+   participant PHY as PHY芯片  
+   participant MAC as MAC控制器
+   participant Driver as 驱动
+   
+   Media->>PHY: 接收模拟信号
+   PHY->>PHY: 信号解码为数字信号
+   PHY->>MAC: 通过MII传输数字帧
+   MAC->>MAC: 校验FCS
+   MAC->>MAC: 地址过滤
+   MAC->>Driver: 产生中断，传递帧数据</pre>
+<template>sequenceDiagram
+   participant Media as 物理介质
+   participant PHY as PHY芯片  
+   participant MAC as MAC控制器
+   participant Driver as 驱动
+   
+   Media->>PHY: 接收模拟信号
+   PHY->>PHY: 信号解码为数字信号
+   PHY->>MAC: 通过MII传输数字帧
+   MAC->>MAC: 校验FCS
+   MAC->>MAC: 地址过滤
+   MAC->>Driver: 产生中断，传递帧数据</template><h3 id="驱动分层设计" class="heading-element">
+  <a href="#%e9%a9%b1%e5%8a%a8%e5%88%86%e5%b1%82%e8%ae%be%e8%ae%a1" class="heading-mark"></a><span>驱动分层设计</span>
+  <a href="#%e9%a9%b1%e5%8a%a8%e5%88%86%e5%b1%82%e8%ae%be%e8%ae%a1" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>igc_main.c (网络设备层)
+↓
+igc_mac.c (MAC抽象层)
+↓<br>
+igc_phy.c (PHY抽象层)
+↓
+igc_base.c (硬件访问层)</p>
+<h3 id="总结" class="heading-element">
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark"></a><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>MAC和PHY的关系</p>
+<ul>
+<li>分工明确: MAC处理数据链路层，PHY处理物理层</li>
+<li>紧密协作: 通过标准接口（MII系列）进行数据传输</li>
+<li>统一管理: 驱动通过MDIO总线统一控制两者</li>
+<li>层次化设计: 体现了网络协议栈的分层思想
+在驱动开发中：</li>
+<li>MAC主要负责帧处理和DMA操作</li>
+<li>PHY主要负责链路管理和信号转换</li>
+<li>驱动需要协调两者的初始化、配置和状态管理</li>
+<li>错误处理需要区分MAC层和PHY层的不同错误类型</li>
+</ul>
+<h2 id="linux内核网络协议栈" class="heading-element">
+  <a href="#linux%e5%86%85%e6%a0%b8%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e6%a0%88" class="heading-mark"></a><span>Linux内核网络协议栈</span>
+  <a href="#linux%e5%86%85%e6%a0%b8%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae%e6%a0%88" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="osi网络分层模型" class="heading-element">
+  <a href="#osi%e7%bd%91%e7%bb%9c%e5%88%86%e5%b1%82%e6%a8%a1%e5%9e%8b" class="heading-mark"></a><span>OSI网络分层模型</span>
+  <a href="#osi%e7%bd%91%e7%bb%9c%e5%88%86%e5%b1%82%e6%a8%a1%e5%9e%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><img loading="lazy" src="/posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" alt="/posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" srcset="/posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png?size=small, /posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png?size=medium 1.5x, /posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png?size=large 2x" data-title="/posts/3f98aae/attachment/OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" style="--width: 2198px;--aspect-ratio: 2198 / 917;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="linux内核网络数据包流程" class="heading-element">
+  <a href="#linux%e5%86%85%e6%a0%b8%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae%e5%8c%85%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>Linux内核网络数据包流程</span>
+  <a href="#linux%e5%86%85%e6%a0%b8%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae%e5%8c%85%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><img loading="lazy" src="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png" alt="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png" srcset="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=small, /posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=medium 1.5x, /posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=large 2x" data-title="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B.png" style="--width: 2734px;--aspect-ratio: 2734 / 1628;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<ul>
+<li>1 外部数据包到达主机时，首先由网卡 eth0 接收。</li>
+<li>2 网卡通过 DMA将数据包拷贝到内核中的 RingBuffer（环形缓冲区）等待 CPU 处理。RingBuffer 是一种首尾相接的环形数据结构，它作为缓冲区，缓解网卡接收数据的速度快于 CPU 处理数据的速度问题。</li>
+<li>3 网卡产生 IRQ（Interrupt Request，硬件中断），通知内核有新的数据包到达。</li>
+<li>4 内核调用中断处理函数，标记新数据到达。接着，唤醒 ksoftirqd 内核线程，执行软中断（SoftIRQ）处理。</li>
+<li>5 软中断处理中，内核调用网卡驱动的 NAPI（New API）poll 接口，从 RingBuffer 中提取数据包，并转换为 skb（Socket Buffer）格式。skb 是描述网络数据包的核心数据结构，无论是数据包的发送、接收还是转发，Linux 内核都会以 skb 的形式来处理。</li>
+<li>6 skb 被传递到内核协议栈，在多个网络层次间处理：
+<ul>
+<li>网络层（L3 Network layer）：根据主机中的路由表，判断数据包路由到哪一个网络接口（Network Interface）。这里的网络接口可能是虚拟设备，也可能是物理网卡 eth0 接口。</li>
+<li>传输层（L4 Transport layer）：处理网络地址转换（NAT）、连接跟踪（conntrack）等</li>
+</ul>
+</li>
+<li>7 内核协议栈处理完成后，数据包被传递到 socket 接收缓冲区。应用程序利用系统调用（如 Socket API）从缓冲区读取数据。至此，整个收包过程结束</li>
+</ul>
+<blockquote>
+<p>发包流程</p>
+</blockquote>
+<p><img loading="lazy" src="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png" alt="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png" srcset="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=small, /posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=medium 1.5x, /posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png?size=large 2x" data-title="/posts/3f98aae/attachment/Linux%E5%86%85%E6%A0%B8%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8C%85%E6%B5%81%E7%A8%8B.png" style="--width: 1347px;--aspect-ratio: 1347 / 1157;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="网卡启动和初始化" class="heading-element">
+  <a href="#%e7%bd%91%e5%8d%a1%e5%90%af%e5%8a%a8%e5%92%8c%e5%88%9d%e5%a7%8b%e5%8c%96" class="heading-mark"></a><span>网卡启动和初始化</span>
+  <a href="#%e7%bd%91%e5%8d%a1%e5%90%af%e5%8a%a8%e5%92%8c%e5%88%9d%e5%a7%8b%e5%8c%96" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><blockquote>
+<p>网卡初始化的通用流程</p>
+</blockquote>
+<p><img loading="lazy" src="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" alt="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" srcset="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=small, /posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=medium 1.5x, /posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=large 2x" data-title="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" style="--width: 1633px;--aspect-ratio: 1633 / 428;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<blockquote>
+<p>网卡启动的通用流程</p>
+</blockquote>
+<p><img loading="lazy" src="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" alt="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" srcset="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=small, /posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=medium 1.5x, /posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png?size=large 2x" data-title="/posts/3f98aae/attachment/%E7%BD%91%E5%8D%A1%E5%90%AF%E5%8A%A8%E9%80%9A%E7%94%A8%E6%B5%81%E7%A8%8B.png" style="--width: 1605px;--aspect-ratio: 1605 / 434;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><strong>关于网卡对接内核网络协议栈和协议栈注册的流程，可参考张彦飞写的《深入理解Linux网络》及其公众号文章，此处碍于篇幅不详细介绍</strong></p>
+<h2 id="驱动架构概览" class="heading-element">
+  <a href="#%e9%a9%b1%e5%8a%a8%e6%9e%b6%e6%9e%84%e6%a6%82%e8%a7%88" class="heading-mark"></a><span>驱动架构概览</span>
+  <a href="#%e9%a9%b1%e5%8a%a8%e6%9e%b6%e6%9e%84%e6%a6%82%e8%a7%88" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="核心组件" class="heading-element">
+  <a href="#%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" class="heading-mark"></a><span>核心组件</span>
+  <a href="#%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>硬件抽象层 (HAL)</strong></p>
+<ul>
+<li><code>igc_hw.h</code> - 硬件结构定义</li>
+<li><code>igc_base.c</code> - 基础硬件操作</li>
+<li><code>igc_i225.c</code> - I225特定实现</li>
+<li><code>igc_mac.c</code> - MAC层操作</li>
+<li><code>igc_phy.c</code> - PHY层操作</li>
+<li><code>igc_nvm.c</code> - NVM/EEPROM操作</li>
+</ul>
+</li>
+<li>
+<p><strong>网络设备层</strong></p>
+<ul>
+<li><code>igc_main.c</code> - 主要驱动逻辑</li>
+<li><code>igc_ethtool.c</code> - Ethtool接口</li>
+<li><code>igc.h</code> - 主要数据结构定义</li>
+</ul>
+</li>
+<li>
+<p><strong>高级特性</strong></p>
+<ul>
+<li><code>igc_ptp.c</code> - PTP时间同步</li>
+<li><code>igc_tsn.c</code> - TSN支持</li>
+<li><code>igc_xdp.c</code> - XDP支持</li>
+</ul>
+</li>
+</ol>
+<h2 id="关键数据结构" class="heading-element">
+  <a href="#%e5%85%b3%e9%94%ae%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="heading-mark"></a><span>关键数据结构</span>
+  <a href="#%e5%85%b3%e9%94%ae%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="1-igc_adapter" class="heading-element">
+  <a href="#1-igc_adapter" class="heading-mark"></a><span>1. igc_adapter</span>
+  <a href="#1-igc_adapter" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">igc_adapter</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">net_device</span> <span class="o">*</span><span class="n">netdev</span><span class="p">;</span>          <span class="c1">// 网络设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">pci_dev</span> <span class="o">*</span><span class="n">pdev</span><span class="p">;</span>               <span class="c1">// PCI设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_hw</span> <span class="n">hw</span><span class="p">;</span>                   <span class="c1">// 硬件抽象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_ring</span> <span class="o">*</span><span class="n">tx_ring</span><span class="p">[</span><span class="n">IGC_MAX_TX_QUEUES</span><span class="p">];</span>  <span class="c1">// 发送队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_ring</span> <span class="o">*</span><span class="n">rx_ring</span><span class="p">[</span><span class="n">IGC_MAX_RX_QUEUES</span><span class="p">];</span>  <span class="c1">// 接收队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_q_vector</span> <span class="o">*</span><span class="n">q_vector</span><span class="p">[</span><span class="n">MAX_Q_VECTORS</span><span class="p">];</span> <span class="c1">// 中断向量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// ... 其他字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-igc_hw" class="heading-element">
+  <a href="#2-igc_hw" class="heading-mark"></a><span>2. igc_hw</span>
+  <a href="#2-igc_hw" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">igc_hw</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="o">*</span><span class="n">back</span><span class="p">;</span>                         <span class="c1">// 指向adapter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">u8</span> <span class="n">__iomem</span> <span class="o">*</span><span class="n">hw_addr</span><span class="p">;</span>               <span class="c1">// 硬件寄存器地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_mac_info</span> <span class="n">mac</span><span class="p">;</span>           <span class="c1">// MAC信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_phy_info</span> <span class="n">phy</span><span class="p">;</span>           <span class="c1">// PHY信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">igc_nvm_info</span> <span class="n">nvm</span><span class="p">;</span>           <span class="c1">// NVM信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// ... 其他字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-igc_ring" class="heading-element">
+  <a href="#3-igc_ring" class="heading-mark"></a><span>3. igc_ring</span>
+  <a href="#3-igc_ring" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">igc_ring</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">igc_q_vector</span> <span class="o">*</span><span class="n">q_vector</span><span class="p">;</span>     <span class="c1">// 关联的中断向量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">net_device</span> <span class="o">*</span><span class="n">netdev</span><span class="p">;</span>         <span class="c1">// 网络设备
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>                        <span class="c1">// 描述符环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">struct</span> <span class="n">igc_tx_buffer</span> <span class="o">*</span><span class="n">tx_buffer_info</span><span class="p">;</span>  <span class="c1">// TX缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">struct</span> <span class="n">igc_rx_buffer</span> <span class="o">*</span><span class="n">rx_buffer_info</span><span class="p">;</span>  <span class="c1">// RX缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ... 其他字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="驱动初始化流程" class="heading-element">
+  <a href="#%e9%a9%b1%e5%8a%a8%e5%88%9d%e5%a7%8b%e5%8c%96%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>驱动初始化流程</span>
+  <a href="#%e9%a9%b1%e5%8a%a8%e5%88%9d%e5%a7%8b%e5%8c%96%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="1-模块加载" class="heading-element">
+  <a href="#1-%e6%a8%a1%e5%9d%97%e5%8a%a0%e8%bd%bd" class="heading-mark"></a><span>1. 模块加载</span>
+  <a href="#1-%e6%a8%a1%e5%9d%97%e5%8a%a0%e8%bd%bd" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>igc_init_module()
+├── pci_register_driver(&amp;igc_driver)
+└── 注册PCI驱动</code></pre><h3 id="2-设备探测" class="heading-element">
+  <a href="#2-%e8%ae%be%e5%a4%87%e6%8e%a2%e6%b5%8b" class="heading-mark"></a><span>2. 设备探测</span>
+  <a href="#2-%e8%ae%be%e5%a4%87%e6%8e%a2%e6%b5%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>igc_probe()
+├── pci_enable_device_mem()           // 启用PCI设备
+├── dma_set_mask_and_coherent()       // 设置DMA掩码
+├── pci_request_mem_regions()         // 请求内存区域
+├── alloc_etherdev_mq()               // 分配网络设备
+├── igc_sw_init()                     // 软件初始化
+├── igc_reset()                       // 硬件重置
+├── igc_get_hw_control()              // 获取硬件控制
+├── register_netdev()                 // 注册网络设备
+└── igc_ptp_init()                    // 初始化PTP</code></pre><h3 id="3-软件初始化-igc_sw_init" class="heading-element">
+  <a href="#3-%e8%bd%af%e4%bb%b6%e5%88%9d%e5%a7%8b%e5%8c%96-igc_sw_init" class="heading-mark"></a><span>3. 软件初始化 (igc_sw_init)</span>
+  <a href="#3-%e8%bd%af%e4%bb%b6%e5%88%9d%e5%a7%8b%e5%8c%96-igc_sw_init" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>igc_sw_init()
+├── 设置默认环大小
+├── 设置ITR值
+├── 初始化工作队列
+├── 分配MSI-X向量
+└── 设置网络设备特性</code></pre><h2 id="网络设备操作" class="heading-element">
+  <a href="#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87%e6%93%8d%e4%bd%9c" class="heading-mark"></a><span>网络设备操作</span>
+  <a href="#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87%e6%93%8d%e4%bd%9c" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="网络设备操作结构" class="heading-element">
+  <a href="#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87%e6%93%8d%e4%bd%9c%e7%bb%93%e6%9e%84" class="heading-mark"></a><span>网络设备操作结构</span>
+  <a href="#%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87%e6%93%8d%e4%bd%9c%e7%bb%93%e6%9e%84" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">net_device_ops</span> <span class="n">igc_netdev_ops</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_open</span>           <span class="o">=</span> <span class="n">igc_open</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_stop</span>           <span class="o">=</span> <span class="n">igc_close</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_start_xmit</span>     <span class="o">=</span> <span class="n">igc_xmit_frame</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_set_rx_mode</span>    <span class="o">=</span> <span class="n">igc_set_rx_mode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_set_mac_address</span> <span class="o">=</span> <span class="n">igc_set_mac</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_change_mtu</span>     <span class="o">=</span> <span class="n">igc_change_mtu</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_tx_timeout</span>     <span class="o">=</span> <span class="n">igc_tx_timeout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">ndo_get_stats64</span>    <span class="o">=</span> <span class="n">igc_get_stats64</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ... 其他操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="设备启动流程" class="heading-element">
+  <a href="#%e8%ae%be%e5%a4%87%e5%90%af%e5%8a%a8%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>设备启动流程</span>
+  <a href="#%e8%ae%be%e5%a4%87%e5%90%af%e5%8a%a8%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>igc_open()
+├── igc_setup_all_tx_resources()      // 设置TX资源
+├── igc_setup_all_rx_resources()      // 设置RX资源
+├── igc_request_irq()                 // 请求中断
+├── igc_up()                          // 启动设备
+│   ├── igc_configure()               // 配置硬件
+│   ├── napi_enable()                 // 启用NAPI
+│   ├── igc_configure_msix()          // 配置MSI-X
+│   ├── igc_irq_enable()              // 启用中断
+│   └── netif_tx_start_all_queues()   // 启动发送队列
+└── 启动看门狗定时器</code></pre><h2 id="数据包处理流程" class="heading-element">
+  <a href="#%e6%95%b0%e6%8d%ae%e5%8c%85%e5%a4%84%e7%90%86%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>数据包处理流程</span>
+  <a href="#%e6%95%b0%e6%8d%ae%e5%8c%85%e5%a4%84%e7%90%86%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="发送路径" class="heading-element">
+  <a href="#%e5%8f%91%e9%80%81%e8%b7%af%e5%be%84" class="heading-mark"></a><span>发送路径</span>
+  <a href="#%e5%8f%91%e9%80%81%e8%b7%af%e5%be%84" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>igc_xmit_frame()
+├── igc_tx_queue_mapping()            // 选择发送队列
+└── igc_xmit_frame_ring()
+    ├── 检查描述符可用性
+    ├── 处理TSO/校验和卸载
+    ├── 设置VLAN标签
+    ├── 处理时间戳
+    ├── 映射DMA缓冲区
+    ├── 设置TX描述符
+    └── 更新硬件尾指针</code></pre><h3 id="接收路径" class="heading-element">
+  <a href="#%e6%8e%a5%e6%94%b6%e8%b7%af%e5%be%84" class="heading-mark"></a><span>接收路径</span>
+  <a href="#%e6%8e%a5%e6%94%b6%e8%b7%af%e5%be%84" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><pre tabindex="0"><code>中断处理
+├── igc_intr_msi()                    // MSI中断处理
+├── napi_schedule()                   // 调度NAPI
+└── igc_poll()                        // NAPI轮询
+    ├── igc_clean_tx_irq()            // 清理TX完成
+    └── igc_clean_rx_irq()            // 处理RX数据包
+        ├── 读取RX描述符
+        ├── 分配新的RX缓冲区
+        ├── 处理校验和
+        ├── 处理VLAN标签
+        ├── 构建skb
+        └── netif_receive_skb()</code></pre><h2 id="中断处理机制" class="heading-element">
+  <a href="#%e4%b8%ad%e6%96%ad%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark"></a><span>中断处理机制</span>
+  <a href="#%e4%b8%ad%e6%96%ad%e5%a4%84%e7%90%86%e6%9c%ba%e5%88%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="中断类型" class="heading-element">
+  <a href="#%e4%b8%ad%e6%96%ad%e7%b1%bb%e5%9e%8b" class="heading-mark"></a><span>中断类型</span>
+  <a href="#%e4%b8%ad%e6%96%ad%e7%b1%bb%e5%9e%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><strong>Legacy中断</strong>: <code>igc_intr()</code></li>
+<li><strong>MSI中断</strong>: <code>igc_intr_msi()</code></li>
+<li><strong>MSI-X中断</strong>: 每个队列独立中断</li>
+</ol>
+<h3 id="napi机制" class="heading-element">
+  <a href="#napi%e6%9c%ba%e5%88%b6" class="heading-mark"></a><span>NAPI机制</span>
+  <a href="#napi%e6%9c%ba%e5%88%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">igc_poll</span><span class="p">(</span><span class="k">struct</span> <span class="n">napi_struct</span> <span class="o">*</span><span class="n">napi</span><span class="p">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 清理TX完成
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">q_vector</span><span class="o">-&gt;</span><span class="n">tx</span><span class="p">.</span><span class="n">ring</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clean_complete</span> <span class="o">=</span> <span class="nf">igc_clean_tx_irq</span><span class="p">(</span><span class="n">q_vector</span><span class="p">,</span> <span class="n">budget</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 处理RX数据包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">rx_ring</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">cleaned</span> <span class="o">=</span> <span class="n">rx_ring</span><span class="o">-&gt;</span><span class="n">xsk_pool</span> <span class="o">?</span>
+</span></span><span class="line"><span class="cl">                      <span class="nf">igc_clean_rx_irq_zc</span><span class="p">(</span><span class="n">q_vector</span><span class="p">,</span> <span class="n">budget</span><span class="p">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">                      <span class="nf">igc_clean_rx_irq</span><span class="p">(</span><span class="n">q_vector</span><span class="p">,</span> <span class="n">budget</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">work_done</span> <span class="o">+=</span> <span class="n">cleaned</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 如果工作未完成，继续轮询
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">clean_complete</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">budget</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 重新启用中断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">napi_complete_done</span><span class="p">(</span><span class="n">napi</span><span class="p">,</span> <span class="n">work_done</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">igc_ring_irq_enable</span><span class="p">(</span><span class="n">q_vector</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">work_done</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="高级特性" class="heading-element">
+  <a href="#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" class="heading-mark"></a><span>高级特性</span>
+  <a href="#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="1-tsn-time-sensitive-networking" class="heading-element">
+  <a href="#1-tsn-time-sensitive-networking" class="heading-mark"></a><span>1. TSN (Time-Sensitive Networking)</span>
+  <a href="#1-tsn-time-sensitive-networking" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>支持IEEE 802.1Qbv (时间感知调度)</li>
+<li>支持IEEE 802.1Qbu (帧抢占)</li>
+<li>支持IEEE 802.1Qav (信用基础整形)</li>
+</ul>
+<h3 id="2-ptp-precision-time-protocol" class="heading-element">
+  <a href="#2-ptp-precision-time-protocol" class="heading-mark"></a><span>2. PTP (Precision Time Protocol)</span>
+  <a href="#2-ptp-precision-time-protocol" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>硬件时间戳支持</li>
+<li>IEEE 1588协议实现</li>
+<li>高精度时间同步</li>
+</ul>
+<h3 id="3-xdp-express-data-path" class="heading-element">
+  <a href="#3-xdp-express-data-path" class="heading-mark"></a><span>3. XDP (eXpress Data Path)</span>
+  <a href="#3-xdp-express-data-path" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>内核旁路数据处理</li>
+<li>高性能包处理</li>
+<li>eBPF程序支持</li>
+</ul>
+<h2 id="学习建议" class="heading-element">
+  <a href="#%e5%ad%a6%e4%b9%a0%e5%bb%ba%e8%ae%ae" class="heading-mark"></a><span>学习建议</span>
+  <a href="#%e5%ad%a6%e4%b9%a0%e5%bb%ba%e8%ae%ae" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="入门阶段" class="heading-element">
+  <a href="#%e5%85%a5%e9%97%a8%e9%98%b6%e6%ae%b5" class="heading-mark"></a><span>入门阶段</span>
+  <a href="#%e5%85%a5%e9%97%a8%e9%98%b6%e6%ae%b5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>理解基础概念</strong></p>
+<ul>
+<li>熟悉Linux网络子系统</li>
+<li>了解PCI驱动模型</li>
+<li>学习DMA概念</li>
+</ul>
+</li>
+<li>
+<p><strong>阅读顺序建议</strong></p>
+<pre tabindex="0"><code>igc.h → igc_hw.h → igc_main.c → igc_base.c</code></pre></li>
+<li>
+<p><strong>关键函数理解</strong></p>
+<ul>
+<li><code>igc_probe()</code> - 设备初始化</li>
+<li><code>igc_open()</code> - 设备启动</li>
+<li><code>igc_xmit_frame()</code> - 数据包发送</li>
+<li><code>igc_poll()</code> - NAPI轮询</li>
+</ul>
+</li>
+</ol>
+<h3 id="进阶阶段" class="heading-element">
+  <a href="#%e8%bf%9b%e9%98%b6%e9%98%b6%e6%ae%b5" class="heading-mark"></a><span>进阶阶段</span>
+  <a href="#%e8%bf%9b%e9%98%b6%e9%98%b6%e6%ae%b5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>深入硬件抽象层</strong></p>
+<ul>
+<li>研究寄存器操作</li>
+<li>理解硬件特性</li>
+<li>学习固件交互</li>
+</ul>
+</li>
+<li>
+<p><strong>高级特性学习</strong></p>
+<ul>
+<li>TSN实现机制</li>
+<li>PTP时间同步</li>
+<li>XDP集成</li>
+</ul>
+</li>
+<li>
+<p><strong>性能优化</strong></p>
+<ul>
+<li>中断合并</li>
+<li>缓存优化</li>
+<li>内存管理</li>
+</ul>
+</li>
+</ol>
+<h3 id="调试技巧" class="heading-element">
+  <a href="#%e8%b0%83%e8%af%95%e6%8a%80%e5%b7%a7" class="heading-mark"></a><span>调试技巧</span>
+  <a href="#%e8%b0%83%e8%af%95%e6%8a%80%e5%b7%a7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><strong>使用调试工具</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看网络统计</span>
+</span></span><span class="line"><span class="cl">ethtool -S eth0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看寄存器</span>
+</span></span><span class="line"><span class="cl">ethtool -d eth0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看驱动信息</span>
+</span></span><span class="line"><span class="cl">ethtool -i eth0</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>内核调试</strong></p>
+<ul>
+<li>使用printk调试</li>
+<li>利用ftrace跟踪</li>
+<li>分析内核崩溃转储</li>
+</ul>
+</li>
+</ol>
+<h2 id="相关资源" class="heading-element">
+  <a href="#%e7%9b%b8%e5%85%b3%e8%b5%84%e6%ba%90" class="heading-mark"></a><span>相关资源</span>
+  <a href="#%e7%9b%b8%e5%85%b3%e8%b5%84%e6%ba%90" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>
+<p><strong>Intel文档</strong></p>
+<ul>
+<li>I225/I226数据手册</li>
+<li>软件开发者手册</li>
+</ul>
+</li>
+<li>
+<p><strong>Linux内核文档</strong></p>
+<ul>
+<li>Documentation/networking/</li>
+<li>Documentation/driver-api/</li>
+</ul>
+</li>
+<li>
+<p><strong>标准规范</strong></p>
+<ul>
+<li>IEEE 802.1 TSN标准</li>
+<li>IEEE 1588 PTP标准</li>
+</ul>
+</li>
+</ol>
+<h2 id="实践练习" class="heading-element">
+  <a href="#%e5%ae%9e%e8%b7%b5%e7%bb%83%e4%b9%a0" class="heading-mark"></a><span>实践练习</span>
+  <a href="#%e5%ae%9e%e8%b7%b5%e7%bb%83%e4%b9%a0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="1-基础练习" class="heading-element">
+  <a href="#1-%e5%9f%ba%e7%a1%80%e7%bb%83%e4%b9%a0" class="heading-mark"></a><span>1. 基础练习</span>
+  <a href="#1-%e5%9f%ba%e7%a1%80%e7%bb%83%e4%b9%a0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 编译驱动</span>
+</span></span><span class="line"><span class="cl">make -C /lib/modules/<span class="k">$(</span>uname -r<span class="k">)</span>/build <span class="nv">M</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> modules
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载驱动</span>
+</span></span><span class="line"><span class="cl">sudo insmod igc.ko
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看驱动信息</span>
+</span></span><span class="line"><span class="cl">modinfo igc.ko
+</span></span><span class="line"><span class="cl">lsmod <span class="p">|</span> grep igc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看网络接口</span>
+</span></span><span class="line"><span class="cl">ip link show
+</span></span><span class="line"><span class="cl">ethtool -i eth0</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-调试练习" class="heading-element">
+  <a href="#2-%e8%b0%83%e8%af%95%e7%bb%83%e4%b9%a0" class="heading-mark"></a><span>2. 调试练习</span>
+  <a href="#2-%e8%b0%83%e8%af%95%e7%bb%83%e4%b9%a0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 启用调试信息</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;module igc +p&#39;</span> &gt; /sys/kernel/debug/dynamic_debug/control
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看中断统计</span>
+</span></span><span class="line"><span class="cl">cat /proc/interrupts <span class="p">|</span> grep igc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看网络统计</span>
+</span></span><span class="line"><span class="cl">ethtool -S eth0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看寄存器转储</span>
+</span></span><span class="line"><span class="cl">ethtool -d eth0</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-性能测试" class="heading-element">
+  <a href="#3-%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95" class="heading-mark"></a><span>3. 性能测试</span>
+  <a href="#3-%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 使用iperf3测试性能</span>
+</span></span><span class="line"><span class="cl">iperf3 -s  <span class="c1"># 服务器端</span>
+</span></span><span class="line"><span class="cl">iperf3 -c &lt;server_ip&gt; -t <span class="m">60</span>  <span class="c1"># 客户端</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用netperf测试</span>
+</span></span><span class="line"><span class="cl">netserver  <span class="c1"># 服务器端</span>
+</span></span><span class="line"><span class="cl">netperf -H &lt;server_ip&gt; -t TCP_STREAM  <span class="c1"># 客户端</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="常见问题排查" class="heading-element">
+  <a href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e6%8e%92%e6%9f%a5" class="heading-mark"></a><span>常见问题排查</span>
+  <a href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e6%8e%92%e6%9f%a5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="1-驱动加载失败" class="heading-element">
+  <a href="#1-%e9%a9%b1%e5%8a%a8%e5%8a%a0%e8%bd%bd%e5%a4%b1%e8%b4%a5" class="heading-mark"></a><span>1. 驱动加载失败</span>
+  <a href="#1-%e9%a9%b1%e5%8a%a8%e5%8a%a0%e8%bd%bd%e5%a4%b1%e8%b4%a5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>检查内核版本兼容性</li>
+<li>确认PCI设备ID是否支持</li>
+<li>查看dmesg输出错误信息</li>
+</ul>
+<h3 id="2-网络性能问题" class="heading-element">
+  <a href="#2-%e7%bd%91%e7%bb%9c%e6%80%a7%e8%83%bd%e9%97%ae%e9%a2%98" class="heading-mark"></a><span>2. 网络性能问题</span>
+  <a href="#2-%e7%bd%91%e7%bb%9c%e6%80%a7%e8%83%bd%e9%97%ae%e9%a2%98" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>检查中断合并设置</li>
+<li>调整环缓冲区大小</li>
+<li>确认CPU亲和性设置</li>
+</ul>
+<h3 id="3-tsn功能异常" class="heading-element">
+  <a href="#3-tsn%e5%8a%9f%e8%83%bd%e5%bc%82%e5%b8%b8" class="heading-mark"></a><span>3. TSN功能异常</span>
+  <a href="#3-tsn%e5%8a%9f%e8%83%bd%e5%bc%82%e5%b8%b8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>验证硬件是否支持TSN</li>
+<li>检查时钟同步状态</li>
+<li>确认调度配置正确</li>
+</ul>
+<h2 id="代码阅读路径" class="heading-element">
+  <a href="#%e4%bb%a3%e7%a0%81%e9%98%85%e8%af%bb%e8%b7%af%e5%be%84" class="heading-mark"></a><span>代码阅读路径</span>
+  <a href="#%e4%bb%a3%e7%a0%81%e9%98%85%e8%af%bb%e8%b7%af%e5%be%84" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="第一阶段基础理解" class="heading-element">
+  <a href="#%e7%ac%ac%e4%b8%80%e9%98%b6%e6%ae%b5%e5%9f%ba%e7%a1%80%e7%90%86%e8%a7%a3" class="heading-mark"></a><span>第一阶段：基础理解</span>
+  <a href="#%e7%ac%ac%e4%b8%80%e9%98%b6%e6%ae%b5%e5%9f%ba%e7%a1%80%e7%90%86%e8%a7%a3" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><code>igc.h</code> - 了解主要数据结构</li>
+<li><code>igc_hw.h</code> - 理解硬件抽象</li>
+<li><code>igc_defines.h</code> - 熟悉常量定义</li>
+<li><code>igc_regs.h</code> - 了解寄存器布局</li>
+</ol>
+<h3 id="第二阶段核心流程" class="heading-element">
+  <a href="#%e7%ac%ac%e4%ba%8c%e9%98%b6%e6%ae%b5%e6%a0%b8%e5%bf%83%e6%b5%81%e7%a8%8b" class="heading-mark"></a><span>第二阶段：核心流程</span>
+  <a href="#%e7%ac%ac%e4%ba%8c%e9%98%b6%e6%ae%b5%e6%a0%b8%e5%bf%83%e6%b5%81%e7%a8%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><code>igc_main.c</code> 中的关键函数：
+<ul>
+<li><code>igc_probe()</code> - 设备初始化</li>
+<li><code>igc_open()</code> - 接口启动</li>
+<li><code>igc_close()</code> - 接口关闭</li>
+<li><code>igc_xmit_frame()</code> - 数据包发送</li>
+<li><code>igc_poll()</code> - NAPI轮询</li>
+</ul>
+</li>
+</ol>
+<h3 id="第三阶段硬件操作" class="heading-element">
+  <a href="#%e7%ac%ac%e4%b8%89%e9%98%b6%e6%ae%b5%e7%a1%ac%e4%bb%b6%e6%93%8d%e4%bd%9c" class="heading-mark"></a><span>第三阶段：硬件操作</span>
+  <a href="#%e7%ac%ac%e4%b8%89%e9%98%b6%e6%ae%b5%e7%a1%ac%e4%bb%b6%e6%93%8d%e4%bd%9c" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><code>igc_base.c</code> - 基础硬件操作</li>
+<li><code>igc_i225.c</code> - I225特定实现</li>
+<li><code>igc_mac.c</code> - MAC层操作</li>
+<li><code>igc_phy.c</code> - PHY层操作</li>
+</ol>
+<h3 id="第四阶段高级特性" class="heading-element">
+  <a href="#%e7%ac%ac%e5%9b%9b%e9%98%b6%e6%ae%b5%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" class="heading-mark"></a><span>第四阶段：高级特性</span>
+  <a href="#%e7%ac%ac%e5%9b%9b%e9%98%b6%e6%ae%b5%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><code>igc_ptp.c</code> - PTP实现</li>
+<li><code>igc_tsn.c</code> - TSN实现</li>
+<li><code>igc_xdp.c</code> - XDP实现</li>
+<li><code>igc_ethtool.c</code> - Ethtool接口</li>
+</ol>
+<h2 id="总结-1" class="heading-element">
+  <a href="#%e6%80%bb%e7%bb%93-1" class="heading-mark"></a><span>总结</span>
+  <a href="#%e6%80%bb%e7%bb%93-1" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>IGC驱动是一个功能丰富的现代网络驱动，集成了多种高级特性。学习该驱动有助于理解：</p>
+<ul>
+<li>Linux网络驱动开发模式</li>
+<li>高性能网络处理技术</li>
+<li>时间敏感网络应用</li>
+<li>硬件卸载技术</li>
+</ul>
+<p>建议从基础的PCI驱动和网络设备操作开始，逐步深入到高级特性的实现细节。通过实践练习和代码阅读，可以深入理解现代网络驱动的设计原理和实现技巧。</p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Updated on 2025-10-06 17:11:56">Updated on 2025-10-06&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/3f98aae/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/3f98aae/" data-title="IGC_Driver_Learning_Guide" data-hashtags="I225"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/3f98aae/" data-hashtag="I225"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/3f98aae/" data-title="IGC_Driver_Learning_Guide"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/i225/" class="post-tag" title="Tags - I225">I225</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/08c96ad/" class="post-nav-item" rel="prev" title="IGC_Code_Examples"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>IGC_Code_Examples</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Contents"><h2 class="toc-title">Contents&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.139.4"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.13"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/xueyu-code"target="_blank" rel="external nofollow noopener noreferrer">Xueyu</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Total visitors'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Total visits'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--progress-h: 3px;--bg-progress: HotPink;--bg-progress-dark: DeepSkyBlue;"></div><noscript>
+    <div class="noscript-warning">This website works best with JavaScript enabled.</div>
+  </noscript>
+</div><script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    window.mermaid = mermaid;
+    window.mermaid.themes = ["default","dark"];
+  </script><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-03-10T22:18:14+08:00","version":"v0.3.13"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
