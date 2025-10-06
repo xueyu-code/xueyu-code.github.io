@@ -1,37 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://xueyu-code.github.io/categories/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
+    <loc>https://kzaqur.github.io/about/</loc>
   </url>
   <url>
-    <loc>https://xueyu-code.github.io/posts/xenomai/72c6f94/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
+    <loc>https://kzaqur.github.io/</loc>
   </url>
   <url>
-    <loc>https://xueyu-code.github.io/posts/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
+    <loc>https://kzaqur.github.io/categories/</loc>
   </url>
   <url>
-    <loc>https://xueyu-code.github.io/tags/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
+    <loc>https://kzaqur.github.io/collections/</loc>
   </url>
   <url>
-    <loc>https://xueyu-code.github.io/tags/xenomai/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xueyu-code.github.io/categories/xenomai/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xueyu-code.github.io/</loc>
-    <lastmod>2025-10-05T23:21:13+08:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xueyu-code.github.io/about/</loc>
-  </url>
-  <url>
-    <loc>https://xueyu-code.github.io/collections/</loc>
+    <loc>https://kzaqur.github.io/tags/</loc>
   </url>
 </urlset>
