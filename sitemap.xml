@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kzaqur.github.io/about/</loc>
+    <loc>https://xueyu-code.github.io/about/</loc>
   </url>
   <url>
-    <loc>https://kzaqur.github.io/</loc>
+    <loc>https://xueyu-code.github.io/categories/</loc>
   </url>
   <url>
-    <loc>https://kzaqur.github.io/categories/</loc>
+    <loc>https://xueyu-code.github.io/collections/</loc>
   </url>
   <url>
-    <loc>https://kzaqur.github.io/collections/</loc>
+    <loc>https://xueyu-code.github.io/tags/</loc>
   </url>
   <url>
-    <loc>https://kzaqur.github.io/tags/</loc>
+    <loc>https://xueyu-code.github.io/</loc>
   </url>
 </urlset>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Auseper&#39;s Home</title>
-    <link>https://kzaqur.github.io/</link>
-    <description>Auseper的博客，分享一些实用的技巧。</description>
+    <title>Xueyu&#39;s Home</title>
+    <link>https://xueyu-code.github.io/</link>
+    <description>我的的博客，分享一些实用的技巧。</description>
     <generator>Hugo 0.139.4 &amp; FixIt v0.3.13</generator>
     <language>en-us</language>
-    <managingEditor>KZaqur@outlook.com (Auseper)</managingEditor>
-    <webMaster>KZaqur@outlook.com (Auseper)</webMaster>
+    <managingEditor>18863956521@163.com (Xueyu)</managingEditor>
+    <webMaster>18863956521@163.com (Xueyu)</webMaster>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://kzaqur.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xueyu-code.github.io/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
