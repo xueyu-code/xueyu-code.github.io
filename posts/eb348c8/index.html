@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>英特尔®网卡时间敏感网络（TSN）技术综合报告 - Xueyu&#39;s Home</title><meta name="author" content="Xueyu">
+<meta name="description" content="浅论Linux实时化"><meta name="keywords" content='TSN'>
+  <meta itemprop="name" content="英特尔®网卡时间敏感网络（TSN）技术综合报告">
+  <meta itemprop="description" content="浅论Linux实时化">
+  <meta itemprop="datePublished" content="2025-10-06T16:32:27+08:00">
+  <meta itemprop="dateModified" content="2025-10-06T16:32:27+08:00">
+  <meta itemprop="wordCount" content="1753">
+  <meta itemprop="keywords" content="TSN"><meta property="og:url" content="https://xueyu-code.github.io/posts/eb348c8/">
+  <meta property="og:site_name" content="Xueyu&#39;s Home">
+  <meta property="og:title" content="英特尔®网卡时间敏感网络（TSN）技术综合报告">
+  <meta property="og:description" content="浅论Linux实时化">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-06T16:32:27+08:00">
+    <meta property="article:modified_time" content="2025-10-06T16:32:27+08:00">
+    <meta property="article:tag" content="TSN">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="英特尔®网卡时间敏感网络（TSN）技术综合报告">
+  <meta name="twitter:description" content="浅论Linux实时化">
+<meta name="application-name" content="Xueyu">
+<meta name="apple-mobile-web-app-title" content="Xueyu"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/eb348c8/" title="英特尔®网卡时间敏感网络（TSN）技术综合报告 - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/posts/4fecd7a/" title="LA_AMP_整理文档" /><link rel="next" type="text/html" href="https://xueyu-code.github.io/posts/f274c78/" title="TSN部署及测试报告" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/eb348c8/index.md" title="英特尔®网卡时间敏感网络（TSN）技术综合报告 - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "英特尔®网卡时间敏感网络（TSN）技术综合报告",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/xueyu-code.github.io\/posts\/eb348c8\/"
+    },"genre": "posts","keywords": "TSN","wordcount":  1753 ,
+    "url": "https:\/\/xueyu-code.github.io\/posts\/eb348c8\/","datePublished": "2025-10-06T16:32:27+08:00","dateModified": "2025-10-06T16:32:27+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Xueyu"
+      },"description": "浅论Linux实时化"
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Switch Theme"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">英特尔®网卡时间敏感网络（TSN）技术综合报告</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="Collections"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>英特尔®网卡时间敏感网络（TSN）技术综合报告</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://github.com/xueyu-code" title="Author"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><img loading="lazy" src="/images/avatar.png" alt="Xueyu" data-title="Xueyu" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Xueyu</a></span><span class="post-included-in">&nbsp;included in <a href="/categories/tsn/" class="post-category" title="Category - TSN"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> TSN</a></span></div><div class="post-meta-line"><span title="published on 2025-10-06 16:32:27"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-10-06">2025-10-06</time></span>&nbsp;<span title="1753 words"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>About 1800 words</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>9 minutes</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="英特尔®网卡时间敏感网络（TSN）技术综合报告"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;views
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章时间敏感网络tsn概述"><strong>第一章：时间敏感网络（TSN）概述</strong></a>
+      <ul>
+        <li><a href="#11-tsn的定义与重要性"><strong>1.1 TSN的定义与重要性</strong></a></li>
+        <li><a href="#12-tsn的核心优势与目标"><strong>1.2 TSN的核心优势与目标</strong></a></li>
+        <li><a href="#13-tsn技术演进简介"><strong>1.3 TSN技术演进简介</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章关键ieee-tsn标准详解"><strong>第二章：关键IEEE TSN标准详解</strong></a>
+      <ul>
+        <li><a href="#21-时间同步-ieee-8021asas-rev"><strong>2.1 时间同步 (IEEE 802.1AS/AS-REV)</strong></a></li>
+        <li><a href="#22-流量调度与整形"><strong>2.2 流量调度与整形</strong></a>
+          <ul>
+            <li><a href="#221-时间感知整形器-ieee-8021qbv---time-aware-shaper---tas"><strong>2.2.1 时间感知整形器 (IEEE 802.1Qbv - Time-Aware Shaper - TAS)</strong></a></li>
+            <li><a href="#222-帧抢占-ieee-8021qbu8023br---frame-preemption"><strong>2.2.2 帧抢占 (IEEE 802.1Qbu/802.3br - Frame Preemption)</strong></a></li>
+            <li><a href="#223-基于信用的整形器-ieee-8021qav---credit-based-shaper---cbs"><strong>2.2.3 基于信用的整形器 (IEEE 802.1Qav - Credit-Based Shaper - CBS)</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#23-可靠性与冗余-ieee-8021cb---frame-replication-and-elimination-for-reliability"><strong>2.3 可靠性与冗余 (IEEE 802.1CB - Frame Replication and Elimination for Reliability)</strong></a></li>
+        <li><a href="#24-其他相关标准简介"><strong>2.4 其他相关标准简介</strong></a></li>
+        <li><a href="#表格关键ieee-tsn标准总结"><strong>表格：关键IEEE TSN标准总结</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第三章支持tsn的英特尔以太网控制器与适配器"><strong>第三章：支持TSN的英特尔®以太网控制器与适配器</strong></a>
+      <ul>
+        <li><a href="#31-英特尔tsn产品线概览"><strong>3.1 英特尔TSN产品线概览</strong></a></li>
+        <li><a href="#32-主流tsn控制器详解"><strong>3.2 主流TSN控制器详解</strong></a>
+          <ul>
+            <li><a href="#321-英特尔以太网控制器i210系列"><strong>3.2.1 英特尔®以太网控制器I210系列</strong></a></li>
+            <li><a href="#322-英特尔以太网控制器i225i226系列"><strong>3.2.2 英特尔®以太网控制器I225/I226系列</strong></a></li>
+            <li><a href="#323-英特尔以太网800系列控制器-例如-e810"><strong>3.2.3 英特尔®以太网800系列控制器 (例如 E810)</strong></a></li>
+            <li><a href="#324-其他支持tsn的英特尔控制器系列-例如-500600700系列"><strong>3.2.4 其他支持TSN的英特尔®控制器系列 (例如 500/600/700系列)</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#33-英特尔-fpga在tsn中的应用"><strong>3.3 英特尔® FPGA在TSN中的应用</strong></a></li>
+        <li><a href="#表格支持tsn的英特尔以太网控制器适配器总结"><strong>表格：支持TSN的英特尔®以太网控制器/适配器总结</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第四章英特尔网卡tsn的实现与配置"><strong>第四章：英特尔®网卡TSN的实现与配置</strong></a>
+      <ul>
+        <li><a href="#41-硬件要求与注意事项"><strong>4.1 硬件要求与注意事项</strong></a></li>
+        <li><a href="#42-软件支持驱动程序与工具"><strong>4.2 软件支持：驱动程序与工具</strong></a>
+          <ul>
+            <li><a href="#421-linux环境下的tsn实现"><strong>4.2.1 Linux环境下的TSN实现</strong></a></li>
+            <li><a href="#422-windows环境下的tsn支持"><strong>4.2.2 Windows环境下的TSN支持</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#43-tsn网络配置关键步骤"><strong>4.3 TSN网络配置关键步骤</strong></a></li>
+        <li><a href="#44-英特尔-tsn参考软件与开发套件"><strong>4.4 英特尔® TSN参考软件与开发套件</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第五章英特尔-tsn解决方案的性能考量"><strong>第五章：英特尔® TSN解决方案的性能考量</strong></a>
+      <ul>
+        <li><a href="#51-关键性能指标延迟与抖动"><strong>5.1 关键性能指标：延迟与抖动</strong></a></li>
+        <li><a href="#52-英特尔网卡tsn基准测试概览"><strong>5.2 英特尔®网卡TSN基准测试概览</strong></a></li>
+        <li><a href="#53-影响tsn性能的因素"><strong>5.3 影响TSN性能的因素</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第六章英特尔-tsn技术的应用场景"><strong>第六章：英特尔® TSN技术的应用场景</strong></a>
+      <ul>
+        <li><a href="#61-工业自动化-智能工厂-工业物联网-iiot"><strong>6.1 工业自动化 (智能工厂, 工业物联网 IIoT)</strong></a></li>
+        <li><a href="#62-汽车电子-车载网络-adas"><strong>6.2 汽车电子 (车载网络, ADAS)</strong></a></li>
+        <li><a href="#63-专业音视频传输"><strong>6.3 专业音视频传输</strong></a></li>
+        <li><a href="#64-其他新兴应用领域"><strong>6.4 其他新兴应用领域</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#第七章总结与展望"><strong>第七章：总结与展望</strong></a>
+      <ul>
+        <li><a href="#71-英特尔-tsn技术总结"><strong>7.1 英特尔® TSN技术总结</strong></a></li>
+        <li><a href="#72-未来发展趋势与挑战"><strong>7.2 未来发展趋势与挑战</strong></a>
+          <ul>
+            <li><a href="#引用的著作"><strong>引用的著作</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="英特尔网卡时间敏感网络tsn技术综合报告" class="heading-element">
+  <a href="#%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1%e6%97%b6%e9%97%b4%e6%95%8f%e6%84%9f%e7%bd%91%e7%bb%9ctsn%e6%8a%80%e6%9c%af%e7%bb%bc%e5%90%88%e6%8a%a5%e5%91%8a" class="heading-mark"></a><span><strong>英特尔®网卡时间敏感网络（TSN）技术综合报告</strong></span>
+  <a href="#%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1%e6%97%b6%e9%97%b4%e6%95%8f%e6%84%9f%e7%bd%91%e7%bb%9ctsn%e6%8a%80%e6%9c%af%e7%bb%bc%e5%90%88%e6%8a%a5%e5%91%8a" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="第一章时间敏感网络tsn概述" class="heading-element">
+  <a href="#%e7%ac%ac%e4%b8%80%e7%ab%a0%e6%97%b6%e9%97%b4%e6%95%8f%e6%84%9f%e7%bd%91%e7%bb%9ctsn%e6%a6%82%e8%bf%b0" class="heading-mark"></a><span><strong>第一章：时间敏感网络（TSN）概述</strong></span>
+  <a href="#%e7%ac%ac%e4%b8%80%e7%ab%a0%e6%97%b6%e9%97%b4%e6%95%8f%e6%84%9f%e7%bd%91%e7%bb%9ctsn%e6%a6%82%e8%bf%b0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="11-tsn的定义与重要性" class="heading-element">
+  <a href="#11-tsn%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e9%87%8d%e8%a6%81%e6%80%a7" class="heading-mark"></a><span><strong>1.1 TSN的定义与重要性</strong></span>
+  <a href="#11-tsn%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e9%87%8d%e8%a6%81%e6%80%a7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>时间敏感网络（Time-Sensitive Networking, TSN）是由电气和电子工程师协会（IEEE）802.1工作组制定的一系列标准，旨在使传统的以太网能够支持时间关键型应用的确定性通信需求 1。传统以太网本质上是一种“尽力而为”（best effort）的网络技术，当网络流量遇到拥塞时，数据单元（称为帧）可能会被缓冲、排队，甚至被丢弃和重传 2。这种机制对于电子邮件收发或文件共享等日常办公应用通常足够，但在许多工业控制、汽车电子和专业音视频领域，数据传输的精确时间和可预测性至关重要，任何微小的延迟或数据丢失都可能导致系统故障或安全问题。<br>
+TSN的出现正是为了解决这一挑战。它并非一项全新的网络技术，而是对现有以太网标准的增强和扩展，使其能够在保持以太网广泛应用和成本效益优势的同时，提供确定性的服务质量。TSN的演进可以追溯到IEEE的音频视频桥接（Audio Video Bridging, AVB）任务组。2012年，由于确定性以太网的需求日益增长，并扩展到汽车、工业自动化等更广泛的领域，该任务组更名为时间敏感网络任务组 2。这一转变标志着TSN的目标从最初的音视频传输扩展到支持所有需要精确时间控制和数据包按时送达的应用。<br>
+TSN技术的一个核心驱动力在于推动运营技术（Operational Technology, OT）网络与信息技术（Information Technology, IT）网络的融合 6。OT网络通常承载着控制指令、传感器数据等对实时性和确定性要求极高的流量，而IT网络则主要处理电子邮件、数据库访问等非实时关键的“尽力而为”型流量。在传统架构中，这两类网络往往是物理隔离的，以确保OT网络的性能和可靠性不受IT网络流量的干扰。TSN通过引入一系列标准化的机制，使得不同类型的流量可以在同一个物理以太网基础设施上共存和传输，关键业务流量的性能得到保障，而非关键业务流量也能有效利用网络资源。这种融合不仅简化了网络架构，降低了布线和维护成本，还为实现工业物联网（IIoT）和工业4.0等先进制造理念奠定了网络基础，使得从生产现场到企业管理层的数据流通更加便捷高效。</p>
+<h3 id="12-tsn的核心优势与目标" class="heading-element">
+  <a href="#12-tsn%e7%9a%84%e6%a0%b8%e5%bf%83%e4%bc%98%e5%8a%bf%e4%b8%8e%e7%9b%ae%e6%a0%87" class="heading-mark"></a><span><strong>1.2 TSN的核心优势与目标</strong></span>
+  <a href="#12-tsn%e7%9a%84%e6%a0%b8%e5%bf%83%e4%bc%98%e5%8a%bf%e4%b8%8e%e7%9b%ae%e6%a0%87" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>TSN技术旨在为以太网引入一系列关键特性，使其能够满足时间敏感应用的需求。其核心优势与目标主要体现在以下几个方面：</p>
+<ol>
+<li><strong>确定性通信 (Determinism):</strong> 这是TSN最核心的目标。它确保数据能够在预定的时间窗口内从源点传输到目标点，具有极低的、可预测的延迟（bounded low latency）和抖动（jitter）2。部分TSN实现能够达到微秒级的时间精度 2，甚至在特定硬件支持下达到纳秒级。</li>
+<li><strong>互操作性 (Interoperability):</strong> TSN基于开放的IEEE标准，这意味着来自不同供应商的、符合TSN标准的设备能够在网络层面实现互通 3。这打破了以往工业以太网领域存在多种私有协议、互不兼容的局面，避免了供应商锁定（vendor lock-in），为用户提供了更广泛的设备选择空间 6。这种互操作性从根本上改变了复杂系统的设计模式，工程师不再被迫从单一供应商处采购所有组件，也无需在不同协议间部署复杂的网关来实现确定性通信。</li>
+<li><strong>可靠性与冗余 (Reliability &amp; Redundancy):</strong> TSN标准包含用于减少数据包丢失和提高网络容错能力的机制 2。例如，通过帧复制和消除等技术，确保关键数据在网络发生故障时仍能可靠传输。</li>
+<li><strong>资源管理与效率 (Resource Management/Efficiency):</strong> 通过对网络流量进行优先级划分、带宽预留和精细调度，TSN能够优化网络资源的使用，提高网络整体效率 2。</li>
+<li><strong>可扩展性 (Scalability):</strong> 作为以太网标准族的一部分，TSN天然继承了以太网良好的可扩展性，能够适应从小型自动化单元到大型复杂网络（如智能电网）的各种规模应用 3。</li>
+<li><strong>成本降低 (Cost Reduction):</strong> 采用标准化的以太网技术，以及网络融合带来的设备和布线数量的减少，有助于显著降低系统的总体拥有成本，包括硬件采购、研发和维护费用 6。</li>
+</ol>
+<p>这些优势共同构成了TSN技术的价值主张，使其成为支撑下一代工业自动化、智能汽车、专业媒体网络等领域的关键技术。特别是其提供的确定性、可靠性和时间同步能力，为那些对时间有极致要求的复杂应用（如高级驾驶辅助系统ADAS、自动驾驶、精密机器人控制等）的实现铺平了道路，在这些应用中，即便是微不足道的延迟也可能导致严重后果 2。</p>
+<h3 id="13-tsn技术演进简介" class="heading-element">
+  <a href="#13-tsn%e6%8a%80%e6%9c%af%e6%bc%94%e8%bf%9b%e7%ae%80%e4%bb%8b" class="heading-mark"></a><span><strong>1.3 TSN技术演进简介</strong></span>
+  <a href="#13-tsn%e6%8a%80%e6%9c%af%e6%bc%94%e8%bf%9b%e7%ae%80%e4%bb%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>TSN并非一蹴而就的技术，而是经历了一个持续演进和扩展的过程。其技术根源可追溯至IEEE的音频视频桥接（AVB）任务组 2。AVB最初的目标是为专业音视频领域提供低延迟、同步的以太网传输方案。<br>
+随着技术的发展和应用需求的扩展，工业自动化、汽车电子等领域对以太网确定性传输能力的需求日益迫切。这些领域不仅需要传输音视频这类流媒体数据，更需要传输控制信令、传感器数据等对时间精度和可靠性要求更为严苛的信息。仅仅依靠AVB已有的标准已不足以满足这些新兴的需求。<br>
+因此，在2012年，IEEE AVB任务组正式更名为时间敏感网络（TSN）任务组 2。这一名称的改变反映了其工作范围的扩大，从专注于音视频桥接扩展到为更广泛的时间敏感应用提供通用的以太网解决方案。TSN继承了AVB在时间同步、流量整形等方面的核心理念，并在此基础上发展出一整套更为全面和细致的标准，涵盖了时间同步、流量调度、帧抢占、冗余传输、网络配置等多个方面 1。<br>
+TSN是一个不断发展的标准集合 8，这意味着它并非一个静态的技术规范。随着应用场景的不断涌现和技术的进步，新的标准和对现有标准的修订会持续推出。例如，针对车载以太网通信，IEEE推出了P802.1DG TSN应用纲要 2；而原有的时间同步标准IEEE 802.1AS也在2020年发布了修订版（IEEE 802.1AS-2020），增加了对多时钟域、更快的网络主时钟切换以及冗余时钟同步等功能的支持 4。这种持续演进的特性要求TSN的实现者和用户保持对最新标准动态的关注，同时也凸显了可重配置硬件（如FPGA）在TSN设备实现中的重要性，因为它们能够灵活适应标准的变化 6。</p>
+<h2 id="第二章关键ieee-tsn标准详解" class="heading-element">
+  <a href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0%e5%85%b3%e9%94%aeieee-tsn%e6%a0%87%e5%87%86%e8%af%a6%e8%a7%a3" class="heading-mark"></a><span><strong>第二章：关键IEEE TSN标准详解</strong></span>
+  <a href="#%e7%ac%ac%e4%ba%8c%e7%ab%a0%e5%85%b3%e9%94%aeieee-tsn%e6%a0%87%e5%87%86%e8%af%a6%e8%a7%a3" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>TSN并非单一标准，而是一系列协同工作的IEEE 802.1标准的集合。这些标准共同为以太网赋予了时间敏感特性。理解这些核心标准对于深入掌握TSN技术至关重要。</p>
+<h3 id="21-时间同步-ieee-8021asas-rev" class="heading-element">
+  <a href="#21-%e6%97%b6%e9%97%b4%e5%90%8c%e6%ad%a5-ieee-8021asas-rev" class="heading-mark"></a><span><strong>2.1 时间同步 (IEEE 802.1AS/AS-REV)</strong></span>
+  <a href="#21-%e6%97%b6%e9%97%b4%e5%90%8c%e6%ad%a5-ieee-8021asas-rev" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>时间同步是TSN的基石。所有参与TSN网络的设备，包括终端节点、交换机、网桥和网关，都必须共享一个统一的、高精度的时间基准 2。没有精确的时间同步，后续的流量调度、门控机制等都无法有效实施。<br>
+IEEE 802.1AS标准，通常被称为通用精确时间协议（generalized Precision Time Protocol, gPTP），定义了TSN网络中的时间同步机制。它基于广泛应用的IEEE 1588 PTP标准，并针对TSN应用进行了优化 4。通过gPTP，TSN网络中的设备能够将其本地时钟同步到纳秒级或亚微秒级的精度 2。这种高精度之所以能够实现，关键在于PTP报文的时间戳是在网络硬件层面（如物理层PHY或媒体访问控制层MAC）生成的，而非像网络时间协议（NTP）那样在软件层面处理，从而避免了操作系统调度等引入的延迟和不确定性 4。这意味着TSN设备（尤其是支持802.1AS的网卡和交换机）必须具备硬件时间戳能力。<br>
+最初的IEEE 802.1AS-2011标准奠定了TSN时间同步的基础。后续发布的IEEE 802.1AS-2020（也被称为802.1AS-REV）在此基础上进行了多项重要增强，以满足更复杂和更严苛的应用需求 4。这些增强包括：</p>
+<ul>
+<li>支持多个时间域（例如，墙上时钟和工作时钟）。</li>
+<li>更快的网络主时钟（Grandmaster Clock）切换机制。</li>
+<li>改进的最佳主时钟算法（Best Master Clock Algorithm, BMCA）的收敛时间。</li>
+<li>支持冗余时间同步路径和冗余主时钟，以提高时间同步的可靠性和容错性。</li>
+</ul>
+<p>这些改进使得802.1AS-2020能够更好地服务于对时间同步的稳定性和精度要求极高的关键任务应用。尽管802.1AS定义了同步协议，但在复杂的网络中管理时间同步（如通过BMCA选举主时钟、精确测量路径延迟、处理网络拓扑变化和故障）仍然需要仔细的配置和健壮的实现。诸如ptp4l和phc2sys等用户态工具的出现 8，也从侧面反映了TSN时间同步部署和管理的复杂性。英特尔®的多款以太网控制器，如I210、I225/I226系列以及E810系列，均提供了对IEEE 802.1AS或底层IEEE 1588 PTP的支持 11。</p>
+<h3 id="22-流量调度与整形" class="heading-element">
+  <a href="#22-%e6%b5%81%e9%87%8f%e8%b0%83%e5%ba%a6%e4%b8%8e%e6%95%b4%e5%bd%a2" class="heading-mark"></a><span><strong>2.2 流量调度与整形</strong></span>
+  <a href="#22-%e6%b5%81%e9%87%8f%e8%b0%83%e5%ba%a6%e4%b8%8e%e6%95%b4%e5%bd%a2" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在共享的以太网上传输多种类型的数据流时，必须有机制来区分和优先处理时间关键型数据。TSN通过一系列流量调度和整形标准来实现这一目标，确保高优先级数据流获得其所需的带宽和低延迟保证。</p>
+<h4 id="221-时间感知整形器-ieee-8021qbv---time-aware-shaper---tas" class="heading-element">
+  <a href="#221-%e6%97%b6%e9%97%b4%e6%84%9f%e7%9f%a5%e6%95%b4%e5%bd%a2%e5%99%a8-ieee-8021qbv---time-aware-shaper---tas" class="heading-mark"></a><span><strong>2.2.1 时间感知整形器 (IEEE 802.1Qbv - Time-Aware Shaper - TAS)</strong></span>
+  <a href="#221-%e6%97%b6%e9%97%b4%e6%84%9f%e7%9f%a5%e6%95%b4%e5%bd%a2%e5%99%a8-ieee-8021qbv---time-aware-shaper---tas" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>IEEE 802.1Qbv，即时间感知整形器（TAS），是TSN中实现严格确定性流量调度的核心机制之一 3。TAS的工作原理是在以太网交换机或终端节点的每个输出端口的每个队列上设置可编程的“门”（gate）。这些门根据一个全局同步的时间表（schedule）周期性地打开和关闭，从而精确控制哪些队列中的数据包可以在何时被发送。<br>
+通过TAS，网络管理员可以为高优先级的周期性流量（如工业控制系统中的控制指令）创建受保护的传输窗口期 4。在这些窗口期内，只有分配给该窗口的特定队列的门是打开的，其他队列（尤其是承载低优先级或尽力而为流量的队列）的门则关闭。这样可以有效避免高优先级流量受到低优先级流量的干扰和延迟。为了防止在窗口切换的边界时刻，一个即将完成发送的低优先级长数据包“侵占”下一个为高优先级流量预留的窗口，通常需要在时间表中设置保护带（guard bands）4。保护带的长度一般设置为网络允许的最大传输单元（MTU），以确保在关键窗口开始之前，有足够的时间让可能存在的低优先级数据包完成发送或被阻止。<br>
+TAS的有效运作高度依赖于精确的时间同步（由IEEE 802.1AS提供）和统一的网络配置。通常需要一个集中的网络配置实体（Centralized Network Configuration, CNC），如IEEE 802.1Qcc所定义的部分功能，来计算和分发全局的时间表给网络中的所有TSN交换机和终端节点 3。时间表的计算本身可能相当复杂，需要考虑网络拓扑、流量路径、数据包大小、周期等多种因素 9。同时，虽然保护带对于保障关键流量的确定性至关重要，但如果设计不当（如过大或过于频繁），也可能导致一部分网络带宽的闲置，形成确定性保障与带宽利用率之间的权衡。英特尔®的I210、I225和I226系列控制器均支持IEEE 802.1Qbv标准 8。</p>
+<h4 id="222-帧抢占-ieee-8021qbu8023br---frame-preemption" class="heading-element">
+  <a href="#222-%e5%b8%a7%e6%8a%a2%e5%8d%a0-ieee-8021qbu8023br---frame-preemption" class="heading-mark"></a><span><strong>2.2.2 帧抢占 (IEEE 802.1Qbu/802.3br - Frame Preemption)</strong></span>
+  <a href="#222-%e5%b8%a7%e6%8a%a2%e5%8d%a0-ieee-8021qbu8023br---frame-preemption" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>IEEE 802.1Qbu（与IEEE 802.3br协同工作）定义了帧抢占机制，旨在进一步降低高优先级“快速”（express）流量的延迟 3。在传统的以太网中，一旦一个数据帧开始发送，就必须完整发送完毕才能发送下一个帧。如果一个低优先级的长帧（如文件传输的大数据块）正在发送，而此时一个高优先级的短帧（如紧急控制信号）到达，高优先级帧必须等待长帧发送完毕，从而产生不可接受的延迟。<br>
+帧抢占机制允许高优先级的快速帧中断（抢占）正在发送的低优先级“可抢占”（preemptable）帧的传输 4。当发生抢占时，可抢占帧的剩余部分会被暂存，快速帧则立即发送。快速帧发送完毕后，被中断的可抢占帧的剩余部分会继续发送。为了区分正常的帧和被抢占的帧片段，802.3br标准定义了相关的MAC层信令。这种机制显著减少了高优先级流量的等待时间，尤其是在混合了大量长帧和短关键帧的网络环境中 4。<br>
+IEEE 802.1Qbu还为IEEE 802.1Qbv的门控列表命令增加了帧抢占的微调控制，例如，可以在一个传输窗口内决定是保持还是释放可抢占帧的传输 4。这表明TAS和帧抢占是可以协同工作的，共同优化网络性能。应用程序的流量流也可以被映射到快速帧传输队列或可抢占帧传输队列。实现帧抢占（在MAC层对帧进行分片和重组）对以太网控制器的硬件设计提出了更高的要求，是TSN能力网卡的一个重要特征。英特尔®的I225和I226系列控制器支持IEEE 802.1Qbu和802.3br标准 11。</p>
+<h4 id="223-基于信用的整形器-ieee-8021qav---credit-based-shaper---cbs" class="heading-element">
+  <a href="#223-%e5%9f%ba%e4%ba%8e%e4%bf%a1%e7%94%a8%e7%9a%84%e6%95%b4%e5%bd%a2%e5%99%a8-ieee-8021qav---credit-based-shaper---cbs" class="heading-mark"></a><span><strong>2.2.3 基于信用的整形器 (IEEE 802.1Qav - Credit-Based Shaper - CBS)</strong></span>
+  <a href="#223-%e5%9f%ba%e4%ba%8e%e4%bf%a1%e7%94%a8%e7%9a%84%e6%95%b4%e5%bd%a2%e5%99%a8-ieee-8021qav---credit-based-shaper---cbs" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>IEEE 802.1Qav，即基于信用的整形器（CBS），主要用于为对时间敏感、对丢包敏感的实时数据流（如音视频流）提供有界的传输延迟保证 8。CBS最初是为AVB应用设计的。<br>
+CBS的工作机制是为每个支持AVB的输出队列分配“信用”（credit）。只有当队列拥有足够的信用时，它才能发送数据包。信用的消耗与发送数据包的大小有关，而信用的积累则与为该队列配置的保证带宽（idleslope）和最大突发（hicredit）等参数有关。通过这种机制，即使在网络存在大量尽力而为流量的情况下，CBS也能确保AVB流获得其预留的带宽，并将其延迟控制在一定的范围内 8。<br>
+虽然TAS（802.1Qbv）为周期性控制流量提供了严格的调度，但CBS（802.1Qav）更适合那些需要持续带宽保证但不必严格遵循预定时间槽的流媒体类应用。这两种机制可以在同一个TSN网络中共存，通过不同的优先级队列和整形算法进行管理。例如，英特尔®的I210、I225和I226系列控制器均支持IEEE 802.1Qav 8，同时也支持802.1Qbv，使得它们能够灵活应对不同类型的实时流量需求。</p>
+<h3 id="23-可靠性与冗余-ieee-8021cb---frame-replication-and-elimination-for-reliability" class="heading-element">
+  <a href="#23-%e5%8f%af%e9%9d%a0%e6%80%a7%e4%b8%8e%e5%86%97%e4%bd%99-ieee-8021cb---frame-replication-and-elimination-for-reliability" class="heading-mark"></a><span><strong>2.3 可靠性与冗余 (IEEE 802.1CB - Frame Replication and Elimination for Reliability)</strong></span>
+  <a href="#23-%e5%8f%af%e9%9d%a0%e6%80%a7%e4%b8%8e%e5%86%97%e4%bd%99-ieee-8021cb---frame-replication-and-elimination-for-reliability" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>对于许多安全关键型系统（如汽车的自动驾驶系统或工业生产线的核心控制单元），任何因单点故障（如线缆断裂、交换机故障）导致的数据丢失都是不可接受的。IEEE 802.1CB标准，即“帧复制与消除以实现可靠性”，为TSN网络提供了标准化的无缝冗余机制 3。<br>
+802.1CB的核心思想是在发送端将关键数据帧复制多份（通常是两份），并通过网络中物理上分离（disjoint）的多条路径同时发送到接收端 6。接收端会处理最先到达的有效数据帧副本，并丢弃随后到达的其他副本。这样，即使其中一条路径发生故障，数据仍然有很大概率通过其他路径成功送达，从而大大提高了通信的可靠性和网络的弹性 3。<br>
+要有效地实施802.1CB，网络拓扑设计至关重要，必须确保复制的帧能够通过真正相互独立的路径进行传输。此外，还需要路径控制和预留机制（如IEEE 802.1Qca标准所定义的部分功能）来建立和管理这些冗余路径 6。因此，802.1CB不仅仅是终端设备的功能，更是一个系统级的特性，涉及到整个网络的规划和配置。虽然在提供的资料中未明确指出英特尔®特定网卡对802.1CB的直接支持情况，但英特尔®与TTTech合作的白皮书已将其列为TSN的关键标准之一 6，而一些第三方TSN交换机芯片（如博通的BCM56070 18）也已支持此标准，表明其在TSN生态系统中的重要性。</p>
+<h3 id="24-其他相关标准简介" class="heading-element">
+  <a href="#24-%e5%85%b6%e4%bb%96%e7%9b%b8%e5%85%b3%e6%a0%87%e5%87%86%e7%ae%80%e4%bb%8b" class="heading-mark"></a><span><strong>2.4 其他相关标准简介</strong></span>
+  <a href="#24-%e5%85%b6%e4%bb%96%e7%9b%b8%e5%85%b3%e6%a0%87%e5%87%86%e7%ae%80%e4%bb%8b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>除了上述核心标准外，TSN标准体系还包含许多其他用于完善网络功能、简化配置和针对特定应用的规范。</p>
+<ul>
+<li><strong>IEEE 802.1Qcc (Stream Reservation Protocol Enhancements and Performance Improvements):</strong> 该标准对原有的流预留协议（SRP）进行了增强，定义了用于TSN网络的集中式（Centralized Network Configuration, CNC）和分布式（Distributed User Network Configuration, DUNC）配置模型，以及用户网络接口（User Network Interface, UNI）3。这有助于简化TSN流的建立和网络资源的统一管理。</li>
+<li><strong>IEEE 802.1Qci (Per-Stream Filtering and Policing):</strong> 该标准定义了在交换机入口处对每个数据流进行过滤和策略控制的机制，例如限制特定流的带宽、丢弃不符合规范的数据包等。这有助于防止因终端设备故障或恶意行为（如发送过多流量）而影响整个网络的正常运行，增强了网络的健壮性 6。</li>
+<li><strong>IEEE 802.1Qch (Cyclic Queuing and Forwarding):</strong> 该标准定义了一种循环排队和转发机制，通过为每个端口的队列分配固定的传输时间片，并以循环方式依次服务这些队列，从而为流量提供有界的延迟。它通常与802.1Qbv（用于流量整形）和802.1Qci（用于缓冲区分配）等标准结合使用 6。</li>
+<li><strong>IEEE P802.1DG (TSN Profile for Automotive In-Vehicle Ethernet Communications):</strong> 这是一个针对车载以太网通信的TSN应用纲要（profile），它从现有的TSN标准中选取适用于汽车环境的特性和参数，并进行必要的定制，以满足车载网络在成本、功耗、EMC等方面的特殊要求 2。</li>
+<li><strong>IEEE 802.1CM (Time-Sensitive Networking for Fronthaul):</strong> 该标准主要面向5G等移动通信网络的前传（fronthaul）应用场景，定义了如何在以太网上传输对时延和同步要求极高的前传数据流 17。</li>
+</ul>
+<p>这些标准的存在表明TSN并非一个僵化的单一解决方案，而是一个功能丰富的“工具箱”。不同的应用场景和网络部分可以根据其实际需求，选择和实现TSN标准集中的一个子集。并非所有的TSN设备（包括英特尔®的网卡）都需要支持全部的TSN标准，关键在于选择与应用需求相匹配的功能组合。例如，英特尔® I225/I226系列网卡的数据手册中就列出了其支持的一个特定的TSN标准子集 11。</p>
+<h3 id="表格关键ieee-tsn标准总结" class="heading-element">
+  <a href="#%e8%a1%a8%e6%a0%bc%e5%85%b3%e9%94%aeieee-tsn%e6%a0%87%e5%87%86%e6%80%bb%e7%bb%93" class="heading-mark"></a><span><strong>表格：关键IEEE TSN标准总结</strong></span>
+  <a href="#%e8%a1%a8%e6%a0%bc%e5%85%b3%e9%94%aeieee-tsn%e6%a0%87%e5%87%86%e6%80%bb%e7%bb%93" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>为了更清晰地展示上述关键TSN标准及其核心功能，下表进行了总结：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">IEEE 标准</th>
+          <th style="text-align: left">通用名称/核心功能</th>
+          <th style="text-align: left">主要目的</th>
+          <th style="text-align: left">关键功能特性</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">IEEE 802.1AS-2011/2020</td>
+          <td style="text-align: left">时间同步 (gPTP)</td>
+          <td style="text-align: left">为所有TSN设备提供统一、高精度的时间基准</td>
+          <td style="text-align: left">基于IEEE 1588 PTP，通过硬件时间戳实现亚微秒级时钟同步；2020版增强了多时钟域、快速主时钟切换和冗余同步等功能 2。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1Qbv</td>
+          <td style="text-align: left">时间感知整形器 (TAS)</td>
+          <td style="text-align: left">为周期性、时间关键型流量提供严格的确定性调度</td>
+          <td style="text-align: left">基于全局同步时间表，通过控制每个队列的传输门（gate）的周期性开关，为关键流量创建受保护的传输窗口，并使用保护带隔离不同优先级流量 3。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1Qbu/802.3br</td>
+          <td style="text-align: left">帧抢占 (Frame Preemption)</td>
+          <td style="text-align: left">降低高优先级“快速”流量因被低优先级长帧阻塞而产生的延迟</td>
+          <td style="text-align: left">允许高优先级快速帧中断正在发送的低优先级可抢占帧；被抢占帧分片传输，快速帧发送完毕后继续传输剩余部分；需要MAC层支持 3。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1Qav</td>
+          <td style="text-align: left">基于信用的整形器 (CBS)</td>
+          <td style="text-align: left">为音视频流等需要持续带宽保证的实时数据流提供有界延迟</td>
+          <td style="text-align: left">基于信用机制为每个AVB队列分配带宽，确保即使在网络拥塞时，AVB流也能获得预留资源，平滑传输 8。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1CB</td>
+          <td style="text-align: left">帧复制与消除以实现可靠性 (FRER)</td>
+          <td style="text-align: left">通过冗余传输提高关键数据通信的可靠性，应对网络单点故障</td>
+          <td style="text-align: left">在发送端复制关键数据帧，通过网络中物理分离的多条路径同时发送；接收端处理最先到达的有效副本，丢弃冗余副本 3。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1Qcc</td>
+          <td style="text-align: left">流预留协议增强与性能改进 (SRP Enhancements)</td>
+          <td style="text-align: left">定义TSN网络的集中式和分布式配置模型，简化流建立和资源管理</td>
+          <td style="text-align: left">提供用户网络接口（UNI），支持CNC（集中式网络配置）和DUNC（分布式用户网络配置）两种模式 3。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1Qci</td>
+          <td style="text-align: left">每流过滤和策略控制 (Per-Stream Filtering and Policing)</td>
+          <td style="text-align: left">保护网络免受故障或恶意节点的干扰，增强网络健壮性</td>
+          <td style="text-align: left">在交换机入口对每个数据流进行过滤（如VLAN ID、优先级）和策略控制（如带宽限制、丢弃违规数据包）6。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE P802.1DG</td>
+          <td style="text-align: left">车载TSN应用纲要 (Automotive Profile)</td>
+          <td style="text-align: left">针对车载以太网通信环境定制TSN特性和参数</td>
+          <td style="text-align: left">从现有TSN标准中选取适用于汽车的子集，并考虑成本、功耗、EMC等特殊要求 2。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">IEEE 802.1CM</td>
+          <td style="text-align: left">面向前传的TSN (TSN for Fronthaul)</td>
+          <td style="text-align: left">满足5G等移动通信网络前传应用对低时延、高同步的传输需求</td>
+          <td style="text-align: left">定义在以太网上传输对时延和同步要求极高的前传数据流的机制 17。</td>
+      </tr>
+  </tbody>
+</table>
+<p>此表为后续章节讨论英特尔®产品具体支持哪些TSN标准提供了参考依据。</p>
+<h2 id="第三章支持tsn的英特尔以太网控制器与适配器" class="heading-element">
+  <a href="#%e7%ac%ac%e4%b8%89%e7%ab%a0%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8%e4%b8%8e%e9%80%82%e9%85%8d%e5%99%a8" class="heading-mark"></a><span><strong>第三章：支持TSN的英特尔®以太网控制器与适配器</strong></span>
+  <a href="#%e7%ac%ac%e4%b8%89%e7%ab%a0%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8%e4%b8%8e%e9%80%82%e9%85%8d%e5%99%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>英特尔®作为全球领先的半导体和网络技术供应商，在推动TSN技术的发展和应用方面扮演着重要角色。公司推出了一系列支持TSN功能的以太网控制器和适配器，覆盖了从嵌入式系统到高性能服务器的广泛应用领域。</p>
+<h3 id="31-英特尔tsn产品线概览" class="heading-element">
+  <a href="#31-%e8%8b%b1%e7%89%b9%e5%b0%94tsn%e4%ba%a7%e5%93%81%e7%ba%bf%e6%a6%82%e8%a7%88" class="heading-mark"></a><span><strong>3.1 英特尔TSN产品线概览</strong></span>
+  <a href="#31-%e8%8b%b1%e7%89%b9%e5%b0%94tsn%e4%ba%a7%e5%93%81%e7%ba%bf%e6%a6%82%e8%a7%88" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>英特尔®提供的TSN解决方案并非局限于某一特定市场或性能层级，而是展现出一种将其融入广泛以太网产品组合的策略。这表明英特尔®预见到TSN技术将在各个领域得到普及和应用。其TSN产品线涵盖了不同速率等级的以太网控制器和适配器，从千兆以太网（GbE）到高达200GbE的超高速连接均有涉及 11。这些产品广泛应用于移动设备、台式机、工作站、价值型服务器、工业控制系统以及各种嵌入式设计中 11。这种广泛的市场覆盖策略，旨在降低TSN技术的门槛，使其不仅仅是高端或特定利基市场的专属技术。</p>
+<h3 id="32-主流tsn控制器详解" class="heading-element">
+  <a href="#32-%e4%b8%bb%e6%b5%81tsn%e6%8e%a7%e5%88%b6%e5%99%a8%e8%af%a6%e8%a7%a3" class="heading-mark"></a><span><strong>3.2 主流TSN控制器详解</strong></span>
+  <a href="#32-%e4%b8%bb%e6%b5%81tsn%e6%8e%a7%e5%88%b6%e5%99%a8%e8%af%a6%e8%a7%a3" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>以下将详细介绍几款在TSN应用中备受关注的英特尔®以太网控制器系列。</p>
+<h4 id="321-英特尔以太网控制器i210系列" class="heading-element">
+  <a href="#321-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8i210%e7%b3%bb%e5%88%97" class="heading-mark"></a><span><strong>3.2.1 英特尔®以太网控制器I210系列</strong></span>
+  <a href="#321-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8i210%e7%b3%bb%e5%88%97" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>英特尔®I210系列是一款成熟的单端口千兆以太网媒体访问控制器（MAC）和物理层接口（PHY）集成芯片 13。它凭借对关键TSN功能的早期支持，成为了TSN技术发展和实验的重要硬件平台，尤其是在Linux环境下。<br>
+<strong>主要TSN特性与规格：</strong></p>
+<ul>
+<li><strong>支持的TSN标准：</strong> I210明确支持IEEE 802.1Qav音频视频桥接（AVB）和IEEE 802.1AS精确时间戳（Precision Time Stamping）13。此外，在特定的软件和配置下（如StarlingX项目中的演示），I210也被证明能够支持时间感知整形器（TAS, IEEE 802.1Qbv）以及相关的发送时间（LaunchTime）控制功能 8。</li>
+<li><strong>硬件队列：</strong> I210为其单端口提供了4个发送队列和4个接收队列，并支持纠错码（ECC）保护，以提高数据传输的可靠性 13。</li>
+<li><strong>应用领域：</strong> I210主要面向桌面计算机、服务器以及嵌入式应用，包括工业自动化、车载信息娱乐系统（In-Vehicle Infotainment, IVI）、医疗设备和打印成像等领域 13。</li>
+<li><strong>软件支持：</strong> 在Linux系统中，I210通常使用igb.ko内核驱动模块 8。它也是一些TSN研究和开发项目的首选硬件之一，例如在StarlingX边缘计算平台中用于演示TSN的CBS和TAS功能 8，以及在一些汽车TSN实验环境中被采用 17。</li>
+</ul>
+<p>尽管I210拥有4个硬件队列，这对于许多基本的TSN应用场景已经足够，但在需要处理大量具有不同优先级和整形需求的复杂TSN流量时，其队列数量可能会成为一个限制因素，相比之下，更新的控制器可能提供更多的硬件队列资源。然而，I210作为一款较早支持核心TSN功能的控制器，为开发者和研究人员提供了一个易于获取和使用的平台，对TSN技术的早期探索和生态系统的构建起到了积极作用。</p>
+<h4 id="322-英特尔以太网控制器i225i226系列" class="heading-element">
+  <a href="#322-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8i225i226%e7%b3%bb%e5%88%97" class="heading-mark"></a><span><strong>3.2.2 英特尔®以太网控制器I225/I226系列</strong></span>
+  <a href="#322-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8i225i226%e7%b3%bb%e5%88%97" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>英特尔®I225和I226系列是继I210之后推出的新一代单端口多千兆（最高支持2.5GbE）以太网控制器，它们在TSN功能支持的全面性和网络速率上都有显著提升 11。这两个系列代表了英特尔®将TSN能力向主流应用推广的重要一步。<br>
+<strong>主要TSN特性与规格：</strong></p>
+<ul>
+<li><strong>支持的TSN标准：</strong> I225/I226系列支持一套更为完整的TSN标准组合，包括（在特定操作系统上）：
+<ul>
+<li>IEEE 802.1Qbu（帧抢占）与 IEEE 802.3br（穿插快速流量）</li>
+<li>IEEE 802.1Qbv（时间感知整形器 - TAS）</li>
+<li>IEEE 802.1AS-REV（增强型时间同步）</li>
+<li>IEEE 802.1p/Q（优先级标记与VLAN）</li>
+<li>IEEE 802.1Qav（基于信用的整形器 - CBS）11</li>
+</ul>
+</li>
+<li><strong>应用领域：</strong> I225/I226系列的目标市场非常广泛，涵盖移动设备、台式机、工作站、价值型服务器以及工业设计 11。其中，I225-IT和I226-IT等型号专为工业级应用设计，支持更宽的工作温度范围 11。</li>
+<li><strong>软件支持：</strong>
+<ul>
+<li><strong>Linux：</strong> 使用igc内核驱动 23。社区也涌现出如detd（Deterministic Ethernet Daemon）这样的用户态工具，旨在简化在I225/I226上配置TSN功能的复杂度 25。英特尔®也提供了相关的“入门指南”（尽管部分文档可能需要特定权限访问）26。</li>
+<li><strong>Windows：</strong> 支持Windows 10和Windows 11操作系统，并提供相应的驱动程序 24。</li>
+</ul>
+</li>
+<li><strong>I226相对I225的增强：</strong> I226在I225的基础上进行了一些改进，主要包括更低的误码率（BER）、在长线缆条件下更好的数据包传输性能以及更低的工作功耗 12。</li>
+</ul>
+<p>I225/I226系列凭借其全面的TSN特性集和对主流平台的广泛支持，正成为推动TSN技术普及的关键硬件。同时，围绕这些控制器开发的软件生态系统（如detd工具）也在不断发展，尽管目前可能还存在一些功能限制（例如detd对发送时间控制的支持尚不完善 25），但这预示着未来TSN的配置和管理将更加便捷。</p>
+<h4 id="323-英特尔以太网800系列控制器-例如-e810" class="heading-element">
+  <a href="#323-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91800%e7%b3%bb%e5%88%97%e6%8e%a7%e5%88%b6%e5%99%a8-%e4%be%8b%e5%a6%82-e810" class="heading-mark"></a><span><strong>3.2.3 英特尔®以太网800系列控制器 (例如 E810)</strong></span>
+  <a href="#323-%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91800%e7%b3%bb%e5%88%97%e6%8e%a7%e5%88%b6%e5%99%a8-%e4%be%8b%e5%a6%82-e810" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>英特尔®以太网800系列控制器（如E810、E830）代表了英特尔®在高性能网络领域的TSN解决方案，主要面向数据中心、电信和高端企业级应用 20。这些控制器不仅提供极高的网络带宽，还将精确的时间同步和流量管理能力融入其中。<br>
+<strong>主要TSN特性与规格：</strong></p>
+<ul>
+<li><strong>超高网络速率：</strong> 800系列控制器支持高达200GbE的网络速度（具体型号如E810、E830）20。例如，E810-XXVDA2是一款双端口25GbE适配器，明确支持TSN和PTP 21。</li>
+<li><strong>高精度时间同步：</strong> E810系列支持IEEE 1588 PTP v1和v2（采用两步时钟选项），能够实现个位数纳秒级的时间同步精度，并且可以为每个接收到的数据包报告时间戳 14。这种精度对于5G无线接入网络（RAN）的同步、金融交易系统以及其他对时间要求极为苛刻的应用至关重要。</li>
+<li><strong>高级流量管理特性：</strong>
+<ul>
+<li><strong>应用设备队列 (Application Device Queues, ADQ)：</strong> 通过为关键工作负载分配专用队列，ADQ能够显著降低网络延迟的抖动，从而提高应用的响应时间和性能可预测性 14。</li>
+<li><strong>动态设备个性化 (Dynamic Device Personalization, DDP)：</strong> DDP增强了数据包分类的能力，允许加载针对特定工作负载（如云、NFV）优化的协议处理流程，从而提高吞吐量 14。</li>
+</ul>
+</li>
+<li><strong>目标应用：</strong> 主要面向云计算、通信工作负载（特别是5G RAN）、存储目标（支持RDMA iWARP和RoCEv2）以及需要高精度时间同步的金融服务和工业自动化领域 14。</li>
+</ul>
+<p>800系列控制器将TSN的应用范围从传统的工业和汽车领域扩展到了需要极致性能和精确时间控制的新兴基础设施领域。其纳秒级PTP精度和ADQ等特性，使其成为构建下一代数据中心和电信网络的理想选择。此外，DDP等可编程特性也预示着网络适配器向更智能化的方向发展，通过硬件卸载更多与TSN相关的报文处理和流量导向任务，以减轻CPU负担并提升时间关键型应用的性能。</p>
+<h4 id="324-其他支持tsn的英特尔控制器系列-例如-500600700系列" class="heading-element">
+  <a href="#324-%e5%85%b6%e4%bb%96%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e6%8e%a7%e5%88%b6%e5%99%a8%e7%b3%bb%e5%88%97-%e4%be%8b%e5%a6%82-500600700%e7%b3%bb%e5%88%97" class="heading-mark"></a><span><strong>3.2.4 其他支持TSN的英特尔®控制器系列 (例如 500/600/700系列)</strong></span>
+  <a href="#324-%e5%85%b6%e4%bb%96%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e6%8e%a7%e5%88%b6%e5%99%a8%e7%b3%bb%e5%88%97-%e4%be%8b%e5%a6%82-500600700%e7%b3%bb%e5%88%97" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>除了上述重点介绍的系列外，英特尔®的产品列表中还包含了500系列、600系列和700系列等以太网控制器和适配器 20。这些系列提供了从千兆到万兆（500/600系列最高10GbE，700系列最高40GbE）不等的网络速率。<br>
+然而，与I210、I225/I226和E810系列相比，现有公开资料中关于这些其他系列（500/600/700）具体TSN功能支持的详细信息相对较少 20。通常，详细的TSN特性列表（如支持哪些IEEE 802.1子标准）会在具体型号的产品手册或数据表中给出。<br>
+可以合理推测，不同系列和型号的英特尔®以太网控制器在TSN功能的支持程度上可能存在差异。一些较早或定位较低端的产品可能仅支持基础的TSN特性子集，而像I225/I226和E810这样的较新或高端系列则提供更全面的TSN能力。用户在选型时，需要仔细查阅特定型号的官方文档，以确认其TSN功能是否满足应用需求。</p>
+<h3 id="33-英特尔-fpga在tsn中的应用" class="heading-element">
+  <a href="#33-%e8%8b%b1%e7%89%b9%e5%b0%94-fpga%e5%9c%a8tsn%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" class="heading-mark"></a><span><strong>3.3 英特尔® FPGA在TSN中的应用</strong></span>
+  <a href="#33-%e8%8b%b1%e7%89%b9%e5%b0%94-fpga%e5%9c%a8tsn%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>除了专用的ASIC以太网控制器外，英特尔®的现场可编程门阵列（FPGA）在TSN的实现中也扮演着越来越重要的角色，特别是在需要高度定制化和灵活性的工业自动化领域 6。<br>
+<strong>FPGA在TSN应用中的优势：</strong></p>
+<ul>
+<li><strong>灵活性与可重配置性：</strong> TSN标准仍在不断演进，新的标准或对现有标准的修订会不时出现。FPGA的硬件可编程特性使其能够快速适应这些变化，通过更新FPGA的逻辑设计即可支持新的TSN功能，而无需进行昂贵的ASIC硬件重新开发 6。</li>
+<li><strong>软硬件紧密集成：</strong> 在FPGA（尤其是片上系统SoC FPGA，如英特尔® Cyclone V SoC）中实现TSN，可以将TSN的硬件逻辑（如时间戳、门控、队列管理）与运行在嵌入式处理器上的相关软件（如协议栈、配置管理）紧密集成，从而优化性能和资源利用 6。</li>
+<li><strong>协议共存与迁移：</strong> FPGA能够在一颗芯片上同时实现TSN以及其他传统的工业以太网协议（如PROFINET、EtherCAT等）6。这对于那些拥有大量现有工业以太网设备的企业来说至关重要，它提供了一个平滑的向TSN迁移的路径，允许新旧系统共存和互操作。</li>
+<li><strong>功能安全与信息安全：</strong> 许多TSN应用场景（如工业控制、汽车安全系统）对功能安全有严格要求。英特尔®的FPGA、相关工具和IP核可以获得如IEC 61508等功能安全标准的认证。同时，FPGA也可以用于实现硬件级的安全功能，如安全启动、数据加密加速等，以保护TSN网络免受攻击 6。</li>
+</ul>
+<p>英特尔®与工业网络解决方案提供商TTTech等公司合作，共同推出了基于FPGA的TSN解决方案。例如，TTTech的DEIP Solution Edge是一款用于FPGA设备的TSN交换端点IP核和嵌入式软件包，可以在英特尔® Cyclone V SoC等FPGA上实现 6。这表明FPGA是实现高性能、高可靠性、可定制TSN设备的重要平台，特别是在标准快速发展和对特定工业需求响应要求较高的领域。</p>
+<h3 id="表格支持tsn的英特尔以太网控制器适配器总结" class="heading-element">
+  <a href="#%e8%a1%a8%e6%a0%bc%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8%e9%80%82%e9%85%8d%e5%99%a8%e6%80%bb%e7%bb%93" class="heading-mark"></a><span><strong>表格：支持TSN的英特尔®以太网控制器/适配器总结</strong></span>
+  <a href="#%e8%a1%a8%e6%a0%bc%e6%94%af%e6%8c%81tsn%e7%9a%84%e8%8b%b1%e7%89%b9%e5%b0%94%e4%bb%a5%e5%a4%aa%e7%bd%91%e6%8e%a7%e5%88%b6%e5%99%a8%e9%80%82%e9%85%8d%e5%99%a8%e6%80%bb%e7%bb%93" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>下表汇总了本章讨论的主要支持TSN的英特尔®以太网控制器和适配器系列及其关键特性：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">英特尔®控制器/适配器系列</th>
+          <th style="text-align: left">具体型号示例</th>
+          <th style="text-align: left">支持的关键IEEE TSN标准 (基于资料)</th>
+          <th style="text-align: left">最高速率</th>
+          <th style="text-align: left">主要应用领域</th>
+          <th style="text-align: left">TSN特性相关资料参考</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">I210系列</td>
+          <td style="text-align: left">I210-AT, I210-IT, I210-IS</td>
+          <td style="text-align: left">IEEE 802.1AS, IEEE 802.1Qav, IEEE 802.1Qbv (TAS), 发送时间控制 (LaunchTime)</td>
+          <td style="text-align: left">1GbE</td>
+          <td style="text-align: left">嵌入式系统、工业自动化、车载信息娱乐、桌面、服务器</td>
+          <td style="text-align: left">8</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">I225/I226系列</td>
+          <td style="text-align: left">I225-V, I225-LM, I225-IT, I226-V, I226-LM, I226-IT</td>
+          <td style="text-align: left">IEEE 802.1AS-REV, IEEE 802.1Qbv (TAS), IEEE 802.1Qbu/802.3br (帧抢占), IEEE 802.1Qav (CBS)</td>
+          <td style="text-align: left">2.5GbE</td>
+          <td style="text-align: left">移动设备、台式机、工作站、价值型服务器、工业控制、嵌入式系统</td>
+          <td style="text-align: left">11</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">以太网800系列</td>
+          <td style="text-align: left">E810-CQDA2, E810-XXVDA2, E830</td>
+          <td style="text-align: left">IEEE 1588 PTP v1/v2 (纳秒级精度), TSN (通用支持), ADQ, DDP</td>
+          <td style="text-align: left">最高200GbE</td>
+          <td style="text-align: left">云计算、5G RAN、通信网络、存储、金融服务、高性能计算</td>
+          <td style="text-align: left">14</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">英特尔® FPGA (SoC)</td>
+          <td style="text-align: left">基于Cyclone V SoC等的解决方案</td>
+          <td style="text-align: left">灵活，可通过IP核支持多种TSN标准 (如802.1AS, Qbv, CB等)</td>
+          <td style="text-align: left">视FPGA型号和IP核而定</td>
+          <td style="text-align: left">工业自动化、定制化网络设备、功能安全系统、协议桥接</td>
+          <td style="text-align: left">6</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">以太网500/600/700系列</td>
+          <td style="text-align: left">X550, E610, X710, XXV710</td>
+          <td style="text-align: left">具体TSN标准支持情况需查阅各型号详细文档，通用产品列表信息有限</td>
+          <td style="text-align: left">最高40GbE</td>
+          <td style="text-align: left">服务器、数据中心 (通用)</td>
+          <td style="text-align: left">20</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>注：具体型号支持的TSN标准可能因固件、驱动版本和操作系统而异，请以英特尔®官方最新文档为准。</em><br>
+此表为用户在选择英特尔® TSN硬件时提供了一个快速参考。然而，鉴于部分详细技术文档（如完整数据手册）可能需要通过英特尔®资源与文档中心（RDC）获取且有权限控制 26，建议在最终选型前务必获取并仔细阅读目标型号的官方最新资料。</p>
+<h2 id="第四章英特尔网卡tsn的实现与配置" class="heading-element">
+  <a href="#%e7%ac%ac%e5%9b%9b%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1tsn%e7%9a%84%e5%ae%9e%e7%8e%b0%e4%b8%8e%e9%85%8d%e7%bd%ae" class="heading-mark"></a><span><strong>第四章：英特尔®网卡TSN的实现与配置</strong></span>
+  <a href="#%e7%ac%ac%e5%9b%9b%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1tsn%e7%9a%84%e5%ae%9e%e7%8e%b0%e4%b8%8e%e9%85%8d%e7%bd%ae" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>在选择了合适的英特尔® TSN硬件之后，成功实现和配置TSN功能还需要考虑硬件平台、操作系统、驱动程序、配置工具以及网络拓扑等多个方面。TSN并非一个简单的即插即用功能，它要求系统层面的协同工作。</p>
+<h3 id="41-硬件要求与注意事项" class="heading-element">
+  <a href="#41-%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%e4%b8%8e%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark"></a><span><strong>4.1 硬件要求与注意事项</strong></span>
+  <a href="#41-%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%e4%b8%8e%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>实现TSN功能的首要前提是拥有支持TSN的英特尔®以太网控制器或适配器，如前一章所述的I210、I225/I226、E810系列或基于FPGA的解决方案。除此之外，还需要注意以下硬件相关的因素：</p>
+<ul>
+<li><strong>系统平台兼容性：</strong> 某些TSN特性或相关的管理功能（如英特尔® vPro™技术）可能需要特定的英特尔®平台或芯片组支持 11。在嵌入式或工业应用中，主板设计、总线接口（通常是PCI Express 11）以及处理器本身对实时任务的处理能力都对TSN的最终性能有重要影响。例如，一些TSN模块明确指出其TSN功能需要与支持TSN的处理器配合才能发挥作用 24。</li>
+<li><strong>FPGA解决方案的特殊性：</strong> 如果采用基于FPGA的TSN方案，除了FPGA芯片本身（如Cyclone V SoC），通常还需要相应的TSN IP核（例如TTTech提供的DEIP Solution Edge 6）以及配套的开发工具和板级支持包。</li>
+<li><strong>物理层考虑：</strong> TSN工作在以太网的MAC层及以上，但物理层（PHY）的选择也需符合应用场景。例如，在汽车内部网络中，可能会采用单对以太网（SPE）物理层，如10BASE-T1S或100/1000BASE-T1 17，而非传统办公网络中常见的RJ45接口和多对双绞线。</li>
+<li><strong>时钟源与连接：</strong> 对于需要高精度时间同步的应用，特别是作为网络主时钟（Grandmaster）的设备，可能需要连接外部高精度时钟源（如GPS同步时钟），并通过特定的硬件接口（如I225/I226上的软件可定义引脚SDP可用于IEEE 1588辅助设备连接 11，或E810-CQDA2T上的SMA连接器 15）引入时间信号。</li>
+</ul>
+<p>主机的实时性能对TSN应用的成功至关重要。这包括操作系统层面的配置，如低延迟中断处理、抢占式内核、高精度定时器以及合适的CPU调度策略等 31。这些主机系统级的优化确保了应用程序能够及时响应网络事件，并将数据按时提交给TSN网卡进行发送。</p>
+<h3 id="42-软件支持驱动程序与工具" class="heading-element">
+  <a href="#42-%e8%bd%af%e4%bb%b6%e6%94%af%e6%8c%81%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b8%8e%e5%b7%a5%e5%85%b7" class="heading-mark"></a><span><strong>4.2 软件支持：驱动程序与工具</strong></span>
+  <a href="#42-%e8%bd%af%e4%bb%b6%e6%94%af%e6%8c%81%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b8%8e%e5%b7%a5%e5%85%b7" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>软件是发挥英特尔®网卡TSN能力的关键。这包括底层的设备驱动程序、用于配置TSN特性的用户态工具以及相关的开发库和参考软件。</p>
+<h4 id="421-linux环境下的tsn实现" class="heading-element">
+  <a href="#421-linux%e7%8e%af%e5%a2%83%e4%b8%8b%e7%9a%84tsn%e5%ae%9e%e7%8e%b0" class="heading-mark"></a><span><strong>4.2.1 Linux环境下的TSN实现</strong></span>
+  <a href="#421-linux%e7%8e%af%e5%a2%83%e4%b8%8b%e7%9a%84tsn%e5%ae%9e%e7%8e%b0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Linux凭借其开源、可定制以及强大的网络协议栈，已成为部署TSN（尤其是在嵌入式、工业和汽车领域）的主流操作系统之一。英特尔®及其社区为Linux下的TSN实现提供了丰富的软件支持。</p>
+<ul>
+<li><strong>内核驱动程序：</strong>
+<ul>
+<li>英特尔®I210控制器通常使用igb内核模块 8。</li>
+<li>英特尔®I225/I226控制器则使用igc内核模块 23。</li>
+<li>基于英特尔®凌动® x6000E系列处理器（Elkhart Lake）或部分英特尔®酷睿™处理器集成的TSN控制器，可能使用stmmac通用驱动框架 23。 这些驱动程序负责将TSN硬件功能（如硬件时间戳、多队列、门控机制等）暴露给操作系统和用户态应用程序。</li>
+</ul>
+</li>
+<li><strong>时间同步 (IEEE 802.1AS)：</strong>
+<ul>
+<li>linuxptp项目是Linux下实现PTP（包括gPTP）的主要软件包。它包含两个核心工具：
+<ul>
+<li>ptp4l：用于在网络接口上运行PTP协议，实现时钟同步。它可以作为主时钟（Grandmaster）、从时钟（Slave Clock）或边界时钟（Boundary Clock）运行 4。</li>
+<li>phc2sys：用于将PTP硬件时钟（PHC，通常由网卡提供）与系统时钟（System Clock）进行同步 8。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>流量调度与整形 (Traffic Shaping &amp; Scheduling)：</strong>
+<ul>
+<li>Linux内核的网络流量控制子系统（Traffic Control, tc）是配置TSN流量调度和整形功能的主要接口。通过iproute2软件包中的tc命令，可以配置各种队列规定（qdisc）：
+<ul>
+<li>mqprio：用于在支持多硬件队列的网卡上创建和映射流量类别（Traffic Classes, TC）到硬件队列 10。</li>
+<li>cbs (Credit-Based Shaper)：用于实现IEEE 802.1Qav基于信用的整形器，通过设置idleslope, sendslope, hicredit, locredit等参数来保证特定队列的带宽和延迟 10。</li>
+<li>etf (Earliest TxTime First)：用于实现基于发送时间（Launch Time）的调度，确保数据包在预定的精确时刻发送。这常用于配合IEEE 802.1Qbv的门控机制 10。</li>
+<li>taprio (Time Aware Priority Shaper)：用于实现IEEE 802.1Qbv时间感知整形器，允许用户定义详细的门控列表（Gate Control List, GCL），指定在不同时间周期内哪些队列的门是打开或关闭的 4。</li>
+</ul>
+</li>
+<li>这些tc命令通常包含offload hw或offload 1等参数 10，表明相应的TSN整形功能由网卡硬件来执行，这对于实现TSN要求的低延迟和高精度至关重要。如果仅靠软件实现整形，很难满足严格的时间性能指标。</li>
+</ul>
+</li>
+<li><strong>帧抢占 (IEEE 802.1Qbu)：</strong>
+<ul>
+<li>通常通过ethtool工具来启用和配置网卡的帧抢占功能，并指定哪些流量类别是可抢占的 23。</li>
+</ul>
+</li>
+<li><strong>英特尔® TSN参考软件与工具：</strong>
+<ul>
+<li><strong>英特尔®边缘控制软件 (Intel Edge Controls for Industrial, ECI)：</strong> 这是一套针对工业应用的软件，其中包含了用于Linux的TSN参考软件。它提供了配置脚本、示例应用以及基准测试工具（如txrx-tsn），帮助用户在英特尔®平台上快速搭建和验证TSN环境 23。</li>
+<li><strong>detd (Deterministic Ethernet Daemon)：</strong> 这是一个用Python编写的用户态守护进程，旨在简化在英特尔®I225/I226等控制器上配置TSN（特别是taprio）的复杂性。它提供了一个更高级别的抽象，将用户定义的流配置和流量规范转换成底层的tc命令 25。</li>
+<li><strong>Linux TSN-Testbench：</strong> 由Linutronix开发并由PROFIBUS &amp; PROFINET International (PI)托管的一个开源项目，用于在融合网络中验证实时（如PROFINET、OPC UA PubSub over TSN）和非实时流量的性能。它不依赖特定硬件，使用主流Linux工具进行数据和控制平面操作 33。</li>
+</ul>
+</li>
+<li><strong>内核版本要求：</strong> 某些TSN功能或驱动可能需要特定版本的Linux内核支持。例如，StarlingX项目中在I210上演示TSN功能时，要求Linux内核版本为4.19.04或更高 8。</li>
+</ul>
+<p>目前，在Linux环境下配置英特尔®网卡的TSN功能主要依赖命令行工具。虽然这些工具功能强大且易于脚本化，但对于不熟悉Linux网络管理的工程师而言，学习曲线可能较为陡峭。像detd这样的工具正试图通过提供更高层次的抽象来降低配置难度，但其功能覆盖和成熟度仍在发展中。</p>
+<h4 id="422-windows环境下的tsn支持" class="heading-element">
+  <a href="#422-windows%e7%8e%af%e5%a2%83%e4%b8%8b%e7%9a%84tsn%e6%94%af%e6%8c%81" class="heading-mark"></a><span><strong>4.2.2 Windows环境下的TSN支持</strong></span>
+  <a href="#422-windows%e7%8e%af%e5%a2%83%e4%b8%8b%e7%9a%84tsn%e6%94%af%e6%8c%81" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>尽管Linux在嵌入式TSN领域占据重要地位，但Windows操作系统在许多工业人机界面（HMI）、控制系统以及测试测量应用中仍有广泛应用。因此，英特尔®也为其TSN网卡提供了Windows下的支持。</p>
+<ul>
+<li><strong>驱动程序支持：</strong>
+<ul>
+<li>英特尔®I225-V控制器支持Windows 10和Windows 11，并声称支持TSN功能 27。</li>
+<li>基于英特尔®I226-IT的第三方模块（如VersaLogic VL-MPEe-E7）也提供了Windows 10/11驱动程序 24。</li>
+<li>英特尔®以太网适配器的Windows驱动包可以通过DxSetup.exe进行安装，并可选择安装PROSet（用于高级配置和诊断）和高级网络服务（Advanced Network Settings, ANS）等组件 34。</li>
+</ul>
+</li>
+<li><strong>配置与管理：</strong>
+<ul>
+<li><strong>图形用户界面 (GUI)：</strong> Windows用户可以通过标准的“网络连接”属性对话框中的“高级”选项卡来配置一些网卡参数，如巨型帧（Jumbo Packet）、接收/发送缓冲区大小、RSS队列数等 35。但这些通常是通用的网卡优化设置，而非直接针对TSN整形器（如TAS、CBS）的精细配置。</li>
+<li><strong>PowerShell Cmdlets：</strong> 英特尔®提供了IntelNetCmdlets模块，允许通过PowerShell脚本进行一些高级网络配置，例如创建网络チーミング（teaming）等 34。</li>
+<li><strong>底层网络API：</strong> 对于需要更底层控制的自定义应用程序，Windows提供了Windows过滤平台（Windows Filtering Platform, WFP）和原始套接字（Raw Sockets, Winsock2的一部分）等API，允许开发者捕获、检查甚至修改网络数据包 36。</li>
+<li><strong>英特尔® ECI对Windows的支持：</strong> 英特尔®边缘控制软件（ECI）的文档中也提及了对“增量式Microsoft® Windows®桌面通用操作系统（GPOS）安装”的支持 31，暗示其可能包含Windows环境下的某些TSN或实时相关组件。</li>
+</ul>
+</li>
+<li><strong>诊断工具：</strong> Windows内置了一个名为pktmon的命令行数据包嗅探工具，可以实时显示监控到的数据包，并将日志转换为Wireshark支持的PCAPNG格式，便于网络分析和故障排查 37。</li>
+</ul>
+<p>与Linux环境相比，目前公开资料中关于在Windows上通过命令行或API精细配置具体TSN整形器（如802.1Qbv门控列表、802.1Qbu抢占参数）的详细示例似乎较少。用户可能更多地依赖英特尔®提供的PROSet等图形化工具进行配置，或者这些配置功能被更高级别地抽象在特定应用的SDK中。对于需要在Windows上实现硬实时TSN控制的应用，可能还需要操作系统层面的实时扩展或补丁（类似于Linux的RT_PREEMPT），以确保应用程序和网络协议栈的确定性行为，尽管这方面针对英特尔® TSN的详细信息在当前资料中并不突出。</p>
+<h3 id="43-tsn网络配置关键步骤" class="heading-element">
+  <a href="#43-tsn%e7%bd%91%e7%bb%9c%e9%85%8d%e7%bd%ae%e5%85%b3%e9%94%ae%e6%ad%a5%e9%aa%a4" class="heading-mark"></a><span><strong>4.3 TSN网络配置关键步骤</strong></span>
+  <a href="#43-tsn%e7%bd%91%e7%bb%9c%e9%85%8d%e7%bd%ae%e5%85%b3%e9%94%ae%e6%ad%a5%e9%aa%a4" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>无论是Linux还是Windows环境，配置一个TSN使能的网络或链路通常涉及以下关键步骤（主要基于Linux环境下的详细示例进行归纳）：</p>
+<ol>
+<li><strong>硬件与驱动就绪：</strong> 确保已安装TSN能力的英特尔®网卡，并已加载正确的设备驱动程序。</li>
+<li><strong>时间同步 (802.1AS)：</strong>
+<ul>
+<li>选择一个节点作为网络的主时钟（Grandmaster）。</li>
+<li>在所有TSN节点上配置并运行ptp4l（以及根据需要配置phc2sys以同步系统时钟），使它们与主时钟同步，建立统一的时间基准 8。</li>
+</ul>
+</li>
+<li><strong>队列配置 (例如 mqprio)：</strong>
+<ul>
+<li>如果需要将不同类型的流量映射到网卡的不同硬件队列中进行差异化处理，可以使用tc qdisc&hellip; mqprio命令来设置硬件队列的数量和优先级映射关系 10。</li>
+</ul>
+</li>
+<li><strong>整形器配置：</strong>
+<ul>
+<li><strong>时间感知整形器 (TAS, 802.1Qbv)：</strong> 使用tc qdisc&hellip; taprio命令（或通过detd等工具间接配置）来定义门控控制列表（GCL）。GCL详细规定了在每个周期内的不同时间片（time slot），哪些硬件队列的传输门是打开的，哪些是关闭的，以及每个时间片的持续时间。同时，需要将不同优先级的应用流量映射到相应的受控队列中 4。</li>
+<li><strong>基于信用的整形器 (CBS, 802.1Qav)：</strong> 使用tc qdisc&hellip; cbs命令为特定的硬件队列配置CBS参数，如idleslope（空闲斜率，决定信用积累速率）、sendslope（发送斜率，决定信用消耗速率）、hicredit（高信用门限）和locredit（低信用门限），以保证该队列的带宽和延迟性能 10。</li>
+<li><strong>最早发送时间优先 (ETF, Launch Time)：</strong> 使用tc qdisc&hellip; etf命令，并指定基于PTP硬件时钟（CLOCK_TAI）的发送时间偏移量（delta），可以使数据包在精确的预定时刻被硬件发送出去 10。</li>
+</ul>
+</li>
+<li><strong>帧抢占配置 (802.1Qbu)：</strong>
+<ul>
+<li>通过ethtool命令启用网卡的帧抢占功能，并可能需要配置哪些流量类别被视作“快速流量”（不可抢占），哪些被视作“可抢占流量” 23。</li>
+</ul>
+</li>
+<li><strong>应用程序适配：</strong>
+<ul>
+<li>应用程序在发送时间敏感数据时，需要通过适当的方式（如设置套接字选项、使用VLAN优先级标记PCP）将数据包与TSN网络中配置的相应流量类别、队列和整形器关联起来，才能使其受到TSN机制的保护 4。</li>
+</ul>
+</li>
+</ol>
+<p>TSN的配置并非孤立步骤的简单堆砌，各个机制之间存在紧密的依赖关系。例如，时间感知整形器（802.1Qbv）和基于发送时间的调度（ETF）都高度依赖于精确的时间同步（802.1AS）。硬件队列的设置（如mqprio）是后续在其上应用整形器（如taprio或cbs）的前提。应用程序也必须正确地标记其流量，以便网络设备能够识别并将其导向正确的TSN处理路径。因此，成功部署TSN需要对各项标准及其相互作用有整体性的理解。</p>
+<h3 id="44-英特尔-tsn参考软件与开发套件" class="heading-element">
+  <a href="#44-%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e5%8f%82%e8%80%83%e8%bd%af%e4%bb%b6%e4%b8%8e%e5%bc%80%e5%8f%91%e5%a5%97%e4%bb%b6" class="heading-mark"></a><span><strong>4.4 英特尔® TSN参考软件与开发套件</strong></span>
+  <a href="#44-%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e5%8f%82%e8%80%83%e8%bd%af%e4%bb%b6%e4%b8%8e%e5%bc%80%e5%8f%91%e5%a5%97%e4%bb%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>为了帮助开发者和系统集成商更便捷地采用TSN技术，英特尔®及其生态伙伴提供了一系列的参考软件、开发工具和套件。</p>
+<ul>
+<li><strong>英特尔®边缘控制软件 (Intel Edge Controls for Industrial, ECI) / Linux TSN参考软件：</strong> 这是一套面向工业应用的综合软件包，其中包含了针对Linux系统的TSN参考实现。它不仅提供了用于TSN网络设置和配置的组件、示例代码，还包含了如txrx-tsn这样的基准测试工具，用于评估TSN端到端的性能 23。ECI旨在降低在英特尔®平台上部署复杂边缘计算和实时控制应用的门槛。</li>
+<li><strong>detd (Deterministic Ethernet Daemon)：</strong> 这是一个由社区开发的Python工具，特别针对英特尔®I225/I226系列控制器。它通过提供一个更高层次的抽象接口，简化了使用tc命令配置taprio等复杂TSN功能的流程，使得开发者无需深入了解tc的繁琐参数即可配置时间感知整形 25。</li>
+<li><strong>英特尔®资源与文档中心 (Intel Resource &amp; Document Center, RDC)：</strong> RDC是获取英特尔®官方技术文档（包括数据手册、应用笔记、白皮书等）的主要渠道。针对I225/I226等控制器的TSN功能，RDC上通常会提供“入门指南”（Get Started Guide）等文档，详细介绍如何在特定操作系统（如Linux）上启用和配置TSN特性 26。不过，部分高级文档可能需要用户拥有特定权限（如Premier账户）才能访问。</li>
+<li><strong>第三方开发套件：</strong> 一些英特尔®的合作伙伴也推出了集成了英特尔® TSN技术的开发套件。例如，研扬科技（IEI）的DRPC TSN/TCC开发者套件就是一款紧凑型工业级嵌入式系统，宣称可以便捷地部署TSN和AI推理应用，很可能采用了英特尔®的处理器和网络控制器技术 3。</li>
+<li><strong>FPGA解决方案与合作：</strong> 在FPGA领域，英特尔®与TTTech等公司合作，共同推广基于FPGA的TSN解决方案。他们联合发布的白皮书详细介绍了如何在英特尔® FPGA（如Cyclone V SoC）上利用TTTech的DEIP Solution Edge IP核和Slate配置工具来实现工业TSN网络 6。</li>
+</ul>
+<p>这些软件和开发资源的提供，体现了英特尔®及其生态系统为降低TSN技术的使用门槛、加速其在各行业应用的普及所做的努力。通过提供预验证的参考设计、简化的配置工具和全面的技术文档，可以显著缩短开发周期，帮助用户更快地将TSN技术集成到其产品和解决方案中。</p>
+<h2 id="第五章英特尔-tsn解决方案的性能考量" class="heading-element">
+  <a href="#%e7%ac%ac%e4%ba%94%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e7%9a%84%e6%80%a7%e8%83%bd%e8%80%83%e9%87%8f" class="heading-mark"></a><span><strong>第五章：英特尔® TSN解决方案的性能考量</strong></span>
+  <a href="#%e7%ac%ac%e4%ba%94%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e7%9a%84%e6%80%a7%e8%83%bd%e8%80%83%e9%87%8f" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>TSN技术的核心价值在于其提供的确定性网络性能。因此，评估英特尔® TSN解决方案时，延迟、抖动等关键性能指标以及相关的基准测试结果至关重要。同时，理解影响TSN性能的各种因素，有助于用户在实际部署中进行优化。</p>
+<h3 id="51-关键性能指标延迟与抖动" class="heading-element">
+  <a href="#51-%e5%85%b3%e9%94%ae%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87%e5%bb%b6%e8%bf%9f%e4%b8%8e%e6%8a%96%e5%8a%a8" class="heading-mark"></a><span><strong>5.1 关键性能指标：延迟与抖动</strong></span>
+  <a href="#51-%e5%85%b3%e9%94%ae%e6%80%a7%e8%83%bd%e6%8c%87%e6%a0%87%e5%bb%b6%e8%bf%9f%e4%b8%8e%e6%8a%96%e5%8a%a8" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><strong>延迟 (Latency)：</strong> 指数据包从源端发送到目的端接收所花费的时间。在TSN中，追求的是有界的低延迟（bounded low latency），即延迟不仅要小，而且其上限必须是可预测和可保证的 2。</li>
+<li><strong>抖动 (Jitter)：</strong> 指数据包延迟的变化量，即数据包到达时间的不确定性。TSN的目标是实现低数据包延迟变化（low packet delay variation），确保数据流以平稳、可预测的速率到达 2。</li>
+</ul>
+<p>不同的应用场景对延迟和抖动的要求差异很大。例如：</p>
+<ul>
+<li><strong>工业控制回路：</strong> 可能需要微秒级的延迟和抖动控制，以确保控制指令的精确执行和系统的稳定响应 2。</li>
+<li><strong>汽车ADAS系统：</strong> 同样要求极低的延迟，以保证传感器数据和控制指令的及时传递，确保行车安全 2。</li>
+<li><strong>5G RAN网络同步：</strong> 对时间同步的精度要求极高，可能达到纳秒级别，以支持精确的波束赋形和基站间协作 14。英特尔® E810系列控制器宣称能够实现个位数纳秒级的PTP（IEEE 1588）同步精度 14。</li>
+<li><strong>专业音视频传输：</strong> 虽然也需要低延迟，但更侧重于平滑的数据流和避免音画不同步，对抖动的控制尤为重要。</li>
+</ul>
+<p>英特尔®的TSN解决方案通过硬件卸载（如时间戳、门控、整形）、精确的时间同步以及优化的驱动和软件栈，致力于满足这些多样化的性能需求。例如，英特尔®I210配合TAS和发送时间（LaunchTime）功能，旨在为周期性控制应用提供“更有界、更低的延迟” 8。而E810系列上的ADQ技术则通过为关键应用分配专用队列，显著减少抖动，提升性能的可预测性 14。</p>
+<h3 id="52-英特尔网卡tsn基准测试概览" class="heading-element">
+  <a href="#52-%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1tsn%e5%9f%ba%e5%87%86%e6%b5%8b%e8%af%95%e6%a6%82%e8%a7%88" class="heading-mark"></a><span><strong>5.2 英特尔®网卡TSN基准测试概览</strong></span>
+  <a href="#52-%e8%8b%b1%e7%89%b9%e5%b0%94%e7%bd%91%e5%8d%a1tsn%e5%9f%ba%e5%87%86%e6%b5%8b%e8%af%95%e6%a6%82%e8%a7%88" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>为了量化英特尔® TSN解决方案的性能，英特尔®及其社区提供了一些基准测试工具和参考数据。</p>
+<ul>
+<li><strong>英特尔® ECI txrx-tsn基准测试工具：</strong> 这是英特尔®边缘控制软件（ECI）中包含的一个工具，专门用于测试以太网端点在TSN增强型调度流量（EST, 主要指802.1Qbv TAS）策略下的入口和出口服务质量（QoS）。它通过在两个通过直连以太网线缆连接的英特尔®网卡之间发送和接收L2以太网数据包（例如，64字节载荷，EtherType=0xb62c），记录每个数据包的时间戳，从而分析通过Linux套接字API、网络设备接口（netdev）以及英特尔®以太网内核驱动程序（如igc、igb、stmmac）时的延迟开销和抖动情况。该工具特别关注英特尔®以太网控制器TSN硬件卸载能力的表现 23。</li>
+<li><strong>英特尔® ECI中的通用实时Linux基准测试：</strong> ECI文档中还包含了在不同英特尔®酷睿™处理器平台上运行cyclictest（用于测试内核抢占延迟和调度器性能）和lmbench（用于测试操作系统各项底层性能，如上下文切换、内存带宽等）的结果 31。虽然这些并非直接针对TSN网络数据包延迟的测试，但它们反映了主机系统本身的实时处理能力，这对于上层TSN应用的性能至关重要。</li>
+<li><strong>StarlingX I210 TSN演示场景：</strong> 在StarlingX项目中，使用英特尔®I210控制器进行的TSN功能演示，包含了启用和禁用CBS（802.1Qav）、TAS（802.1Qbv）以及发送时间（LaunchTime）等不同场景的对比，以直观展示这些TSN特性对网络性能（如带宽保证、延迟控制）的影响 8。</li>
+<li><strong>英特尔® Ice Lake-D处理器TSN指南中的测试结果示例：</strong> 一份针对第三代英特尔®至强®可扩展处理器（代号Ice Lake-D）的TSN指南中，提供了一些示例性的测试结果 10：
+<ul>
+<li><strong>IEEE 802.1AS时间同步：</strong> 从时钟（slave）与主时钟（master）之间的偏移量（offset）可以稳定在±100纳秒以内。</li>
+<li><strong>IEEE 802.1Qav（CBS）：</strong> 在1Gbps链路上，为某个流量类别配置10%带宽保证时，接收端实际获得的数据速率能够稳定在该目标值附近。</li>
+<li><strong>基于时间的调度（Time-Based Scheduling, TBS，与TAS/ETF相关）：</strong> 在以1,000,000纳秒（1毫秒）为周期发送数据包时，95%的数据包的接收间隔时间能够控制在目标周期的±500纳秒误差范围内。</li>
+</ul>
+</li>
+</ul>
+<p>这些基准测试结果和演示场景主要集中在评估TSN网络端点（即网卡）的性能以及主机系统的实时能力。在一个包含多个TSN交换机构成的复杂网络中，端到端的整体性能还会受到路径上所有中间交换机的TSN能力（如交换延迟、门控精度、同步精度等）的影响。因此，在评估整体TSN方案时，不能仅仅依赖端点网卡的性能数据，还需要考虑整个网络拓扑和所有网络组件的协同工作。</p>
+<h3 id="53-影响tsn性能的因素" class="heading-element">
+  <a href="#53-%e5%bd%b1%e5%93%8dtsn%e6%80%a7%e8%83%bd%e7%9a%84%e5%9b%a0%e7%b4%a0" class="heading-mark"></a><span><strong>5.3 影响TSN性能的因素</strong></span>
+  <a href="#53-%e5%bd%b1%e5%93%8dtsn%e6%80%a7%e8%83%bd%e7%9a%84%e5%9b%a0%e7%b4%a0" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>实现理想的TSN性能是一个系统工程，受到多种因素的综合影响：</p>
+<ul>
+<li><strong>网卡硬件能力：</strong>
+<ul>
+<li><strong>硬件卸载：</strong> 网卡是否具备对TSN关键功能（如时间戳、TAS门控、CBS整形、帧抢占）的硬件卸载能力，这是决定性能下限的关键 23。</li>
+<li><strong>时钟精度与同步：</strong> 网卡PTP硬件时钟的精度和稳定性，以及与网络主时钟的同步质量，直接影响所有时间敏感操作的准确性 14。</li>
+<li><strong>队列数量与管理：</strong> 网卡提供的硬件队列数量以及队列管理机制的效率，影响其同时处理多种不同优先级和调度策略流量的能力 13。</li>
+<li><strong>内部缓冲区大小与管理：</strong> 网卡内部缓冲区的大小和管理策略，可能影响其在高负载下的丢包率和延迟表现。</li>
+</ul>
+</li>
+<li><strong>主机系统配置与性能：</strong>
+<ul>
+<li><strong>CPU性能：</strong> 主机CPU的处理能力，特别是单核性能和实时响应能力。</li>
+<li><strong>操作系统实时性：</strong> 是否采用实时操作系统（RTOS）或对通用操作系统（GPOS）进行了实时化补丁（如Linux的PREEMPT_RT）和优化配置，如关闭动态时钟（tickless kernel）、启用高精度定时器、设置合适的CPU中断亲和性、采用抢占式调度策略等 31。</li>
+<li><strong>驱动程序与协议栈：</strong> 网卡驱动程序、操作系统网络协议栈的效率和TSN支持的完善程度。</li>
+<li><strong>内存与总线：</strong> 内存带宽、PCIe总线带宽和延迟等，可能成为数据在主机与网卡间传输的瓶颈。</li>
+</ul>
+</li>
+<li><strong>网络拓扑与交换机特性：</strong>
+<ul>
+<li><strong>交换机TSN能力：</strong> 网络中所有TSN交换机是否支持所需的TSN标准（如802.1AS, 802.1Qbv等），以及其实现的性能水平（如交换延迟、门控精度、同步精度）。</li>
+<li><strong>网络跳数与链路速率：</strong> 数据传输路径上的交换机跳数和各段链路的速率，直接影响端到端延迟。</li>
+<li><strong>网络负载：</strong> 网络中其他TSN流量和非TSN（尽力而为）流量的总体负载情况，可能影响关键流量的性能，即使有TSN机制保护。</li>
+</ul>
+</li>
+<li><strong>TSN网络配置的正确性与优化：</strong>
+<ul>
+<li><strong>时间同步网络设计：</strong> 主时钟的选择和部署、同步网络的拓扑结构等。</li>
+<li><strong>TAS调度表优化：</strong> 门控列表（GCL）的设计是否合理，保护带（guard band）的设置是否恰当，周期性流量的调度是否避免了冲突，都会显著影响确定性延迟 4。</li>
+<li><strong>流量分类与优先级映射：</strong> 应用程序流量是否被正确分类并映射到合适的TSN队列和调度策略。</li>
+<li><strong>CBS参数配置：</strong> idleslope, sendslope等参数的设置是否与应用需求匹配。</li>
+</ul>
+</li>
+<li><strong>应用程序行为：</strong>
+<ul>
+<li>应用程序产生数据包的模式（周期性、突发性）、数据包大小等。</li>
+<li>应用程序与网络协议栈交互的效率。</li>
+</ul>
+</li>
+</ul>
+<p>综上所述，TSN性能的优化需要从网卡硬件、主机系统、网络设备到上层应用和网络配置进行全方位的考虑和协同调整。任何一个环节的短板都可能制约整个系统的TSN性能表现。</p>
+<h2 id="第六章英特尔-tsn技术的应用场景" class="heading-element">
+  <a href="#%e7%ac%ac%e5%85%ad%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e6%8a%80%e6%9c%af%e7%9a%84%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af" class="heading-mark"></a><span><strong>第六章：英特尔® TSN技术的应用场景</strong></span>
+  <a href="#%e7%ac%ac%e5%85%ad%e7%ab%a0%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e6%8a%80%e6%9c%af%e7%9a%84%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>凭借其提供的确定性、低延迟和高可靠性网络通信能力，英特尔®的TSN技术正在被广泛应用于多个对时间有严格要求的领域。</p>
+<h3 id="61-工业自动化-智能工厂-工业物联网-iiot" class="heading-element">
+  <a href="#61-%e5%b7%a5%e4%b8%9a%e8%87%aa%e5%8a%a8%e5%8c%96-%e6%99%ba%e8%83%bd%e5%b7%a5%e5%8e%82-%e5%b7%a5%e4%b8%9a%e7%89%a9%e8%81%94%e7%bd%91-iiot" class="heading-mark"></a><span><strong>6.1 工业自动化 (智能工厂, 工业物联网 IIoT)</strong></span>
+  <a href="#61-%e5%b7%a5%e4%b8%9a%e8%87%aa%e5%8a%a8%e5%8c%96-%e6%99%ba%e8%83%bd%e5%b7%a5%e5%8e%82-%e5%b7%a5%e4%b8%9a%e7%89%a9%e8%81%94%e7%bd%91-iiot" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>工业自动化是TSN技术最主要的应用驱动力之一。在现代智能工厂和工业物联网（IIoT）环境中，TSN能够解决传统工业以太网在实时控制和数据同步方面的诸多挑战。</p>
+<ul>
+<li><strong>设备协同与同步控制：</strong> 在复杂的生产线上，TSN能够确保机器人、数控机床、传感器、执行器等各种自动化设备之间实现高精度的时间同步和协同工作 3。例如，多个机器人手臂需要精确协调动作以完成装配任务，或者高速运动控制系统需要传感器反馈和控制指令的确定性传输。</li>
+<li><strong>IT与OT网络融合：</strong> TSN使得将传统上分离的运营技术（OT）网络（承载实时控制流量）和信息技术（IT）网络（承载管理信息、数据分析流量）融合到统一的以太网基础设施上成为可能 6。这不仅简化了网络架构，降低了成本，还使得从生产设备采集数据并将其传输到企业资源规划（ERP）或制造执行系统（MES）进行分析和决策变得更加容易。TSN通过其流量调度和整形机制，确保关键的OT流量不受IT流量的干扰。</li>
+<li><strong>实时数据通信：</strong> 许多工业过程（如化工、电力、冶金）需要对设备状态和工艺参数进行实时监控和调整，以保证产品质量和生产安全。TSN能够为这些实时数据通信提供可靠的低延迟通道 7。</li>
+<li><strong>支持现有工业协议：</strong> TSN可以作为PROFINET、OPC UA等主流工业以太网协议的底层传输技术 6。例如，OPC UA PubSub over TSN提供了一种标准化的、可互操作的实时数据交换方式。</li>
+<li><strong>FPGA的应用：</strong> 英特尔® FPGA在工业TSN设备中扮演重要角色，它们可以用于实现定制化的TSN交换功能、支持多种工业以太网协议的共存，并满足工业环境对高可靠性和功能安全的要求 6。</li>
+<li><strong>实际案例：</strong>
+<ul>
+<li>Moxa、英特尔®和port Industrial Automation GmbH曾合作演示了一个端到端的应用级TSN解决方案，用于即时数据传输 38。</li>
+<li>三菱电机在其视觉检测系统中利用TSN的超高可靠性和有界低延迟特性，实现了对系统组件视频流、波形等相关信息的同步记录和流式传输，从而在需要时加速故障排查 38。</li>
+</ul>
+</li>
+</ul>
+<p>TSN不仅仅是对现有工业网络的改进，更是实现工业物联网（IIoT）和工业4.0愿景的关键使能技术 6。IIoT和工业4.0的核心理念在于打破信息孤岛，实现工业资产之间以及工业资产与上层企业系统之间的无缝、实时数据交换，而TSN正是构建这种数据高速公路的理想选择。</p>
+<h3 id="62-汽车电子-车载网络-adas" class="heading-element">
+  <a href="#62-%e6%b1%bd%e8%bd%a6%e7%94%b5%e5%ad%90-%e8%bd%a6%e8%bd%bd%e7%bd%91%e7%bb%9c-adas" class="heading-mark"></a><span><strong>6.2 汽车电子 (车载网络, ADAS)</strong></span>
+  <a href="#62-%e6%b1%bd%e8%bd%a6%e7%94%b5%e5%ad%90-%e8%bd%a6%e8%bd%bd%e7%bd%91%e7%bb%9c-adas" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>汽车行业正在经历一场向“软件定义汽车”的深刻变革，以太网凭借其高带宽、灵活性和成熟的生态系统，正迅速成为下一代车载网络的主流技术。而TSN则为车载以太网带来了满足严苛实时性和安全性需求的关键能力。</p>
+<ul>
+<li><strong>高级驾驶辅助系统 (ADAS) 与自动驾驶 (AD)：</strong> 这是TSN在汽车领域的核心应用。ADAS/AD系统依赖于大量的传感器（如摄像头、雷达、激光雷达）数据融合、复杂的算法处理以及对车辆执行机构（如转向、制动）的精确控制。所有这些环节都要求数据传输具有极低的、确定的延迟和高度的可靠性。TSN能够确保传感器数据、处理结果和控制指令在车辆内部网络中及时、准确地传递，例如在紧急制动、车道保持辅助等安全关键功能中，任何“微小的延迟或数据传输间隙”都是不可接受的 2。</li>
+<li><strong>车载主干网络：</strong> TSN可以作为车载主干网络的技术基础，连接不同的域控制器（如动力域、底盘域、信息娱乐域、ADAS域），确保它们之间的数据交换满足实时性和带宽要求 2。</li>
+<li><strong>传感器与ECU通信：</strong> 确保摄像头、雷达、激光雷达等传感器与电子控制单元（ECU）以及中央计算平台之间数据传输的可靠、可预测和及时 2。</li>
+<li><strong>车载信息娱乐系统 (IVI)：</strong> 虽然对实时性的要求不如ADAS严苛，但高质量的音视频流传输、多屏互动等也需要TSN提供的带宽保证和同步机制。</li>
+<li><strong>专用汽车TSN标准：</strong> IEEE已针对汽车应用制定了专门的TSN应用纲要——P802.1DG（TSN Profile for Automotive In-Vehicle Ethernet Communications），以更好地满足车载环境的特殊需求 2。</li>
+<li><strong>硬件平台：</strong> 英特尔®I210等控制器已被用于汽车TSN技术的研究和实验平台 17。</li>
+</ul>
+<p>在汽车应用中，功能安全和通信的确定性是TSN的首要驱动因素。与传统工业应用相比，汽车对成本、功耗、电磁兼容性（EMC）以及工作环境（如温度、振动）的要求也更为苛刻。TSN技术与单对以太网（SPE）物理层（如100BASE-T1, 1000BASE-T1）的结合，为构建轻量化、高性能、高可靠性的下一代车载网络提供了有力的支持。</p>
+<h3 id="63-专业音视频传输" class="heading-element">
+  <a href="#63-%e4%b8%93%e4%b8%9a%e9%9f%b3%e8%a7%86%e9%a2%91%e4%bc%a0%e8%be%93" class="heading-mark"></a><span><strong>6.3 专业音视频传输</strong></span>
+  <a href="#63-%e4%b8%93%e4%b8%9a%e9%9f%b3%e8%a7%86%e9%a2%91%e4%bc%a0%e8%be%93" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>专业音视频（Pro A/V）领域是TSN技术的前身——音频视频桥接（AVB）——最初的应用场景 2。尽管TSN的应用范围已大大扩展，但Pro A/V仍然是其一个重要且相关的应用领域。</p>
+<ul>
+<li><strong>同步高质量音视频流：</strong> 在音乐会、体育赛事直播、大型会议、广播电视制作等场景中，需要将来自多个摄像机、麦克风的音视频信号进行同步采集、传输、处理和播放。TSN（特别是其包含的802.1AS时间同步和802.1Qav基于信用的整形器）能够确保音视频流在网络中以低延迟、低抖动的方式传输，保证高质量的音画同步体验 3。</li>
+<li><strong>简化布线与系统集成：</strong> 传统Pro A/V系统通常使用大量的专用点对点线缆（如SDI、HDMI、模拟音频线）。采用基于TSN的以太网网络，可以用标准化的网络线缆和交换机取代这些专用线缆，大大简化系统布线和集成，降低成本，并提高系统的灵活性和可扩展性。</li>
+<li><strong>与复杂TSN网络共存：</strong> 支持802.1Qav（CBS）的英特尔®网卡（如I210, I225/I226 11），通常也支持其他TSN标准（如802.1Qbv TAS）。这意味着它们不仅可以服务于传统的AVB应用，也可以在更复杂的TSN网络中（如工业控制与视频监控融合的场景）同时处理AVB流量和其他类型的关键流量，为构建多功能融合网络提供了硬件基础。</li>
+</ul>
+<h3 id="64-其他新兴应用领域" class="heading-element">
+  <a href="#64-%e5%85%b6%e4%bb%96%e6%96%b0%e5%85%b4%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f" class="heading-mark"></a><span><strong>6.4 其他新兴应用领域</strong></span>
+  <a href="#64-%e5%85%b6%e4%bb%96%e6%96%b0%e5%85%b4%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>TSN的通用性和强大功能使其应用潜力不断扩展到更多对时间敏感和确定性有需求的行业和场景。</p>
+<ul>
+<li><strong>航空航天与国防：</strong> 在这些领域的任务关键型系统中，如飞行控制、武器系统、机载传感器网络等，数据传输的实时性、可靠性和确定性至关重要。TSN提供了一种基于标准以太网的解决方案，有望取代一些专有的、昂贵的航空总线技术 3。</li>
+<li><strong>电信网络 (特别是5G RAN)：</strong> 5G无线接入网络（RAN）对基站之间以及基站与核心网之间的同步精度和传输延迟有极高要求，以支持波束赋形、载波聚合、低延迟通信（URLLC）等高级功能。TSN（特别是其高精度时间同步和针对前传的802.1CM标准）可以用于构建5G网络的承载网。英特尔® E810系列控制器就是针对这类通信工作负载设计的 14。</li>
+<li><strong>智能电网：</strong> 在智能电网中，需要对发电、输电、配电和用电各个环节进行实时监控、保护和控制。TSN可以为变电站自动化、广域测量系统（WAMS）、继电保护等应用提供可靠的、低延迟的通信网络 3。</li>
+<li><strong>测试与测量：</strong> 在分布式测试和测量系统中（如结构健康监测、大型设备状态监测、硬件在环HIL仿真），需要精确同步来自多个传感器或设备的数据，并确保控制指令的确定性传递。TSN为此类应用提供了理想的网络基础 5。</li>
+<li><strong>金融交易：</strong> 在高频交易等金融应用中，纳秒级的时间同步和极低的交易延迟对于获得竞争优势至关重要。英特尔® E810等高性能TSN网卡也瞄准了这一市场 21。</li>
+</ul>
+<p>这些多样化的新兴应用充分证明，TSN正在从最初的几个核心领域（工业、汽车、Pro A/V）向外辐射，逐渐演变为一种横向的、基础性的网络技术，适用于所有对时间、确定性和可靠性有较高要求的行业。</p>
+<h2 id="第七章总结与展望" class="heading-element">
+  <a href="#%e7%ac%ac%e4%b8%83%e7%ab%a0%e6%80%bb%e7%bb%93%e4%b8%8e%e5%b1%95%e6%9c%9b" class="heading-mark"></a><span><strong>第七章：总结与展望</strong></span>
+  <a href="#%e7%ac%ac%e4%b8%83%e7%ab%a0%e6%80%bb%e7%bb%93%e4%b8%8e%e5%b1%95%e6%9c%9b" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="71-英特尔-tsn技术总结" class="heading-element">
+  <a href="#71-%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e6%8a%80%e6%9c%af%e6%80%bb%e7%bb%93" class="heading-mark"></a><span><strong>7.1 英特尔® TSN技术总结</strong></span>
+  <a href="#71-%e8%8b%b1%e7%89%b9%e5%b0%94-tsn%e6%8a%80%e6%9c%af%e6%80%bb%e7%bb%93" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>通过对英特尔®网卡时间敏感网络（TSN）相关资料的梳理和分析，可以清晰地看到英特尔®在推动TSN技术发展和应用方面的坚定承诺和全面布局。<br>
+英特尔®的TSN策略呈现出多点开花的特点，旨在满足不同市场和应用场景的多样化需求：</p>
+<ol>
+<li><strong>专用以太网控制器：</strong>
+<ul>
+<li><strong>I210系列：</strong> 作为较早支持核心TSN功能（如802.1AS, 802.1Qav, 以及在特定配置下的802.1Qbv）的1GbE控制器，为TSN的早期开发和嵌入式应用提供了重要平台。</li>
+<li><strong>I225/I226系列：</strong> 作为主流的2.5GbE控制器，支持更全面的TSN标准集（包括802.1AS-REV, Qbv, Qbu, Qav等），广泛面向桌面、工作站、工业和嵌入式市场，是推动TSN普及的关键产品。</li>
+<li><strong>以太网800系列 (如E810)：</strong> 作为高性能网络解决方案（速率可达200GbE），提供纳秒级精度的PTP同步和ADQ/DDP等高级流量管理功能，主要面向数据中心、5G RAN、金融等对性能和时间精度要求极高的领域。</li>
+</ul>
+</li>
+<li><strong>FPGA解决方案：</strong> 英特尔® FPGA（如Cyclone V SoC）为TSN提供了高度灵活和可定制的实现途径。它们允许快速适应演进中的TSN标准，支持与传统工业协议共存，并能满足功能安全和信息安全等特殊要求，在工业自动化和定制化网络设备中具有独特优势。</li>
+<li><strong>软件与生态支持：</strong> 英特尔®不仅提供硬件，还积极构建TSN的软件生态系统，尤其是在Linux环境下。通过提供内核驱动、TSN参考软件（如ECI）、参与社区工具（如linuxptp）的开发，以及发布技术文档和指南，英特尔®致力于降低TSN的开发和部署门槛。</li>
+</ol>
+<p>英特尔®的TSN技术通过在以太网基础上增加确定性、低延迟、高可靠性和精确时间同步等关键能力，为工业自动化、汽车电子、专业音视频、电信等众多行业带来了革新性的网络解决方案。其产品覆盖了从端点网卡到可编程逻辑器件的多个层面，显示出其在TSN市场上的深度参与和长远规划。</p>
+<h3 id="72-未来发展趋势与挑战" class="heading-element">
+  <a href="#72-%e6%9c%aa%e6%9d%a5%e5%8f%91%e5%b1%95%e8%b6%8b%e5%8a%bf%e4%b8%8e%e6%8c%91%e6%88%98" class="heading-mark"></a><span><strong>7.2 未来发展趋势与挑战</strong></span>
+  <a href="#72-%e6%9c%aa%e6%9d%a5%e5%8f%91%e5%b1%95%e8%b6%8b%e5%8a%bf%e4%b8%8e%e6%8c%91%e6%88%98" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>时间敏感网络（TSN）作为一项仍在不断演进的技术，其未来发展将呈现出若干重要趋势，同时也面临一些挑战。<br>
+<strong>未来发展趋势：</strong></p>
+<ol>
+<li><strong>更广泛的行业应用：</strong> TSN的应用领域将持续扩展，从目前较为集中的工业、汽车等领域，进一步渗透到智慧城市、医疗、能源、航空航天等更多对实时性和可靠性有需求的行业 3。</li>
+<li><strong>标准持续演进与细化：</strong> IEEE 802.1 TSN任务组将继续制定新的标准和修订现有标准，以应对新的应用需求和技术挑战。可能会出现更多针对特定行业的TSN应用纲要（Profile），以及对现有机制（如调度算法、网络管理）的增强 4。</li>
+<li><strong>有线与无线的融合 (WTSN)：</strong> 将TSN的确定性能力扩展到无线通信领域（Wireless TSN, WTSN）是一个重要的发展方向。通过将TSN原理与5G URLLC、Wi-Fi 6/7等无线技术相结合，有望实现有线和无线网络之间时间敏感业务的无缝切换和协同工作 3。</li>
+<li><strong>网络配置与管理的智能化和简化：</strong> 随着TSN网络规模和复杂度的增加，手动配置将变得异常困难。未来将出现更多自动化、智能化的TSN网络规划、配置、监控和管理工具，以降低部署和运维的复杂性 3。</li>
+<li><strong>安全性内置：</strong> 随着IT与OT网络的深度融合，TSN网络的安全性将受到前所未有的重视。未来的TSN解决方案将更加注重内置的安全机制，如硬件信任根、安全启动、流量加密（如MACsec与TSN的更好集成）、入侵检测与防御等，以应对日益增长的网络安全威胁 6。</li>
+<li><strong>更高带宽与更强卸载能力：</strong> 网络接口卡（NIC）和交换机将支持更高的传输速率，并具备更强大的硬件卸载能力，以处理更复杂的TSN协议和更大规模的实时数据流，进一步减轻CPU的负担。</li>
+</ol>
+<p><strong>面临的挑战：</strong></p>
+<ol>
+<li><strong>配置与管理的复杂性：</strong> 尽管有工具在简化，但TSN网络的规划、调度表计算、多厂商设备协同配置等仍然具有相当的复杂性，对网络工程师的技能要求较高 3。</li>
+<li><strong>多厂商互操作性的实践：</strong> 虽然TSN基于开放标准，但在实际的多厂商设备混合组网环境中，确保所有设备在TSN功能（特别是时间同步精度、调度一致性等方面）上的完全互操作性，仍需持续的测试验证和标准符合性认证工作。</li>
+<li><strong>与遗留系统的集成：</strong> 在许多“棕地”场景中，如何将TSN网络与大量现有的非TSN工业以太网或现场总线系统进行平滑集成和过渡，是一个重要的实际问题 3。</li>
+<li><strong>初始投资成本：</strong> 部署TSN网络可能需要采购新的TSN兼容硬件（网卡、交换机）和软件，对于一些用户而言，初始投资成本可能较高 3。</li>
+<li><strong>标准演进带来的兼容性与更新压力：</strong> TSN标准的持续演进虽然带来了更强的功能，但也给设备制造商和用户带来了跟进标准、确保软硬件兼容性和及时更新的压力。</li>
+<li><strong>安全风险管理：</strong> IT/OT融合虽然带来了效率提升，但也扩大了网络攻击面。如何在开放互联的TSN网络中有效管理安全风险，确保关键基础设施的安全可靠运行，是一个长期存在的挑战。</li>
+</ol>
+<p>尽管存在这些挑战，但TSN技术所带来的巨大价值和广阔前景是毋庸置疑的。英特尔®作为TSN生态系统中的重要一员，凭借其在芯片、软件和平台技术方面的深厚积累，将继续在推动TSN技术创新、标准完善和产业应用方面发挥关键作用。克服这些挑战需要整个产业链的共同努力，包括芯片供应商、设备制造商、软件开发商、标准组织、系统集成商和最终用户的紧密合作。可以预见，随着技术的成熟和生态的完善，TSN将成为未来智能互联世界不可或缺的网络基石。</p>
+<h4 id="引用的著作" class="heading-element">
+  <a href="#%e5%bc%95%e7%94%a8%e7%9a%84%e8%91%97%e4%bd%9c" class="heading-mark"></a><span><strong>引用的著作</strong></span>
+  <a href="#%e5%bc%95%e7%94%a8%e7%9a%84%e8%91%97%e4%bd%9c" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ol>
+<li><a href="https://www.aptiv.com"target="_blank" rel="external nofollow noopener noreferrer">www.aptiv.com</a>, 访问时间为 六月 7, 2025， <a href="https://www.aptiv.com/en/insights/article/what-is-time-sensitive-networking#:~:text=Time%2DSensitive%20Networking%20%5c%28TSN%5c%29,applications%20in%20environments%20like%20automotive."target="_blank" rel="external nofollow noopener noreferrer">https://www.aptiv.com/en/insights/article/what-is-time-sensitive-networking#:~:text=Time%2DSensitive%20Networking%20(TSN),applications%20in%20environments%20like%20automotive.</a></li>
+<li>What Is Time-Sensitive Networking? - Aptiv, 访问时间为 六月 7, 2025， <a href="https://www.aptiv.com/en/insights/article/what-is-time-sensitive-networking"target="_blank" rel="external nofollow noopener noreferrer">https://www.aptiv.com/en/insights/article/what-is-time-sensitive-networking</a></li>
+<li>Understanding Time-Sensitive Networking (TSN): A Guide to Real-Time Data Transmission, 访问时间为 六月 7, 2025， <a href="https://www.bvm.co.uk/faq/understanding-time-sensitive-networking-tsn-a-guide-to-real-time-data-transmission/"target="_blank" rel="external nofollow noopener noreferrer">https://www.bvm.co.uk/faq/understanding-time-sensitive-networking-tsn-a-guide-to-real-time-data-transmission/</a></li>
+<li>Implementing Real-Time System Using Intel TSN on Linux OS, 访问时间为 六月 7, 2025， <a href="https://builders.intel.com/docs/networkbuilders/implementing-real-time-system-using-intel-time-sensitive-networking-capable-ethernet-controller-on-linux-operating-system-1709536025.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://builders.intel.com/docs/networkbuilders/implementing-real-time-system-using-intel-time-sensitive-networking-capable-ethernet-controller-on-linux-operating-system-1709536025.pdf</a></li>
+<li>Time Sensitive Networking (TSN) Frequently Asked Questions - NI - National Instruments, 访问时间为 六月 7, 2025， <a href="https://www.ni.com/en/shop/data-acquisition/time-sensitive-networking--tsn--frequently-asked-questions.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.ni.com/en/shop/data-acquisition/time-sensitive-networking&ndash;tsn&ndash;frequently-asked-questions.html</a></li>
+<li>Time-Sensitive Networking: From Theory to Implementation in &hellip; - Intel, 访问时间为 六月 7, 2025， <a href="https://cdrdv2-public.intel.com/752516/wp-01279-time-sensitive-networking-theory-to-implementation-in-industrial-automation.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://cdrdv2-public.intel.com/752516/wp-01279-time-sensitive-networking-theory-to-implementation-in-industrial-automation.pdf</a></li>
+<li>Time-sensitive Networking (TSN): The backbone of Industry 4.0 - Rutronik, 访问时间为 六月 7, 2025， <a href="https://www.rutronik.com/article/time-sensitive-networking-tsn-a-basis-for-industry-40"target="_blank" rel="external nofollow noopener noreferrer">https://www.rutronik.com/article/time-sensitive-networking-tsn-a-basis-for-industry-40</a></li>
+<li>Time Sensitive Networking — StarlingX documentation, 访问时间为 六月 7, 2025， <a href="https://docs.starlingx.io/operations/tsn.html"target="_blank" rel="external nofollow noopener noreferrer">https://docs.starlingx.io/operations/tsn.html</a></li>
+<li>A Period-Aware Routing Method for IEEE 802.1Qbv TSN Networks - MDPI, 访问时间为 六月 7, 2025， <a href="https://www.mdpi.com/2079-9292/10/1/58"target="_blank" rel="external nofollow noopener noreferrer">https://www.mdpi.com/2079-9292/10/1/58</a></li>
+<li>Ethernet Time-Sensitive Networking on Linux* for 3rd Gen Intel® Xeon® Processor Scalable Family, Codename Ice Lake-D 1700/2700, 访问时间为 六月 7, 2025， <a href="https://cdrdv2-public.intel.com/739015/739015_Ethernet%20Time-Sensitive%20Networking%20on%20Linux%20for%20Ice%20Lake-D_Rev1p0.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://cdrdv2-public.intel.com/739015/739015_Ethernet%20Time-Sensitive%20Networking%20on%20Linux%20for%20Ice%20Lake-D_Rev1p0.pdf</a></li>
+<li>Overview of the Intel Ethernet Controller I225 and I226 - Mouser Electronics, 访问时间为 六月 7, 2025， <a href="https://www.mouser.com/datasheet/2/612/Intel-Corporation-2585974.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.mouser.com/datasheet/2/612/Intel-Corporation-2585974.pdf</a></li>
+<li>Overview of the Intel Ethernet Controller I225 and I226 - Mouser Electronics, 访问时间为 六月 7, 2025， <a href="https://www.mouser.com/datasheet/2/612/Intel-Corporation-2256581.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.mouser.com/datasheet/2/612/Intel-Corporation-2256581.pdf</a></li>
+<li>Intel® Ethernet Controller I210 Enhances Network Connectivity, 访问时间为 六月 7, 2025， <a href="https://www.mouser.com/pdfDocs/i210-ethernet-controller-family-brief.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.mouser.com/pdfDocs/i210-ethernet-controller-family-brief.pdf</a></li>
+<li>Intel® Ethernet Network Adapter E810-CQDA2, 访问时间为 六月 7, 2025， <a href="https://cdrdv2-public.intel.com/759510/Cisco%20-Intel%20Ethernet%20Network%20Adapter%20E810-CQDA2.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://cdrdv2-public.intel.com/759510/Cisco%20-Intel%20Ethernet%20Network%20Adapter%20E810-CQDA2.pdf</a></li>
+<li>Intel® Ethernet Network Adapter E810-CQDA2T, 访问时间为 六月 7, 2025， <a href="https://cdrdv2-public.intel.com/726375/Intel%20Ethernet%20Network%20Adapter%20E810-CQDA2T%20Product%20Brief.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://cdrdv2-public.intel.com/726375/Intel%20Ethernet%20Network%20Adapter%20E810-CQDA2T%20Product%20Brief.pdf</a></li>
+<li>621753-Intel® Ethernet Controller I225-I226-Product Brief-20230726 - Uptimed, 访问时间为 六月 7, 2025， <a href="https://www.uptimed.nl/downloads/uptimed-intel-i225-product-brief.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.uptimed.nl/downloads/uptimed-intel-i225-product-brief.pdf</a></li>
+<li>In Search of Automotive Ethernet TSN Solutions: Results From Our &hellip;, 访问时间为 六月 7, 2025， <a href="https://vicone.com/blog/in-search-of-automotive-ethernet-tsn-solutions-results-from-our-hands-on-lab"target="_blank" rel="external nofollow noopener noreferrer">https://vicone.com/blog/in-search-of-automotive-ethernet-tsn-solutions-results-from-our-hands-on-lab</a></li>
+<li>BCM56070 440 Gb/s TSN Multilayer Switch Product Brief - Mouser Electronics, 访问时间为 六月 7, 2025， <a href="https://www.mouser.com/datasheet/2/678/56070_PB104-3498211.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.mouser.com/datasheet/2/678/56070_PB104-3498211.pdf</a></li>
+<li>Marvell® Prestera® 98DX73xx Ethernet Switches, 访问时间为 六月 7, 2025， <a href="https://www.marvell.com/content/dam/marvell/en/public-collateral/switching/marvell-switching-prestera-98dx73xx-product-brief.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.marvell.com/content/dam/marvell/en/public-collateral/switching/marvell-switching-prestera-98dx73xx-product-brief.pdf</a></li>
+<li>Ethernet Products: Network Cards and Network Adapters - Intel®, 访问时间为 六月 7, 2025， <a href="https://www.intel.com/content/www/us/en/products/details/ethernet.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.intel.com/content/www/us/en/products/details/ethernet.html</a></li>
+<li>Intel E810-XXV Ethernet Adapter In Saudi Arabia | Order Now - Servers, 访问时间为 六月 7, 2025， <a href="https://www.serverbasket.net/sa/p/intel-e810-xxv-network-interface-card/"target="_blank" rel="external nofollow noopener noreferrer">https://www.serverbasket.net/sa/p/intel-e810-xxv-network-interface-card/</a></li>
+<li>INTEL® ETHERNET CONTROLLER I225 - Rutronik, 访问时间为 六月 7, 2025， <a href="https://www.rutronik.com/fileadmin/images/Future_Markets/Advanced_Robotics/Fact_Sheets/Intel_robotics-fs_Ethernet.pdf"target="_blank" rel="external nofollow noopener noreferrer">https://www.rutronik.com/fileadmin/images/Future_Markets/Advanced_Robotics/Fact_Sheets/Intel_robotics-fs_Ethernet.pdf</a></li>
+<li>Ethernet TSN Benchmark — ECI documentation - Intel® Edge Controls for Industrial, 访问时间为 六月 7, 2025， <a href="https://eci.intel.com/docs/3.2/development/performance/benchmarks/ethernet-tsn.html"target="_blank" rel="external nofollow noopener noreferrer">https://eci.intel.com/docs/3.2/development/performance/benchmarks/ethernet-tsn.html</a></li>
+<li>Dual 2.5 Gigabit Ethernet TSN - VersaLogic, 访问时间为 六月 7, 2025， <a href="https://www.versalogic.com/product/Dual-2.5-Gigabit-Ethernet-TSN/"target="_blank" rel="external nofollow noopener noreferrer">https://www.versalogic.com/product/Dual-2.5-Gigabit-Ethernet-TSN/</a></li>
+<li>detd/README.md at master · Avnu/detd - GitHub, 访问时间为 六月 7, 2025， <a href="https://github.com/Avnu/detd/blob/master/README.md"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/Avnu/detd/blob/master/README.md</a></li>
+<li>I226-IT latest Linux Driver &amp; TSN enable - Intel Community, 访问时间为 六月 7, 2025， <a href="https://community.intel.com/t5/Ethernet-Products/I226-IT-latest-Linux-Driver-amp-TSN-enable/td-p/1660554"target="_blank" rel="external nofollow noopener noreferrer">https://community.intel.com/t5/Ethernet-Products/I226-IT-latest-Linux-Driver-amp-TSN-enable/td-p/1660554</a></li>
+<li>2.5GBase-T PCIe 3.1 Network Adapter with Intel I225-V+3ft Cat8 Ethernet Cable 2500/1000/100Mbps PCI Express Gigabit Ethernet Card RJ45 LAN Controller for Windows 10/11 with Low Profile Bracket - Amazon.com, 访问时间为 六月 7, 2025， <a href="https://www.amazon.com/2-5GBase-T-Network-Adapter-Ethernet-Controller/dp/B0BNHWZBCC"target="_blank" rel="external nofollow noopener noreferrer">https://www.amazon.com/2-5GBase-T-Network-Adapter-Ethernet-Controller/dp/B0BNHWZBCC</a></li>
+<li>TSN white paper released by TTTech and Intel, 访问时间为 六月 7, 2025， <a href="https://www.tttech.com/tsn-white-paper-released-by-tttech-and-intel"target="_blank" rel="external nofollow noopener noreferrer">https://www.tttech.com/tsn-white-paper-released-by-tttech-and-intel</a></li>
+<li>Re:Request for I226 Datasheet and Related Documentation - Intel Community, 访问时间为 六月 7, 2025， <a href="https://community.intel.com/t5/Ethernet-Products/Request-for-I226-Datasheet-and-Related-Documentation/m-p/1676968"target="_blank" rel="external nofollow noopener noreferrer">https://community.intel.com/t5/Ethernet-Products/Request-for-I226-Datasheet-and-Related-Documentation/m-p/1676968</a></li>
+<li>check product details for Intel® Ethernet Controller I226-IT (so#363979), 访问时间为 六月 7, 2025， <a href="https://community.intel.com/t5/Ethernet-Products/check-product-details-for-Intel-Ethernet-Controller-I226-IT-so/td-p/1684999?profile.language=en"target="_blank" rel="external nofollow noopener noreferrer">https://community.intel.com/t5/Ethernet-Products/check-product-details-for-Intel-Ethernet-Controller-I226-IT-so/td-p/1684999?profile.language=en</a></li>
+<li>Intel® Ethernet Controllers TSN Enabling and Testing frameworks — ECI documentation, 访问时间为 六月 7, 2025， <a href="https://eci.intel.com/docs/2.5/components/tsnrefsw.html"target="_blank" rel="external nofollow noopener noreferrer">https://eci.intel.com/docs/2.5/components/tsnrefsw.html</a></li>
+<li>Characterization of latency and jitter in TSN emulation - arXiv, 访问时间为 六月 7, 2025， <a href="https://arxiv.org/html/2506.02133v1"target="_blank" rel="external nofollow noopener noreferrer">https://arxiv.org/html/2506.02133v1</a></li>
+<li>Linux TSN-Testbench: Validating Converged Networks - PROFINEWS, 访问时间为 六月 7, 2025， <a href="https://profinews.com/2024/03/linux-tsn-testbench-validating-converged-networks/"target="_blank" rel="external nofollow noopener noreferrer">https://profinews.com/2024/03/linux-tsn-testbench-validating-converged-networks/</a></li>
+<li>How to Set Up Teaming with an Intel® Ethernet Adapter in Windows® 10 1809?, 访问时间为 六月 7, 2025， <a href="https://www.intel.com/content/www/us/en/support/articles/000032008/ethernet-products/gigabit-ethernet-controllers-up-to-2-5gbe.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.intel.com/content/www/us/en/support/articles/000032008/ethernet-products/gigabit-ethernet-controllers-up-to-2-5gbe.html</a></li>
+<li>Configuring network card settings in Windows 11 - Setup &amp; connectivity documentation, 访问时间为 六月 7, 2025， <a href="https://help.vicon.com/space/Connect/1607823/Configuring&#43;network&#43;card&#43;settings&#43;in&#43;Windows&#43;11"target="_blank" rel="external nofollow noopener noreferrer">https://help.vicon.com/space/Connect/1607823/Configuring+network+card+settings+in+Windows+11</a></li>
+<li>Network Monitoring Tools for C++ on Windows - API - Latenode Official Community, 访问时间为 六月 7, 2025， <a href="https://community.latenode.com/t/network-monitoring-tools-for-c-on-windows/11046"target="_blank" rel="external nofollow noopener noreferrer">https://community.latenode.com/t/network-monitoring-tools-for-c-on-windows/11046</a></li>
+<li>Generating a Packet Capture on Windows With Packet Sniffer - Automox, 访问时间为 六月 7, 2025， <a href="https://help.automox.com/hc/en-us/articles/31578613376916-Generating-a-Packet-Capture-on-Windows-With-Packet-Sniffer"target="_blank" rel="external nofollow noopener noreferrer">https://help.automox.com/hc/en-us/articles/31578613376916-Generating-a-Packet-Capture-on-Windows-With-Packet-Sniffer</a></li>
+<li>Leveraging the benefits of TSN in manufacturing applications | Industrial Ethernet Book, 访问时间为 六月 7, 2025， <a href="https://iebmedia.com/technology/tsn/leveraging-the-benefits-of-tsn-in-manufacturing/"target="_blank" rel="external nofollow noopener noreferrer">https://iebmedia.com/technology/tsn/leveraging-the-benefits-of-tsn-in-manufacturing/</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Updated on 2025-10-06 16:32:27">Updated on 2025-10-06&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/eb348c8/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/eb348c8/" data-title="英特尔®网卡时间敏感网络（TSN）技术综合报告" data-hashtags="TSN"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/eb348c8/" data-hashtag="TSN"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/eb348c8/" data-title="英特尔®网卡时间敏感网络（TSN）技术综合报告"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/tsn/" class="post-tag" title="Tags - TSN">TSN</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/4fecd7a/" class="post-nav-item" rel="prev" title="LA_AMP_整理文档"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>LA_AMP_整理文档</a><a href="/posts/f274c78/" class="post-nav-item" rel="next" title="TSN部署及测试报告">TSN部署及测试报告<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Contents"><h2 class="toc-title">Contents&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.139.4"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.13"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/xueyu-code"target="_blank" rel="external nofollow noopener noreferrer">Xueyu</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Total visitors'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Total visits'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--progress-h: 3px;--bg-progress: HotPink;--bg-progress-dark: DeepSkyBlue;"></div><noscript>
+    <div class="noscript-warning">This website works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-03-10T22:18:14+08:00","version":"v0.3.13"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
