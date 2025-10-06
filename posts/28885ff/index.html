@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>MFC 静态文本设置超链接 - Xueyu&#39;s Home</title><meta name="author" content="Auseper">
+<meta name="description" content="MFC 静态文本设置超链接"><meta name="keywords" content='MFC, 静态文本设置超链接'>
+  <meta itemprop="name" content="MFC 静态文本设置超链接">
+  <meta itemprop="description" content="MFC 静态文本设置超链接">
+  <meta itemprop="datePublished" content="2025-03-17T22:47:21+08:00">
+  <meta itemprop="dateModified" content="2025-03-17T22:47:21+08:00">
+  <meta itemprop="wordCount" content="193">
+  <meta itemprop="keywords" content="MFC,静态文本设置超链接"><meta property="og:url" content="https://xueyu-code.github.io/posts/28885ff/">
+  <meta property="og:site_name" content="Xueyu&#39;s Home">
+  <meta property="og:title" content="MFC 静态文本设置超链接">
+  <meta property="og:description" content="MFC 静态文本设置超链接">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-17T22:47:21+08:00">
+    <meta property="article:modified_time" content="2025-03-17T22:47:21+08:00">
+    <meta property="article:tag" content="MFC">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MFC 静态文本设置超链接">
+  <meta name="twitter:description" content="MFC 静态文本设置超链接">
+<meta name="application-name" content="Auseper">
+<meta name="apple-mobile-web-app-title" content="Auseper"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://xueyu-code.github.io/posts/28885ff/" title="MFC 静态文本设置超链接 - Xueyu&#39;s Home" /><link rel="prev" type="text/html" href="https://xueyu-code.github.io/posts/1dff436/" title="麻匪音频识别壁纸如何适配网易云" /><link rel="next" type="text/html" href="https://xueyu-code.github.io/posts/5e31b8f/" title="VsCode 配置主题和字体教程" /><link rel="alternate" type="text/markdown" href="https://xueyu-code.github.io/posts/28885ff/index.md" title="MFC 静态文本设置超链接 - Xueyu's Home"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "MFC 静态文本设置超链接",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/xueyu-code.github.io\/posts\/28885ff\/"
+    },"genre": "posts","keywords": "MFC","wordcount":  193 ,
+    "url": "https:\/\/xueyu-code.github.io\/posts\/28885ff\/","datePublished": "2025-03-17T22:47:21+08:00","dateModified": "2025-03-17T22:47:21+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Auseper"
+      },"description": "MFC 静态文本设置超链接"
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Xueyu&#39;s Home"><span class="header-title-text">Xueyu&#39;s Home</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章列表</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 项目归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-circle-user fa-fw fa-sm" aria-hidden="true"></i> 简介&amp;联系方式</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Switch Theme"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">MFC 静态文本设置超链接</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="Collections"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>MFC 静态文本设置超链接</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="/images/avatar.png" alt="Auseper" data-title="Auseper" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;Auseper</span></span><span class="post-included-in">&nbsp;included in <a href="/categories/mfc/" class="post-category" title="Category - MFC"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> MFC</a></span></div><div class="post-meta-line"><span title="published on 2025-03-17 22:47:21"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-17">2025-03-17</time></span>&nbsp;<span title="193 words"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>About 200 words</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>One minute</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="MFC 静态文本设置超链接"><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;views
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mfc-静态文本设置超链接">MFC 静态文本设置超链接</a>
+      <ul>
+        <li><a href="#11-mfc-静态文本超链接介绍">1.1 MFC 静态文本超链接介绍</a></li>
+        <li><a href="#12-添加成员变量及初始化代码">1.2 添加成员变量及初始化代码</a></li>
+        <li><a href="#13-添加-wm_lbuttonup-事件">1.3 添加 WM_LBUTTONUP 事件</a></li>
+        <li><a href="#14-添加鼠标移动事件-wm_mousemove">1.4 添加鼠标移动事件 WM_MOUSEMOVE</a></li>
+        <li><a href="#15-添加-wm_ctlcolor-事件">1.5 添加 WM_CTLCOLOR 事件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="mfc-静态文本设置超链接" class="heading-element">
+  <a href="#mfc-%e9%9d%99%e6%80%81%e6%96%87%e6%9c%ac%e8%ae%be%e7%bd%ae%e8%b6%85%e9%93%be%e6%8e%a5" class="heading-mark"></a><span>MFC 静态文本设置超链接</span>
+  <a href="#mfc-%e9%9d%99%e6%80%81%e6%96%87%e6%9c%ac%e8%ae%be%e7%bd%ae%e8%b6%85%e9%93%be%e6%8e%a5" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="11-mfc-静态文本超链接介绍" class="heading-element">
+  <a href="#11-mfc-%e9%9d%99%e6%80%81%e6%96%87%e6%9c%ac%e8%b6%85%e9%93%be%e6%8e%a5%e4%bb%8b%e7%bb%8d" class="heading-mark"></a><span>1.1 MFC 静态文本超链接介绍</span>
+  <a href="#11-mfc-%e9%9d%99%e6%80%81%e6%96%87%e6%9c%ac%e8%b6%85%e9%93%be%e6%8e%a5%e4%bb%8b%e7%bb%8d" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>用 MFC 开发软件时，有时候需要设置一个超链接并用其他颜色显示出来，且鼠标点击后跳转到指定的网页。
+这时候可以设置一个静态文本，弄一个超链接。</p>
+<h3 id="12-添加成员变量及初始化代码" class="heading-element">
+  <a href="#12-%e6%b7%bb%e5%8a%a0%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e5%8f%8a%e5%88%9d%e5%a7%8b%e5%8c%96%e4%bb%a3%e7%a0%81" class="heading-mark"></a><span>1.2 添加成员变量及初始化代码</span>
+  <a href="#12-%e6%b7%bb%e5%8a%a0%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e5%8f%8a%e5%88%9d%e5%a7%8b%e5%8c%96%e4%bb%a3%e7%a0%81" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在头文件中添加成员变量 <code>CRect m_rect;</code>
+在初始化函数 OnInitDialog() 中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">GetDlgItem</span><span class="p">(</span><span class="n">IDC_STATIC_AUTHOR</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">GetWindowRect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_rect</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ScreenToClient</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_rect</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="alert alert-note"><p class="alert-title"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5.0 100 13 6.5 6.5.0 000-13zM6.5 7.75A.75.75.0 017.25 7h1a.75.75.0 01.75.75v2.75h.25a.75.75.0 010 1.5h-2a.75.75.0 010-1.5h.25v-2h-.25a.75.75.0 01-.75-.75zM8 6a1 1 0 110-2 1 1 0 010 2z"/></svg>Note</p><p>GetDlgItem(IDC_STATIC_AUTHOR) 里添加的是你的控件 ID。目的在于获取到 Static Text 的矩形区域。</p>
+</div><h3 id="13-添加-wm_lbuttonup-事件" class="heading-element">
+  <a href="#13-%e6%b7%bb%e5%8a%a0-wm_lbuttonup-%e4%ba%8b%e4%bb%b6" class="heading-mark"></a><span>1.3 添加 WM_LBUTTONUP 事件</span>
+  <a href="#13-%e6%b7%bb%e5%8a%a0-wm_lbuttonup-%e4%ba%8b%e4%bb%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>右键控件-&gt;类向导-&gt;消息-&gt;添加 WM_LBUTTONUP 事件，OnLButtonUp() 函数实现如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CAntiHashDlg</span><span class="o">::</span><span class="n">OnLButtonUp</span><span class="p">(</span><span class="n">UINT</span> <span class="n">nFlags</span><span class="p">,</span> <span class="n">CPoint</span> <span class="n">point</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">left</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">bottom</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">top</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 网址中添加你需要打开的指定网页地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ShellExecute</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">_T</span><span class="p">(</span><span class="s">&#34;网址&#34;</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">SW_SHOWNORMAL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CDialog</span><span class="o">::</span><span class="n">OnLButtonUp</span><span class="p">(</span><span class="n">nFlags</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="14-添加鼠标移动事件-wm_mousemove" class="heading-element">
+  <a href="#14-%e6%b7%bb%e5%8a%a0%e9%bc%a0%e6%a0%87%e7%a7%bb%e5%8a%a8%e4%ba%8b%e4%bb%b6-wm_mousemove" class="heading-mark"></a><span>1.4 添加鼠标移动事件 WM_MOUSEMOVE</span>
+  <a href="#14-%e6%b7%bb%e5%8a%a0%e9%bc%a0%e6%a0%87%e7%a7%bb%e5%8a%a8%e4%ba%8b%e4%bb%b6-wm_mousemove" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>添加方法如1.3，OnMouseMove() 函数实现如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">CAntiHashDlg</span><span class="o">::</span><span class="n">OnMouseMove</span><span class="p">(</span><span class="n">UINT</span> <span class="n">nFlags</span><span class="p">,</span> <span class="n">CPoint</span> <span class="n">point</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">left</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">right</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">bottom</span> <span class="o">&amp;&amp;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">m_rect</span><span class="p">.</span><span class="n">top</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HCURSOR</span> <span class="n">hCursor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hCursor</span> <span class="o">=</span> <span class="o">::</span><span class="n">LoadCursor</span> <span class="p">(</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">IDC_HAND</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">::</span><span class="n">SetCursor</span> <span class="p">(</span> <span class="n">hCursor</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CDialog</span><span class="o">::</span><span class="n">OnMouseMove</span><span class="p">(</span><span class="n">nFlags</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="15-添加-wm_ctlcolor-事件" class="heading-element">
+  <a href="#15-%e6%b7%bb%e5%8a%a0-wm_ctlcolor-%e4%ba%8b%e4%bb%b6" class="heading-mark"></a><span>1.5 添加 WM_CTLCOLOR 事件</span>
+  <a href="#15-%e6%b7%bb%e5%8a%a0-wm_ctlcolor-%e4%ba%8b%e4%bb%b6" class="heading-mark-link">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>同上，OnCtlColor() 函数实现如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">HBRUSH</span> <span class="n">CAntiHashDlg</span><span class="o">::</span><span class="n">OnCtlColor</span><span class="p">(</span><span class="n">CDC</span><span class="o">*</span> <span class="n">pDC</span><span class="p">,</span> <span class="n">CWnd</span><span class="o">*</span> <span class="n">pWnd</span><span class="p">,</span> <span class="n">UINT</span> <span class="n">nCtlColor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HBRUSH</span> <span class="n">hbr</span> <span class="o">=</span> <span class="n">CDialog</span><span class="o">::</span><span class="n">OnCtlColor</span><span class="p">(</span><span class="n">pDC</span><span class="p">,</span> <span class="n">pWnd</span><span class="p">,</span> <span class="n">nCtlColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// TODO:  在此更改 DC 的任何属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">pWnd</span><span class="o">-&gt;</span><span class="n">GetDlgCtrlID</span><span class="p">()</span> <span class="o">==</span> <span class="n">IDC_STATIC_AUTHOR</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// RGB里面填写你所需要的颜色的 RGB 值，例如红色的值是 RGB(255,0,0)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">pDC</span><span class="o">-&gt;</span><span class="n">SetTextColor</span><span class="p">(</span><span class="n">RGB</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="mi">199</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// TODO:  如果默认的不是所需画笔，则返回另一个画笔
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="n">hbr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="alert alert-tip"><p class="alert-title"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 1.5c-2.363.0-4 1.69-4 3.75.0.984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75.0 01-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456.0 00-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863.0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751.0 01-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304.0-2.06-1.637-3.75-4-3.75zM5.75 12h4.5a.75.75.0 010 1.5h-4.5a.75.75.0 010-1.5zM6 15.25a.75.75.0 01.75-.75h2.5a.75.75.0 010 1.5h-2.5A.75.75.0 016 15.25z"/></svg>Tip</p><p>现在，点击带颜色的静态文本就会跳转指定网页。</p>
+</div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Updated on 2025-03-17 22:47:21">Updated on 2025-03-17&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/28885ff/index.md" title="Read Markdown" class="link-to-markdown">Read Markdown</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Share on X" data-sharer="twitter" data-url="https://xueyu-code.github.io/posts/28885ff/" data-title="MFC 静态文本设置超链接" data-hashtags="MFC"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://xueyu-code.github.io/posts/28885ff/" data-hashtag="MFC"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://xueyu-code.github.io/posts/28885ff/" data-title="MFC 静态文本设置超链接"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/mfc/" class="post-tag" title="Tags - MFC">MFC</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/1dff436/" class="post-nav-item" rel="prev" title="麻匪音频识别壁纸如何适配网易云"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>麻匪音频识别壁纸如何适配网易云</a><a href="/posts/5e31b8f/" class="post-nav-item" rel="next" title="VsCode 配置主题和字体教程">VsCode 配置主题和字体教程<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Contents"><h2 class="toc-title">Contents&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.139.4"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.13"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/xueyu-code"target="_blank" rel="external nofollow noopener noreferrer">Xueyu</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Total visitors'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Total visits'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--progress-h: 3px;--bg-progress: HotPink;--bg-progress-dark: DeepSkyBlue;"></div><noscript>
+    <div class="noscript-warning">This website works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="https://vercount.one/js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2025-03-10T22:18:14+08:00","version":"v0.3.13"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

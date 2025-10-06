@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MFC - Tag - Xueyu&#39;s Home</title>
+    <link>https://xueyu-code.github.io/tags/mfc/</link>
+    <description>我的的博客，分享一些实用的技巧。</description>
+    <generator>Hugo 0.139.4 &amp; FixIt v0.3.13</generator>
+    <language>en-us</language>
+    <managingEditor>18863956521@163.com (Xueyu)</managingEditor>
+    <webMaster>18863956521@163.com (Xueyu)</webMaster>
+    <lastBuildDate>Mon, 17 Mar 2025 22:47:21 +0800</lastBuildDate>
+    <atom:link href="https://xueyu-code.github.io/tags/mfc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MFC 静态文本设置超链接</title>
+      <link>https://xueyu-code.github.io/posts/28885ff/</link>
+      <pubDate>Mon, 17 Mar 2025 22:47:21 +0800</pubDate><author>KZaqur@outlook.com (Auseper)</author>
+      <guid>https://xueyu-code.github.io/posts/28885ff/</guid>
+      <category domain="https://xueyu-code.github.io/categories/mfc/">MFC</category>
+      <description>通过代码实现 MFC 静态文本设置超链接</description>
+    </item>
+  </channel>
+</rss>
